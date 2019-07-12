@@ -1,4 +1,5 @@
 # Andromeda for Angular
+[![Build Status](https://travis-ci.com/damascus-mx/Andromeda-Angular.svg?branch=master)](https://travis-ci.com/damascus-mx/Andromeda-Angular)
 A complete cloud-based nightlife platform for everyone.
 
 # Features
