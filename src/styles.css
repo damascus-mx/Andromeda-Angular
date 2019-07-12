@@ -1,4 +1,27 @@
-/* You can add global styles to this file, and also import other style files */
-
+@import url('https://fonts.googleapis.com/css?family=Josefin+Sans:400,600,700&display=swap');
 html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+body { margin: 0; font-family: 'Josefin Sans', sans-serif; }
+h1, h2, h3, h4, h5, h6, .mat-tab-label { font-family: 'Josefin Sans', sans-serif; font-weight: 700; }
+mat-card, table, input, mat-form-field, mat-raised-button, mat-button, mat-flat-button, mat-stroked-button, button, .mat-stepper-vertical, .mat-stepper-horizontal > * {
+    font-family: 'Josefin Sans', sans-serif !important;
+}
+
+mat-raised-button, mat-button, mat-flat-button, mat-stroked-button, .mat-tab-label, mat-fab, mat-mini-fab { font-weight: 700!important; }
+
+.material-icons {
+  font-family: 'Material Icons'!important;
+  font-weight: normal!important;
+}
+
+.mat-form-field-suffix {
+  display: flex;
+  align-items: center;
+  flex-direction: row-reverse;
+}
+
+
+.container {
+    display: flex;
+    flex-flow: column wrap;
+    margin: 0 18px;
+}

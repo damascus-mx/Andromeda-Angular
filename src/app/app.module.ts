@@ -7,19 +7,27 @@
  * @author Alonso Ruiz
  * @description Andromeda's IoC lazyloaded-modules
  */
+// Angular core required modules
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
+// Routing directory
+import { AppRouting } from './app.routing';
+
+// Misc
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialUtils } from './utils/material.module';
+import { NavigationComponent } from './src/shared/widgets/navigation/navigation.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    NavigationComponent,
   ],
   imports: [
     BrowserModule,
+    AppRouting,
     BrowserAnimationsModule,
     MaterialUtils
   ],
