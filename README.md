@@ -1,5 +1,16 @@
-# Andromeda for Angular [![Build Status](https://travis-ci.com/damascus-mx/Andromeda-Angular.svg?branch=master)](https://travis-ci.com/damascus-mx/Andromeda-Angular)
-A complete cloud-based nightlife platform for everyone.
+
+# Andromeda for Angular
+### A complete cloud-based nightlife platform for everyone.
+Angular web app module for Andromeda's final-users
+
+
+[![forthebadge](https://forthebadge.com/images/badges/made-with-javascript.svg)](https://forthebadge.com)  [![forthebadge](https://forthebadge.com/images/badges/powered-by-electricity.svg)](https://forthebadge.com)
+
+[![Build Status](https://travis-ci.com/damascus-mx/Andromeda-Angular.svg?branch=master)](https://travis-ci.com/damascus-mx/Andromeda-Angular) [![Dependency Status](https://david-dm.org/damascus-mx/Andromeda-Angular.svg)](https://david-dm.org/damascus-mx/Andromeda-Angular) [![devDependency Status](https://david-dm.org/damascus-mx/Andromeda-Angular/dev-status.svg)](https://david-dm.org/damascus-mx/Andromeda-Angular?type=dev) 
+
+[![License: AGPL v3](https://img.shields.io/badge/License-AGPL%20v3-blue.svg)](https://www.gnu.org/licenses/agpl-3.0) [![Documentation Status](https://readthedocs.org/projects/ansicolortags/badge/?version=latest)](http://ansicolortags.readthedocs.io/?badge=latest)
+
+[![GitHub forks](https://img.shields.io/github/forks/damascus-mx/Andromeda-Angular.svg?style=social&label=Fork)](https://github.com/angular/angular-cli/fork) [![GitHub stars](https://img.shields.io/github/stars/damascus-mx/Andromeda-Angular.svg?style=social&label=Star)](https://github.com/angular/angular-cli) 
 
 # Features
 TBA.
