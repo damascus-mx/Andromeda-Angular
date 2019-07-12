@@ -1,6 +1,16 @@
-# AndromedaAngular
-
+<<<<<<< HEAD
+# Andromeda-angular
+A complete cloud-based nightlife platform for everyone.
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.1.1.
+
+# Features
+TBA.
+
+# Dependencies
+
+# Stack
+TBA.
+>>>>>>> 726333ebe400b36b05c3d1b9bfe4982f54a6bd6a
 
 ## Development server
 
