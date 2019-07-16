@@ -19,11 +19,13 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialUtils } from './utils/material.module';
 import { NavigationComponent } from './src/shared/widgets/navigation/navigation.component';
+import { BottomNavigationComponent } from './src/shared/widgets/bottom-navigation/bottom-navigation.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavigationComponent,
+    BottomNavigationComponent,
   ],
   imports: [
     BrowserModule,

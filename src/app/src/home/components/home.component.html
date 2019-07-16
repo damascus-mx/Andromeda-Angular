@@ -1,21 +1,72 @@
 <div class="container feed">
-    <mat-card class="example-card animated fadeInDown fast mat-elevation-z8">
+
+    <div class="feed-ads mat-elevation-z4 animated fadeInDown fast">
+        <div class="feed-ads-header">
+            <h3>Top Stories</h3>
+        </div>
+        <div class="story-container animated fadeInLeft fast">
+            <div class="story-circle">
+                <img src="assets/img/places/republicacuu.png" alt="">
+            </div>
+            <div class="story-circle">
+                <img src="assets/img/places/republicacuu.png" alt="">
+            </div>
+            <div class="story-circle">
+                <img src="assets/img/places/republicacuu.png" alt="">
+            </div>
+        </div>
+    </div>
+
+    <mat-card class="post-card animated fadeInUp fast mat-elevation-z4">
         <mat-card-header>
-            <div mat-card-avatar class="example-header-image"></div>
-            <mat-card-title>Bruno Arevalo</mat-card-title>
+            <div mat-card-avatar class="post-pic"></div>
+            <mat-card-title>
+                <span class="post-user">Bruno Arevalo</span>
+            </mat-card-title>
             <mat-card-subtitle i18n="Card Subtitle|Home feed subtitle card@@homeCardSub">10 min. ago</mat-card-subtitle>
         </mat-card-header>
         <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
+        <mat-card-actions>
+            <button mat-icon-button color="accent"><mat-icon>favorite</mat-icon></button>
+            <button mat-icon-button><mat-icon>question_answer</mat-icon></button>
+            <button mat-icon-button i18n="Share Button|Home card share button@@homeCardShare"><mat-icon>share</mat-icon></button>
+            <span class="action-fill"></span>
+            <span class="post-likes"><mat-icon>favorite</mat-icon> 12</span>
+        </mat-card-actions>
         <mat-card-content>
             <p>
-            Oliendo a unas putas #UltraMacho #JustDogLife
+                Oliendo a unas putas #UltraMacho #JustDogLife
             </p>
+            <div class="post-comment">
+                <span>+ 12 comments</span>
+            </div>
         </mat-card-content>
-        <mat-card-actions>
-            <button mat-button><mat-icon>thumb_up_alt</mat-icon></button>
-            <button mat-button i18n="Share Button|Home card share button@@homeCardShare">Share</button>
-        </mat-card-actions>
     </mat-card>
 
-    <button mat-raised-button color="accent" routerLink="/search">Buscar</button>
+    <mat-card class="post-card animated fadeInUp fast mat-elevation-z4">
+        <mat-card-header>
+            <div mat-card-avatar class="post-pic"></div>
+            <mat-card-title>
+                <span class="post-user">J Balvin</span>
+                <span><mat-icon class="verified-icon">check_circle</mat-icon></span>
+            </mat-card-title>
+            <mat-card-subtitle i18n="Card Subtitle|Home feed subtitle card@@homeCardSub">1 hr. ago</mat-card-subtitle>
+        </mat-card-header>
+        <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
+        <mat-card-actions>
+            <button mat-icon-button><mat-icon>favorite_border</mat-icon></button>
+            <button mat-icon-button><mat-icon>question_answer</mat-icon></button>
+            <button mat-icon-button i18n="Share Button|Home card share button@@homeCardShare"><mat-icon>share</mat-icon></button>
+            <span class="action-fill"></span>
+            <span class="post-likes"><mat-icon>favorite</mat-icon> 4,520,001</span>
+        </mat-card-actions>
+        <mat-card-content>
+            <p>
+                Dios bendiga al reggaeton #jbalvin #bitches #fuckyeah
+            </p>
+            <div class="post-comment">
+                <span>+ 391,450 comments</span>
+            </div>
+        </mat-card-content>
+    </mat-card>
 </div>
