@@ -10,6 +10,15 @@
    justify-content: space-around;
  }
 
+ 
+ .mat-badge-medium.mat-badge-overlap.mat-badge-after .mat-badge-content{
+    right: -9px;
+  }
+
+  .mat-badge-medium.mat-badge-above .mat-badge-content{
+    top: -5px;
+  }
+
  @media (min-width: 640px){
   .mat-toolbar{
     display: none;

@@ -10,3 +10,8 @@
    padding: 35px 20px;
    font-weight: 700;
  }
+
+ a{
+   text-decoration: none;
+   color: inherit
+ }
