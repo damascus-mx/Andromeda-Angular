@@ -3,11 +3,29 @@
         <mat-icon>camera_alt</mat-icon>
     </button>
   
-    <span class="example-fill-remaining-space"></span>
+    <span id="space-1" class="fill-space"></span>
     <a routerLink="/home">NightLifeX</a>
     <!-- This fills the remaining space of the current row -->
-    <span class="example-fill-remaining-space"></span>
+    <span class="fill-space"></span>
   
+    <div class="nav-control animated zoomIn fast">
+        <button mat-icon-button aria-label="Explore Button" routerLink="/explore">
+            <mat-icon>explore</mat-icon>
+        </button>
+    
+        <button mat-icon-button aria-label="Search Button" routerLink="/search">
+            <mat-icon>search</mat-icon>
+        </button>
+
+        <button mat-icon-button aria-label="Profile Button" routerLink="/profile">
+            <mat-icon>person</mat-icon>
+        </button>
+      
+        <button mat-icon-button aria-label="Notifications Button" routerLink="/notifications" matBadge="99" matBadgeColor="warn">
+            <mat-icon>notifications</mat-icon>
+        </button>
+    
+    </div>
     <button mat-icon-button aria-label="Inbox button"  matBadge="8" matBadgeColor="warn">
         <mat-icon>chat_bubble</mat-icon>
     </button>

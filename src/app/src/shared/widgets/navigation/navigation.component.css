@@ -1,4 +1,4 @@
-.example-fill-remaining-space {
+.fill-space {
     flex: 1 1 auto;
   }
 
@@ -13,5 +13,19 @@
 
  a{
    text-decoration: none;
-   color: inherit
+   color: inherit;
+ }
+
+ .nav-control{
+   display: none;
+ }
+
+ @media (min-width: 640px){
+  #space-1{
+     flex: 0;
+  }
+
+  .nav-control{
+    display: inherit;
+  }
  }

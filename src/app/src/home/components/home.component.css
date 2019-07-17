@@ -81,7 +81,7 @@
 
   .feed{
       align-content: center;
-      margin: 0 0 70px 0;
+      margin: 0 0 5% 0;
   }
 
   .mat-card-image{
@@ -98,6 +98,10 @@
 
   .mat-card{
     border: 0;
+  }
+
+  .fill-container{
+    height: 75px;
   }
 
  @media (min-width: 640px){
