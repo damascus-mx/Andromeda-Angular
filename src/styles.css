@@ -1,6 +1,32 @@
 @import url('https://fonts.googleapis.com/css?family=Josefin+Sans:400,600,700&display=swap');
+
 html, body { height: 100%; }
-body { margin: 0; font-family: 'Josefin Sans', sans-serif; }
+body { 
+  margin: 0; font-family: 'Josefin Sans', sans-serif;
+  background-image: url('src/assets/img/common/andromeda-back.svg');
+  background-attachment: fixed;
+  background-size: cover; 
+}
+
+@media (max-height: 1280px) and (min-width: 640px){
+  body {
+    background-image: url('src/assets/img/common/andromeda-back.svg');
+    /* Background image is centered vertically and horizontally at all times */
+    background-position: center center;
+    
+    /* Background image doesn't tile */
+    background-repeat: no-repeat;
+    
+    /* Background image is fixed in the viewport so that it doesn't move when 
+       the content's height is greater than the image's height */
+    background-attachment: fixed;
+    
+    /* This is what makes the background image rescale based
+       on the container's size */
+    background-size: cover;
+  }
+}
+
 h1, h2, h3, h4, h5, h6, .mat-tab-label { font-family: 'Josefin Sans', sans-serif; font-weight: 700; }
 mat-card, table, input, mat-form-field, mat-raised-button, mat-button, mat-flat-button, mat-stroked-button, button, .mat-stepper-vertical, .mat-stepper-horizontal > * {
     font-family: 'Josefin Sans', sans-serif !important;
