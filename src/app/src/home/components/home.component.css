@@ -6,6 +6,9 @@
   margin: 10px;
   margin-top: 20px;
 
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
   display: flex;
   flex-flow: column wrap;
 }
@@ -15,6 +18,9 @@
 }
 
 .story-container{
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
   display: flex;
   align-items: center;
   justify-content: space-around;
@@ -49,7 +55,9 @@
   }
   
   .post-pic {
-    background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+    border-radius: 50%;
+    height: 40px;
+    width: 40px;
     background-size: cover;
   }
 
@@ -62,11 +70,18 @@
   }
 
   .post-likes{
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
     display: flex;
     align-items: center;
-    color: #f50057;
+    color: #ff9100;
     font-weight: 700;
     font-size: 15px;
+  }
+
+  .post-likes > * {
+    margin: 0 5px;
   }
   
   .verified-icon{
@@ -89,6 +104,9 @@
   }
 
   .mat-card-actions{
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
     display: flex;
     align-items: center;
     margin-bottom: 5px;
