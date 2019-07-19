@@ -1,10 +1,10 @@
 <div class="container feed">
 
-    <div class="feed-ads mat-elevation-z4 animated fadeInDown fast mat-app-background">
+    <mat-card class="feed-ads mat-elevation-z4 animated pulse fast mat-app-background">
         <div class="feed-ads-header">
             <h3 i18n="Top Stories|Home feed top stories title card@@homeTopStrTitle">Top Stories {{ totalImagesShown }}</h3>
         </div>
-        <div class="story-container animated fadeInLeft fast">
+        <div class="story-container">
             <div class="story-circle">
                 <img src="assets/img/places/republicacuu.png" alt="">
             </div>
@@ -15,81 +15,62 @@
                 <img src="assets/img/places/republicacuu.png" alt="">
             </div>
         </div>
-    </div>
+    </mat-card>
 
-    <div class="post-container" *ngFor="let image of imageItemCollection" (deferLoad)="image.show = true">
-        <ng-container *ngIf="image.show" >
-            <mat-card class="post-card animated fadeInUp fast mat-elevation-z4">
+    <div class="post-container" *ngFor="let post of posts; let i = index" (deferLoad)="post.show = true">
+        <ng-container *ngIf="post.show" >
+            <mat-card class="post-card animated fadeIn fast mat-elevation-z4">
                 <mat-card-header>
                     <div mat-card-avatar>
                         <img class="post-pic"
-                        src="https://material.angular.io/assets/img/examples/shiba1.jpg" 
-                        alt="Bruno Arevalo">
+                        src={{post.user_pic}} 
+                        [alt]="post.user" onError="this.src ='assets/img/common/default-user.png'">
                     </div>
                     <mat-card-title>
-                        <span class="post-user">Bruno Arevalo</span>
+                        <span class="post-user">{{post.user}}</span>
+                        <ng-container *ngIf="post.user_verified === true">
+                            <span><mat-icon class="verified-icon">check_circle</mat-icon></span>
+                        </ng-container>
                     </mat-card-title>
-                    <mat-card-subtitle i18n="Post Card Subtitle|Home feed subtitle card@@homeCardSub">10 min. ago</mat-card-subtitle>
+                    <mat-card-subtitle i18n="Post Card Subtitle|Home feed subtitle card@@homeCardSub">{{post.iat}}</mat-card-subtitle>
                     <span class="action-fill"></span>
                     <div>
-                        <button mat-icon-button (click)="openTools()"><mat-icon>more_horiz</mat-icon></button>
+                        <button mat-icon-button (click)="openTools(post.user)"><mat-icon>more_horiz</mat-icon></button>
                     </div>
                 </mat-card-header>
-                <img mat-card-image src={{image.url}}>
+                <ng-container *ngIf="post.type != 1; else videoContaienr">
+                    <img mat-card-image src={{post.content[0]}} onError="this.src ='assets/img/common/default-user.png'">
+                </ng-container>
+                <ng-template #videoContaienr>
+                        <video  mat-card-image
+                        poster={{post.content[1]}} 
+                        muted loop controls
+                        src={{post.content[0]}} type="video/mp4" onError="this.src ='assets/img/common/default-user.png'"></video>
+                </ng-template>
                 <mat-card-actions>
-                    <button mat-icon-button color="primary"><mat-icon>favorite</mat-icon></button>
+                    <ng-container *ngIf="post.reacted_by_user === true; else nonReacted">
+                        <button class="animated heartBeat fast" mat-icon-button color="primary" (click)="onReact(i)"><mat-icon>favorite</mat-icon></button>
+                    </ng-container>
+                    <ng-template #nonReacted>
+                        <button class="animated jello fast" mat-icon-button (click)="onReact(i)"><mat-icon>favorite_outline</mat-icon></button>
+                    </ng-template>
                     <button mat-icon-button><mat-icon>question_answer</mat-icon></button>
-                    <button mat-icon-button i18n="Share Button|Home card share button@@homeCardShare"><mat-icon>share</mat-icon></button>
+                    <button mat-icon-button><mat-icon>share</mat-icon></button>
                     <span class="action-fill"></span>
-                    <span class="post-likes"><mat-icon>favorite</mat-icon> 12</span>
+                    <button mat-button color="accent" class="post-likes"><mat-icon matPreffix>favorite</mat-icon> {{post.reactions | number}}</button>
                 </mat-card-actions>
                 <mat-card-content>
                     <p>
-                        Oliendo a unas perras #UltraMacho #JustDogLife
+                        {{post.message}}
                     </p>
                     <div class="post-comment">
-                        <span i18n="Card Comments|Home feed card comments card@@homeCardComment">+ 12 comments</span>
+                        <span i18n="Card Comments|Home feed card comments card@@homeCardComment">+ {{post.total_comments | number}} comments</span>
                     </div>
                 </mat-card-content>
             </mat-card>
-        
-            <mat-card class="post-card animated fadeInUp fast mat-elevation-z4">
-                <mat-card-header>
-                    <div mat-card-avatar>
-                        <img class="post-pic"
-                        src="https://instagram.fntr6-1.fna.fbcdn.net/vp/5f1a2aa20cc7f2f598c74988f27ce707/5DC81F40/t51.2885-19/s150x150/50949721_1502579463208225_2518030465403715584_n.jpg?_nc_ht=instagram.fntr6-1.fna.fbcdn.net" 
-                        alt="J Balvin">
-                    </div>
-                    <mat-card-title>
-                        <span class="post-user">J Balvin</span>
-                        <span><mat-icon class="verified-icon">check_circle</mat-icon></span>
-                    </mat-card-title>
-                    <mat-card-subtitle i18n="Card Subtitle|Home feed subtitle card@@homeCardSub">1 hr. ago</mat-card-subtitle>
-                    <span class="action-fill"></span>
-                    <div>
-                        <button mat-icon-button (click)="openTools()"><mat-icon>more_horiz</mat-icon></button>
-                    </div>
-                </mat-card-header>
-                <img mat-card-image src={{image.url}}>
-                <mat-card-actions>
-                    <button mat-icon-button><mat-icon>favorite_border</mat-icon></button>
-                    <button mat-icon-button><mat-icon>question_answer</mat-icon></button>
-                    <button mat-icon-button i18n="Share Button|Home card share button@@homeCardShare"><mat-icon>share</mat-icon></button>
-                    <span class="action-fill"></span>
-                    <span class="post-likes"><mat-icon>favorite</mat-icon> 4,520,001</span>
-                </mat-card-actions>
-                <mat-card-content>
-                    <p>
-                        Dios bendiga al reggaeton #jbalvin #bitches #fuckyeah
-                    </p>
-                    <div class="post-comment">
-                        <span i18n="Card Comments|Home feed card comments card@@homeCardComment">+ 391,450 comments</span>
-                    </div>
-                </mat-card-content>
-            </mat-card>    
         </ng-container>
     </div>
-    <div class="feed-ads mat-elevation-z4 animated fadeInDown fast mat-app-background">
+    <mat-card class="feed-ads mat-elevation-z4 animated fadeInDown fast mat-app-background">
         <div class="feed-ads-header">
             <h3 i18n="Top Places|Home feed top places title card@@homeTopPlcTitle">Top Places</h3>
         </div>
@@ -104,7 +85,7 @@
                 <img src="assets/img/places/republicacuu.png" alt="">
             </div>
         </div>
-    </div>
+    </mat-card>
 
     <div class="fill-container"></div>
 

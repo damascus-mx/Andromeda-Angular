@@ -16,12 +16,15 @@ import { HomeComponent } from './components/home.component';
 import { MaterialUtils } from 'src/app/utils/material.module';
 import { DialogPostComponent } from '../shared/widgets/dialog-post/dialog-post.component';
 import { DialogPostService } from '../shared/widgets/dialog-post/dialog-post.service';
-
+import { NoimagePipe } from 'src/app/common/pipes/noimage.pipe';
+import { SafeUrlPipe } from 'src/app/common/pipes/safeurl.pipe';
 
 @NgModule({
   declarations: [
     HomeComponent,
     DialogPostComponent,
+    NoimagePipe,
+    SafeUrlPipe
   ],
   entryComponents: [
     DialogPostComponent
