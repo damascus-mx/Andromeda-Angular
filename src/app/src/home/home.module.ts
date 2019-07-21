@@ -10,7 +10,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { DeferLoadModule } from '@trademe/ng-defer-load';
-import { NgxUsefulSwiperModule } from 'ngx-useful-swiper';
 
 import { HomeRoutingModule } from './home-routing.module';
 import { HomeComponent } from './components/home.component';
@@ -19,26 +18,41 @@ import { DialogPostComponent } from '../shared/widgets/dialog-post/dialog-post.c
 import { DialogPostService } from '../shared/widgets/dialog-post/dialog-post.service';
 import { NoimagePipe } from 'src/app/common/pipes/noimage.pipe';
 import { SafeUrlPipe } from 'src/app/common/pipes/safeurl.pipe';
+import { PostRepository } from './api/post.repository';
+
+import { SwiperModule } from 'ngx-swiper-wrapper';
+import { SWIPER_CONFIG } from 'ngx-swiper-wrapper';
+import { SwiperConfigInterface } from 'ngx-swiper-wrapper';
+
+const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
+  direction: 'horizontal',
+  slidesPerView: 'auto'
+};
 
 @NgModule({
   declarations: [
     HomeComponent,
     DialogPostComponent,
     NoimagePipe,
-    SafeUrlPipe
+    SafeUrlPipe,
   ],
   entryComponents: [
     DialogPostComponent
   ],
   providers: [
-    DialogPostService
+    DialogPostService,
+    PostRepository,
+    {
+      provide: SWIPER_CONFIG,
+      useValue: DEFAULT_SWIPER_CONFIG
+    }
   ],
   imports: [
     CommonModule,
     HomeRoutingModule,
     MaterialUtils,
     DeferLoadModule,
-    NgxUsefulSwiperModule
+    SwiperModule,
   ]
 })
 export class HomeModule { }

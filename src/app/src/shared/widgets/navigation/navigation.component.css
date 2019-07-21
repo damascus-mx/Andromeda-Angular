@@ -20,12 +20,40 @@
    display: none;
  }
 
- @media (min-width: 640px){
+ #logo {
+   display: flex;
+   display: -moz-flex;
+   display: -ms-flexbox;
+   display: -webkit-flex;
+   display: -o-flex;
+   flex-flow: row wrap;
+   justify-content: center;
+   align-items: center;
+ }
+
+ .mat-divider {
+   display: none;
+ }
+
+ @media (min-width: 768px){
   #space-1{
      flex: 0;
   }
 
+  
+ .mat-divider {
+    height: 30px;
+    display: inherit;
+  }
+
   .nav-control{
     display: inherit;
+  }
+
+  #logo{
+    margin-right: 15px;
+  }
+  #logo > img {
+    margin-right: 15px;
   }
  }

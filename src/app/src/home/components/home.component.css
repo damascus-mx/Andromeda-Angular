@@ -1,10 +1,21 @@
+.feed{
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+
+  max-width: 100%;
+}
+
 .feed-ads{
-  height: 130px;
+  height: 150px;
   max-height: 150px;
+  max-width: inherit;
 
   border-radius: 20px;
-  margin: 10px;
-  margin-top: 20px;
+  margin: 10px 0;
   padding: 0;
 
   display: -webkit-box;
@@ -12,10 +23,16 @@
   display: -ms-flexbox;
   display: flex;
   flex-flow: column wrap;
+  justify-content: center;
+}
+
+.feed-ads-header {
+  padding-bottom: 5px;
 }
 
 .feed-ads-header > h3 {
-  margin: 10px 13px;
+  margin: 10px 10px;
+  margin-top: -8px;
 }
 
 .story-container{
@@ -48,9 +65,20 @@
   max-height: 150px;
 }
 
+.post-container {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+  align-items: center;
+  max-width: 100%;
+}
+
 .post-card {
-    max-width: 100%;
-    margin: 10px;
+    max-width: inherit;
+    margin: 10px 0;
   }
 
   .post-comment{
@@ -96,11 +124,6 @@
     font-size: 19px;
   }
 
-  .feed{
-      align-content: center;
-      margin: 0 0 5% 0;
-  }
-
   .mat-card-image{
     margin-bottom: 0;
   }
@@ -116,15 +139,10 @@
     padding: 0;
   }
 
-  .mat-card{
-    border: 0;
-  }
-
-  .fill-container{
-    height: 75px;
-  }
-
   /* Swiper*/
+  .feed-ads > .swiper-container {
+    margin: 0 auto;
+  }
   .swiper-pagination >>> .swiper-pagination-bullet-active {
     background: #f50057 !important;
   }
@@ -134,23 +152,55 @@
     max-width: -moz-max-content;
     margin: 0 10px;
   }
+
+  .swiper-container {
+    width: 100%;
+  }
+
+  .post-card > .swiper-container {
+    width: calc(100% + 32px);
+  }
+
 /* Mobile */
 @media (max-width: 768px) {
-  .swipper-wrapper >>> * {
-    
+
+  .post-card {
+    width: 90% !important;
+  }
+
+  .feed > .mat-card, .story-container {
+    max-width: 100% !important;
   }
 }
 
 /* Tablets */
 @media (min-width: 768px) and (max-width : 1280px){
-  .post-card, .story-container {
+  .feed{
+    flex-flow: column wrap;
+    justify-content: center;
+    align-items: center;
+  }
+  .post-container > .mat-card {
     max-width: 400px !important;
+  }
+
+  .feed > .mat-card, .story-container {
+    max-width: inherit !important;
   }
 }
 
 /* Desktop */
 @media (min-width: 1025px) {
-  .post-card {
-    max-width: 400px;
+  .feed{
+    flex-flow: column wrap;
+    justify-content: center;
+    align-items: center;
+  }
+  .post-container > .mat-card {
+    max-width: 400px !important;
+  }
+
+  .feed > .mat-card, .story-container {
+    max-width: inherit !important;
   }
 }
