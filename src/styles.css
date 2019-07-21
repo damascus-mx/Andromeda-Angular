@@ -17,6 +17,7 @@ img{
 
 @media (min-width : 320px) and (max-width : 1280px) {
 	body{
+    background-image: url('src/assets/img/common/andromeda-back-mobile.svg');
     background-attachment: inherit;
     -webkit-background-attachment: initial;
     -moz-background-attachment: initial;

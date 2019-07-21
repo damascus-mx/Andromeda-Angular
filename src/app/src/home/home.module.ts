@@ -10,6 +10,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { DeferLoadModule } from '@trademe/ng-defer-load';
+import { NgxUsefulSwiperModule } from 'ngx-useful-swiper';
 
 import { HomeRoutingModule } from './home-routing.module';
 import { HomeComponent } from './components/home.component';
@@ -36,7 +37,8 @@ import { SafeUrlPipe } from 'src/app/common/pipes/safeurl.pipe';
     CommonModule,
     HomeRoutingModule,
     MaterialUtils,
-    DeferLoadModule
+    DeferLoadModule,
+    NgxUsefulSwiperModule
   ]
 })
 export class HomeModule { }

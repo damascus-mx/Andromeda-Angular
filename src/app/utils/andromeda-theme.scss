@@ -7,7 +7,7 @@ $andromeda-warn:    mat-palette($mat-red);
 $andromeda-light-theme: mat-light-theme($andromeda-primary, $andromeda-accent, $andromeda-warn);
 $andromeda-dark-theme: mat-dark-theme($andromeda-primary, $andromeda-accent, $andromeda-warn);
 
-@include angular-material-theme($andromeda-dark-theme);
+@include angular-material-theme($andromeda-light-theme);
 
 .andromeda-pink {
     @include angular-material-theme($andromeda-light-theme);

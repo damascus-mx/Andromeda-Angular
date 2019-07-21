@@ -1,10 +1,11 @@
 <div class="container feed">
 
-    <mat-card class="feed-ads mat-elevation-z4 animated pulse fast mat-app-background">
+    <!-- Ads stories -->
+    <mat-card class="feed-ads mat-elevation-z4 animated fadeInDown fast mat-app-background">
         <div class="feed-ads-header">
-            <h3 i18n="Top Stories|Home feed top stories title card@@homeTopStrTitle">Top Stories {{ totalImagesShown }}</h3>
+            <h3 i18n="Top Places|Home feed top places title card@@homeTopPlcTitle">Top Places  {{ totalImagesShown }}</h3>
         </div>
-        <div class="story-container">
+        <div class="story-container animated fadeInLeft fast">
             <div class="story-circle">
                 <img src="assets/img/places/republicacuu.png" alt="">
             </div>
@@ -19,7 +20,10 @@
 
     <div class="post-container" *ngFor="let post of posts; let i = index" (deferLoad)="post.show = true">
         <ng-container *ngIf="post.show" >
+            <!-- Post -->
             <mat-card class="post-card animated fadeIn fast mat-elevation-z4">
+
+                <!-- Header -->
                 <mat-card-header>
                     <div mat-card-avatar>
                         <img class="post-pic"
@@ -38,15 +42,41 @@
                         <button mat-icon-button (click)="openTools(post.user)"><mat-icon>more_horiz</mat-icon></button>
                     </div>
                 </mat-card-header>
-                <ng-container *ngIf="post.type != 1; else videoContaienr">
-                    <img mat-card-image src={{post.content[0]}} onError="this.src ='assets/img/common/default-user.png'">
+
+                <!-- Content container -->
+                <ng-container *ngIf="post.content.length === 1; else swiperEnabled">
+                    <ng-container *ngIf="post.content[0].type != 1; else videoContainer">
+                        <img mat-card-image src={{post.content[0].url}} onError="this.src ='assets/img/common/default-user.png'">
+                    </ng-container>
+                    <ng-template #videoContainer>
+                            <video  mat-card-image
+                            
+                            muted loop controls
+                            src={{post.content[0].url}} type="video/mp4" onError="this.src ='assets/img/common/default-user.png'"></video>
+                    </ng-template>
                 </ng-container>
-                <ng-template #videoContaienr>
-                        <video  mat-card-image
-                        poster={{post.content[1]}} 
-                        muted loop controls
-                        src={{post.content[0]}} type="video/mp4" onError="this.src ='assets/img/common/default-user.png'"></video>
+                <ng-template #swiperEnabled>
+                    <!-- Swiper -->
+                    <swiper mat-card-image [config]="config" class="swiper-container">
+                        <div class="swiper-wrapper">
+                            <ng-container *ngFor="let element of post.content">
+                                <ng-container *ngIf="element.type != 1; else videoContainer">
+                                    <img class="swiper-slide" src={{element.url}} onError="this.src ='assets/img/common/default-user.png'">
+                                </ng-container>
+                                <ng-template #videoContainer>
+                                        <video class="swiper-slide"
+                                        poster={{element.url}}
+                                        muted loop controls
+                                        src={{element.url}} type="video/mp4" onError="this.src ='assets/img/common/default-user.png'"></video>
+                                </ng-template>
+                            </ng-container>
+                            
+                        </div>
+                        <div class="swiper-pagination"></div>
+                    </swiper>
                 </ng-template>
+
+                <!-- Reactions -->
                 <mat-card-actions>
                     <ng-container *ngIf="post.reacted_by_user === true; else nonReacted">
                         <button class="animated heartBeat fast" mat-icon-button color="primary" (click)="onReact(i)"><mat-icon>favorite</mat-icon></button>
@@ -59,6 +89,8 @@
                     <span class="action-fill"></span>
                     <button mat-button color="accent" class="post-likes"><mat-icon matPreffix>favorite</mat-icon> {{post.reactions | number}}</button>
                 </mat-card-actions>
+
+                <!-- Message -->
                 <mat-card-content>
                     <p>
                         {{post.message}}
@@ -70,23 +102,24 @@
             </mat-card>
         </ng-container>
     </div>
-    <mat-card class="feed-ads mat-elevation-z4 animated fadeInDown fast mat-app-background">
+
+    <!-- Stories -->
+    <mat-card class="feed-ads mat-elevation-z4 animated pulse fast mat-app-background">
         <div class="feed-ads-header">
-            <h3 i18n="Top Places|Home feed top places title card@@homeTopPlcTitle">Top Places</h3>
+            <h3 i18n="Top Stories|Home feed top stories title card@@homeTopStrTitle">Top Stories</h3>
         </div>
-        <div class="story-container animated fadeInLeft fast">
-            <div class="story-circle">
-                <img src="assets/img/places/republicacuu.png" alt="">
+        <swiper [config]="configStories" class="story-container">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide story-slide" *ngFor="let post of posts;">
+                    <div class="story-circle">
+                        <img class="" src={{post.user_pic}} >
+                    </div>
+                </div>
             </div>
-            <div class="story-circle">
-                <img src="assets/img/places/republicacuu.png" alt="">
-            </div>
-            <div class="story-circle">
-                <img src="assets/img/places/republicacuu.png" alt="">
-            </div>
-        </div>
+        </swiper>
     </mat-card>
 
+    <!-- Wrapper filler -->
     <div class="fill-container"></div>
 
 </div>
