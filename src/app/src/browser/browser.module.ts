@@ -9,6 +9,7 @@
  */
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { ScrollingModule } from '@angular/cdk/scrolling';
 
 import { BrowserRoutingModule } from './browser-routing.module';
 import { BrowserComponent } from './components/browser.component';
@@ -20,7 +21,8 @@ import { MaterialUtils } from 'src/app/utils/material.module';
   imports: [
     CommonModule,
     BrowserRoutingModule,
-    MaterialUtils
+    MaterialUtils,
+    ScrollingModule
   ]
 })
 export class BrowserModule { }

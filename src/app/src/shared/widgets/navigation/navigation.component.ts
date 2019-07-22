@@ -9,12 +9,12 @@ import {map, startWith} from 'rxjs/operators';
   styleUrls: ['./navigation.component.css']
 })
 export class NavigationComponent implements OnInit {
-  myControl = new FormControl();
-  options: string[] = ['One', 'Two', 'Three'];
+  searchControl = new FormControl();
+  options: string[] = ['Lenore CUU', 'Fernando Herrera', 'Republica CUU' , 'Dan Bilzerian', 'Monica Arreondo'];
   filteredOptions: Observable<string[]>;
 
   constructor() {
-    this.filteredOptions = this.myControl.valueChanges
+    this.filteredOptions = this.searchControl.valueChanges
     .pipe(
       startWith(''),
       map(value => this._filter(value))
@@ -22,6 +22,10 @@ export class NavigationComponent implements OnInit {
    }
 
   ngOnInit() {
+  }
+
+  onSearch() {
+    console.log('Searching ' + this.searchControl.value);
   }
 
   private _filter(value: string): string[] {

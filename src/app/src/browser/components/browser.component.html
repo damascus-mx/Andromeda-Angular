@@ -1,4 +1,15 @@
 <div class="container animated fadeInDown fast">
-    <p>browser works!</p>
+    <h1>Explore places</h1>
     <button mat-raised-button routerLink="/home">Elver</button>
+</div>
+<h3>Infinite scroll</h3>
+<button mat-flat-button (click)="expression" > Bottom</button>
+<div class="virtual-container">
+    <cdk-virtual-scroll-viewport itemSize="10" class="list-container">
+            <mat-list>
+                <mat-list-item *cdkVirtualFor="let place of places; let i = index; let c = count;">
+                    <button mat-flat-button  color="accent"><mat-icon matPreffix>folder</mat-icon>{{i}}</button>
+                </mat-list-item>
+            </mat-list>
+    </cdk-virtual-scroll-viewport>
 </div>

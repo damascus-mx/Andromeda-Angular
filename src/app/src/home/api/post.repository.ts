@@ -18,6 +18,7 @@ export interface Post {
     comments: string[];
     reacted_by_user: boolean;
     comment_by_user: boolean;
+    user_comment: string;
     show: boolean;
 }
 
@@ -46,7 +47,31 @@ export class PostRepository implements Repository {
             ],
             reactions: 1032941, total_comments: 368485, comments: null,
             message: 'Kings. 👑👑👑👑 @maluma @steveaoki #wildlife #malumababy #steveaoki',
-            reacted_by_user: true, show: false, user_verified: true, comment_by_user: false
+            reacted_by_user: true, show: false, user_verified: true, comment_by_user: false, user_comment: null
+        },
+        {
+            user: 'National Geographic', iat: '10 days ago', username: 'natgeo',
+            user_pic: 'https://scontent-lax3-1.cdninstagram.com/vp/ab59482805436e5fa09a5006d9e8178b/5DE9B4E8/t51.2885-19/s150x150/13597791_261499887553333_1855531912_a.jpg?_nc_ht=scontent-lax3-1.cdninstagram.com',
+            content: [
+                {
+                    url: 'https://scontent-lax3-1.cdninstagram.com/vp/c6bcc0eca4c4ebeec6514e09b0a5c67c/5DB002DC/t51.2885-15/e35/s1080x1080/66067424_711562099287206_4971644151218203888_n.jpg?_nc_ht=scontent-lax3-1.cdninstagram.com',
+                    type: 0,
+                    show: false
+                },
+                {
+                    url: 'https://scontent-lax3-1.cdninstagram.com/vp/f2618d458614bd2861e3514c4d2d06c6/5DEEAC56/t51.2885-15/e35/s1080x1080/67087114_3130326846992316_7552604814536304182_n.jpg?_nc_ht=scontent-lax3-1.cdninstagram.com',
+                    type: 0,
+                    show: false
+                },
+                {
+                    url: 'https://scontent-lax3-1.cdninstagram.com/vp/e6f3f9d7c38bf40d780cccdef9b8bf5e/5DE54691/t51.2885-15/e35/s1080x1080/67193120_156107055510324_4128112282628904754_n.jpg?_nc_ht=scontent-lax3-1.cdninstagram.com',
+                    type: 0,
+                    show: false
+                }
+            ],
+            reactions: 3899, total_comments: 450, comments: null,
+            message: 'Photo by Stephen Wilkes @stephenwilkes',
+            reacted_by_user: false, show: false, user_verified: true, comment_by_user: false, user_comment: null
         },
         {
             user: 'Bruno Arevalo', iat: '10 min. ago', username: 'br1arevalo',
@@ -60,7 +85,7 @@ export class PostRepository implements Repository {
             ],
             reactions: 29, total_comments: 3, comments: null,
             message: 'Oliendo a unas perras #UltraMacho #JustDogLife', reacted_by_user: false, show: false, user_verified: false,
-            comment_by_user: false
+            comment_by_user: false, user_comment: null
         },
         {
             user: 'J Balvin', iat: '1 hr. ago', username: 'jbalvin',
@@ -74,7 +99,7 @@ export class PostRepository implements Repository {
             ],
             reactions: 4000578, total_comments: 368485, comments: null,
             message: 'Dios bendiga al reggaeton #jbalvin #bitches #fuckyeah', reacted_by_user: false, show: false, user_verified: true,
-            comment_by_user: false
+            comment_by_user: false, user_comment: null
         },
         {
             user: 'The Film Enthusiast', iat: '8 min. ago', username: 'filmenthusiast',
@@ -95,7 +120,7 @@ export class PostRepository implements Repository {
             ],
             reactions: 8579, total_comments: 54, comments: null,
             message: '#StrangerThings Season 4 set to begin shooting in October this year, according to a new listing from Production Weekly. This means that the new season of the hit series could premiere in 2020! 💥[via @filmthusiastnews]',
-            reacted_by_user: false, show: false, user_verified: false, comment_by_user: false
+            reacted_by_user: false, show: false, user_verified: false, comment_by_user: false, user_comment: null
         }
     ];
 

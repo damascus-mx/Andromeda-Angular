@@ -157,11 +157,15 @@
   }
 
   .post-comment-box > button {
-    top: -5px;
+    top: -13px;
   }
 
   .post-comment-box > * {
     margin: 0 8px 0 0;
+  }
+
+  .post-user-comment{
+    margin-bottom: 10px;
   }
   
   .mat-card-title{
@@ -189,6 +193,13 @@
   }
   .swiper-pagination >>> .swiper-pagination-bullet-active {
     background: #f50057 !important;
+  }
+  .swiper-pagination >>> .swiper-pagination-bullet-active-next {
+    background: #fff !important;
+  }
+
+  .swiper-pagination >>> .swiper-pagination-bullet-active-prev {
+    background: #fff;
   }
 
   .story-slide{
@@ -243,10 +254,6 @@
     align-items: center;
   }
   .post-container > .mat-card {
-    max-width: 400px !important;
-  }
-  
-  .post-container > .mat-card > * {
     max-width: 400px !important;
   }
 

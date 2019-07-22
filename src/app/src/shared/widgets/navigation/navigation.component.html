@@ -11,13 +11,13 @@
 
     <div id="search-bar" class="search animated zoomIn fast">
         <form class="search-form">
-            <mat-form-field class="search-full-width" appearance="outline">
+            <mat-form-field class="search-full-width" appearance="outline" color="primary">
                 <mat-label>Search</mat-label>
-                <input type="text" placeholder="Search for places, friends ..." aria-label="Number" matInput [formControl]="myControl" [matAutocomplete]="auto">
-                <mat-icon matSuffix>search</mat-icon>
+                <input type="text" placeholder="Search for places, friends ..." aria-label="Number" matInput [formControl]="searchControl" [matAutocomplete]="auto">
+                <mat-icon style="cursor:pointer;" (click)="onSearch()" matSuffix>search</mat-icon>
                 <mat-autocomplete #auto="matAutocomplete">
                     <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
-                    {{option}}
+                        {{option}}
                     </mat-option>
                 </mat-autocomplete>
             </mat-form-field>

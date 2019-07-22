@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, Input } from '@angular/core';
 import { DialogPostComponent } from '../../shared/widgets/dialog-post/dialog-post.component';
 import { MatDialog } from '@angular/material';
 import { Subject } from 'rxjs';
@@ -16,13 +16,15 @@ import { PostRepository, Post } from '../api/post.repository';
 export class HomeComponent implements OnInit, OnDestroy {
 
   posts: Post[] = [];
+  @Input() comment: string;
   imageItemCollection = [];
 
   // Swipper
   config: any = {
     slidesPerView: 1,
-    autoHeight: true,
+    // autoHeight: true,
     resizeReInit: true,
+    grabCursor: true,
     pagination: {
       el: '.swiper-pagination',
       dynamicBullets: true,
@@ -30,8 +32,10 @@ export class HomeComponent implements OnInit, OnDestroy {
   };
 
   configStories: any = {
-    slidesPerView: 5,
+    slidesPerView: 'auto',
     freeMode: true,
+    resizeReInit: true,
+    grabCursor: true,
   };
 
   // Disposer
@@ -44,18 +48,10 @@ export class HomeComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     // this.titleService.setTitle('NightLifeX');
     this.getPosts();
-    this.generatePost();
   }
 
   getPosts() {
     this.posts = this.postRepository.GetAll();
-  }
-
-  generatePost(): void {
-    this.posts.forEach(post => {
-      if ( post.content.length > 1 ) {
-      }
-    });
   }
 
   onReact(postNumber: number): void {
@@ -70,8 +66,13 @@ export class HomeComponent implements OnInit, OnDestroy {
   }
 
   onComment(postNumber: number): void {
+    this.comment = null;
     !this.posts[postNumber].comment_by_user ?
     this.posts[postNumber].comment_by_user = true : this.posts[postNumber].comment_by_user = false;
+  }
+
+  commentPost(postNumber: number) {
+    this.posts[postNumber].user_comment = this.comment;
   }
 
   // Dispose observers

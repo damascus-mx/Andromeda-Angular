@@ -98,15 +98,17 @@
                         {{post.message}}
                     </p>
                     <div class="post-comment">
+                        <span class="post-user-comment animated fadeIn fast" [ngClass]="{'disable': !post.user_comment, 'enable': post.user_comment}" >
+                            <b style="color: #ff9100">@{{post.username}}</b> {{post.user_comment}}
+                        </span>
                         <span i18n="Card Comments|Home feed card comments card@@homeCardComment">+ {{post.total_comments | number}} comments</span>
                         <div id="post-comment-wrapper" [ngClass]="{'disable': !post.comment_by_user, 'enable': post.comment_by_user}">
-                            <div class="post-comment-box animated fadeInDown fast" >
+                            <div class="post-comment-box animated fadeInUp fast" >
                                 <mat-form-field appearance="outline" style="margin-bottom: -10px">
                                     <mat-label>Add a comment</mat-label>
-                                    <input matInput placeholder="Say something.">
-                                    <mat-icon matSuffix>notes</mat-icon>
+                                    <textarea  matInput placeholder="Say something." [(ngModel)]="comment"></textarea>
                                 </mat-form-field>
-                                <button mat-mini-fab  color="accent" aria-label="Add a comment button">
+                                <button mat-mini-fab (click)="commentPost(i)" color="accent" aria-label="Add a comment button">
                                     <mat-icon>send</mat-icon>
                                 </button>
                             </div>
