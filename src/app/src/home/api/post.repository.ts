@@ -17,6 +17,7 @@ export interface Post {
     total_comments: number;
     comments: string[];
     reacted_by_user: boolean;
+    comment_by_user: boolean;
     show: boolean;
 }
 
@@ -45,7 +46,7 @@ export class PostRepository implements Repository {
             ],
             reactions: 1032941, total_comments: 368485, comments: null,
             message: 'Kings. 👑👑👑👑 @maluma @steveaoki #wildlife #malumababy #steveaoki',
-            reacted_by_user: true, show: false, user_verified: true
+            reacted_by_user: true, show: false, user_verified: true, comment_by_user: false
         },
         {
             user: 'Bruno Arevalo', iat: '10 min. ago', username: 'br1arevalo',
@@ -59,6 +60,7 @@ export class PostRepository implements Repository {
             ],
             reactions: 29, total_comments: 3, comments: null,
             message: 'Oliendo a unas perras #UltraMacho #JustDogLife', reacted_by_user: false, show: false, user_verified: false,
+            comment_by_user: false
         },
         {
             user: 'J Balvin', iat: '1 hr. ago', username: 'jbalvin',
@@ -71,7 +73,8 @@ export class PostRepository implements Repository {
                 }
             ],
             reactions: 4000578, total_comments: 368485, comments: null,
-            message: 'Dios bendiga al reggaeton #jbalvin #bitches #fuckyeah', reacted_by_user: false, show: false, user_verified: true
+            message: 'Dios bendiga al reggaeton #jbalvin #bitches #fuckyeah', reacted_by_user: false, show: false, user_verified: true,
+            comment_by_user: false
         },
         {
             user: 'The Film Enthusiast', iat: '8 min. ago', username: 'filmenthusiast',
@@ -92,7 +95,7 @@ export class PostRepository implements Repository {
             ],
             reactions: 8579, total_comments: 54, comments: null,
             message: '#StrangerThings Season 4 set to begin shooting in October this year, according to a new listing from Production Weekly. This means that the new season of the hit series could premiere in 2020! 💥[via @filmthusiastnews]',
-            reacted_by_user: false, show: false, user_verified: false,
+            reacted_by_user: false, show: false, user_verified: false, comment_by_user: false
         }
     ];
 

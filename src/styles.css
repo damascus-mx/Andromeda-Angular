@@ -18,6 +18,12 @@ img{
   border-radius: 20px !important;
 }
 
+a{
+  color: #ff9100;
+  cursor: pointer;
+  text-decoration: none;
+}
+
 
 @media (min-width : 320px) and (max-width : 1280px) {
 	body{

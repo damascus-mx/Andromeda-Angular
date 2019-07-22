@@ -29,7 +29,7 @@
                         [alt]="post.user" onError="this.src ='assets/img/common/default-user.png'">
                     </div>
                     <mat-card-title>
-                        <span class="post-user">{{post.user}}</span>
+                        <a [routerLink]="[ '/home' ]" [queryParams]="{lang: 'es-la'}" fragment="education" class="post-user">{{post.user}}</a>
                         <ng-container *ngIf="post.user_verified === true">
                             <span><mat-icon class="verified-icon">check_circle</mat-icon></span>
                         </ng-container>
@@ -84,7 +84,7 @@
                     <ng-template #nonReacted>
                         <button class="animated jello fast" mat-icon-button (click)="onReact(i)"><mat-icon>favorite_outline</mat-icon></button>
                     </ng-template>
-                    <button mat-icon-button><mat-icon>question_answer</mat-icon></button>
+                    <button mat-icon-button (click)="onComment(i)"><mat-icon>question_answer</mat-icon></button>
                     <button mat-icon-button><mat-icon>share</mat-icon></button>
                     <span class="action-fill"></span>
                     <button mat-button color="accent" class="post-likes"><mat-icon matPreffix>favorite</mat-icon> {{post.reactions | number}}</button>
@@ -97,6 +97,18 @@
                     </p>
                     <div class="post-comment">
                         <span i18n="Card Comments|Home feed card comments card@@homeCardComment">+ {{post.total_comments | number}} comments</span>
+                        <div id="post-comment-wrapper" [ngClass]="{'disable': !post.comment_by_user, 'enable': post.comment_by_user}">
+                            <div class="post-comment-box animated fadeInDown fast" >
+                                <mat-form-field appearance="outline" style="margin-bottom: -10px">
+                                    <mat-label>Add a comment</mat-label>
+                                    <input matInput placeholder="Say something.">
+                                    <mat-icon matSuffix>notes</mat-icon>
+                                </mat-form-field>
+                                <button mat-mini-fab  color="accent" aria-label="Add a comment button">
+                                    <mat-icon>send</mat-icon>
+                                </button>
+                            </div>
+                        </div>
                     </div>
                 </mat-card-content>
             </mat-card>

@@ -39,7 +39,7 @@
    display: none;
  }
 
- @media (min-width: 768px){
+ @media (min-width: 660px){
   #space-1{
      flex: 0;
   }

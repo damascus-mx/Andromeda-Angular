@@ -5,7 +5,7 @@ import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { DialogPostService } from '../../shared/widgets/dialog-post/dialog-post.service';
 import { Title } from '@angular/platform-browser';
-import { PostRepository } from '../api/post.repository';
+import { PostRepository, Post } from '../api/post.repository';
 
 @Component({
   selector: 'app-home',
@@ -15,7 +15,7 @@ import { PostRepository } from '../api/post.repository';
 
 export class HomeComponent implements OnInit, OnDestroy {
 
-  posts: any[] = [];
+  posts: Post[] = [];
   imageItemCollection = [];
 
   // Swipper
@@ -67,6 +67,11 @@ export class HomeComponent implements OnInit, OnDestroy {
       this.posts[postNumber].reacted_by_user = true;
       this.posts[postNumber].reactions++;
     }
+  }
+
+  onComment(postNumber: number): void {
+    !this.posts[postNumber].comment_by_user ?
+    this.posts[postNumber].comment_by_user = true : this.posts[postNumber].comment_by_user = false;
   }
 
   // Dispose observers

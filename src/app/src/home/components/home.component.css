@@ -1,3 +1,4 @@
+/* GLOBAL */
 .feed{
   display: -webkit-box;
   display: -webkit-flex;
@@ -9,6 +10,15 @@
   max-width: 100%;
 }
 
+.disable {
+  display: none;
+}
+
+.enable {
+  display: inherit;
+}
+
+/* CONTAINERS / MISC */
 .feed-ads{
   height: 150px;
   max-height: 150px;
@@ -90,6 +100,7 @@
     height: 40px;
     width: 40px;
     background-size: cover;
+    /*border: 2px solid #fff;*/
   }
 
   .post-user{
@@ -108,16 +119,36 @@
     align-items: center;
     font-weight: 700;
     font-size: 15px;
-  }
-
-  .post-likes > * {
-    margin: 0 5px;
+    margin: 0;
   }
   
-  .verified-icon{
+  .verified-icon {
     margin: 0 2px;
     font-size: 16px;
     color: #00b0ff;
+  }
+
+  .post-comment-box {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    justify-content: flex-start;
+    align-items: baseline;
+  }
+
+  .post-comment-box > .mat-form-field{
+    width: 90%;
+    margin-right: 15px;
+    margin-top: 8px;
+  }
+
+  .post-comment-box > button {
+    top: -5px;
+  }
+
+  .post-comment-box > * {
+    margin: 0 8px 0 0;
   }
   
   .mat-card-title{
