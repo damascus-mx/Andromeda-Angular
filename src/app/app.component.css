@@ -3,7 +3,7 @@
 }
 
 /* Mobile */
-@media (max-width: 768px) {
+@media (max-width: 760px) {
     .wrapper {
         margin: 85px 0 20% 0;
     }
