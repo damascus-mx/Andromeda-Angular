@@ -79,7 +79,7 @@ export class PostRepository implements Repository {
             content: [
                 // Video
                 {
-                    url: 'https://instagram.fntr6-1.fna.fbcdn.net/vp/2d31c8e816e3f27479da13c2d9748665/5D345D5A/t50.2886-16/67657447_508302069913936_6626636448623702362_n.mp4?_nc_ht=instagram.fntr6-1.fna.fbcdn.net',
+                    url: 'https://scontent.cdninstagram.com/vp/27d312cafde3bfc3f7c481ec7d5ffe87/5D37A91A/t50.2886-16/67657447_508302069913936_6626636448623702362_n.mp4?_nc_ht=scontent.cdninstagram.com',
                     type: 1,
                     show: false
                 }

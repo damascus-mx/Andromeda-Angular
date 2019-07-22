@@ -7,26 +7,6 @@ import { DialogPostService } from '../../shared/widgets/dialog-post/dialog-post.
 import { Title } from '@angular/platform-browser';
 import { PostRepository } from '../api/post.repository';
 
-export interface Content {
-  url: string;
-  type: number;
-  show: boolean;
-}
-
-export interface Post {
-  user: string;
-  user_verified: boolean;
-  iat: string;
-  user_pic: string;
-  content: Content[];
-  message: string;
-  reactions: number;
-  total_comments: number;
-  comments: string[];
-  reacted_by_user: boolean;
-  show: boolean;
-}
-
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -59,7 +39,7 @@ export class HomeComponent implements OnInit, OnDestroy {
 
 
   constructor(public reportDialog: MatDialog, private dialogService: DialogPostService,
-              private postRepository: PostRepository) { }
+              private postRepository: PostRepository) {}
 
   ngOnInit(): void {
     // this.titleService.setTitle('NightLifeX');

@@ -33,7 +33,8 @@ import {
     MatBottomSheetModule,
     MatSelectModule,
     MatMenuModule,
-    MatSlideToggleModule
+    MatSlideToggleModule,
+    MatAutocompleteModule
 } from '@angular/material';
 import { LayoutModule } from '@angular/cdk/layout';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -71,6 +72,7 @@ import {CdkStepperModule} from '@angular/cdk/stepper';
         FormsModule,
         ReactiveFormsModule,
         CdkStepperModule,
+        MatAutocompleteModule,
     ]
 })
 

@@ -8,6 +8,23 @@
     <a routerLink="/home">NightLifeX</a>
     <!-- This fills the remaining space of the current row -->
     <span class="fill-space"></span>
+
+    <div id="search-bar" class="search animated zoomIn fast">
+        <form class="search-form">
+            <mat-form-field class="search-full-width" appearance="outline">
+                <mat-label>Search</mat-label>
+                <input type="text" placeholder="Search for places, friends ..." aria-label="Number" matInput [formControl]="myControl" [matAutocomplete]="auto">
+                <mat-icon matSuffix>search</mat-icon>
+                <mat-autocomplete #auto="matAutocomplete">
+                    <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+                    {{option}}
+                    </mat-option>
+                </mat-autocomplete>
+            </mat-form-field>
+          </form>
+          
+    </div>
+    <span class="search fill-space"></span>
   
     <div class="nav-control animated zoomIn fast">
         <button mat-icon-button aria-label="Explore Button" routerLink="/explore">
