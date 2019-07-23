@@ -14,7 +14,7 @@ import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { DialogPostService } from '../../widgets/dialog-post/dialog-post.service';
 import { Title } from '@angular/platform-browser';
-import { PostRepository, Post } from '../api/post.repository';
+import { PostRepository } from '../api/post.repository';
 
 @Component({
   selector: 'app-home',
@@ -24,8 +24,8 @@ import { PostRepository, Post } from '../api/post.repository';
 
 export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
 
-  posts: Post[] = [];
-  @Input() comment: string;
+  posts: any[] = [];
+  comment: string;
   currentUser = 'fuckboi69';
   @ViewChildren('postCard') postCards: QueryList<Component>;
   imageItemCollection = [];
