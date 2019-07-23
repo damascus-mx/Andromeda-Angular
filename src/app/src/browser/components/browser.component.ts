@@ -17,8 +17,8 @@ export class BrowserComponent implements OnInit {
     console.log(this.places);
   }
 
-  goBottom(){
-
+  goBottom() {
+    // this.viewport.
   }
 
 }
