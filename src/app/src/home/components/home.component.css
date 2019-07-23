@@ -141,6 +141,26 @@
     color: #00b0ff;
   }
 
+  .post-tags {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    justify-content: flex-start;
+    max-width: 100%;
+    flex-flow: row wrap;
+    align-items: center;
+    margin: 10px 0;
+  }
+
+  .post-tags > .mat-chip-list {
+    max-width: 80%;
+  }
+
+  .post-tags > * {
+    margin: 0 5px 0 0;
+  }
+
   .post-comment-box {
     display: -webkit-box;
     display: -webkit-flex;

@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy, Input } from '@angular/core';
+import { Component, OnInit, OnDestroy, Input, ViewChildren, QueryList, AfterViewInit } from '@angular/core';
 import { DialogPostComponent } from '../../shared/widgets/dialog-post/dialog-post.component';
 import { MatDialog } from '@angular/material';
 import { Subject } from 'rxjs';
@@ -13,10 +13,12 @@ import { PostRepository, Post } from '../api/post.repository';
   styleUrls: ['./home.component.css']
 })
 
-export class HomeComponent implements OnInit, OnDestroy {
+export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
 
   posts: Post[] = [];
   @Input() comment: string;
+  currentUser = 'fuckboi69';
+  @ViewChildren('postCard') postCards: QueryList<Component>;
   imageItemCollection = [];
 
   // Swipper
@@ -50,6 +52,10 @@ export class HomeComponent implements OnInit, OnDestroy {
     this.getPosts();
   }
 
+  ngAfterViewInit(): void {
+    console.log(this.postCards.toArray());
+  }
+
   getPosts() {
     this.posts = this.postRepository.GetAll();
   }
@@ -73,6 +79,7 @@ export class HomeComponent implements OnInit, OnDestroy {
 
   commentPost(postNumber: number) {
     this.posts[postNumber].user_comment = this.comment;
+    this.posts[postNumber].total_comments++;
   }
 
   // Dispose observers

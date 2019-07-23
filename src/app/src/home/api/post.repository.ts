@@ -5,6 +5,10 @@ export interface Content {
     type: number;
     show: boolean;
 }
+interface Tag {
+    type: number;
+    tagged: string;
+}
 export interface Post {
     user: string;
     username: string;
@@ -19,6 +23,7 @@ export interface Post {
     reacted_by_user: boolean;
     comment_by_user: boolean;
     user_comment: string;
+    tags: Tag[];
     show: boolean;
 }
 
@@ -47,7 +52,8 @@ export class PostRepository implements Repository {
             ],
             reactions: 1032941, total_comments: 368485, comments: null,
             message: 'Kings. 👑👑👑👑 @maluma @steveaoki #wildlife #malumababy #steveaoki',
-            reacted_by_user: true, show: false, user_verified: true, comment_by_user: false, user_comment: null
+            reacted_by_user: true, show: false, user_verified: true, comment_by_user: false, user_comment: null,
+            tags: [{type: 0, tagged: 'maluma'}, { type: 0, tagged: 'steveaoki' }, {type: 1, tagged: 'wildlife'}]
         },
         {
             user: 'National Geographic', iat: '10 days ago', username: 'natgeo',
@@ -71,7 +77,8 @@ export class PostRepository implements Repository {
             ],
             reactions: 3899, total_comments: 450, comments: null,
             message: 'Photo by Stephen Wilkes @stephenwilkes',
-            reacted_by_user: false, show: false, user_verified: true, comment_by_user: false, user_comment: null
+            reacted_by_user: false, show: false, user_verified: true, comment_by_user: false, user_comment: null,
+            tags: [{type: 0, tagged: 'stephenwilkes'}]
         },
         {
             user: 'Bruno Arevalo', iat: '10 min. ago', username: 'br1arevalo',
@@ -85,7 +92,8 @@ export class PostRepository implements Repository {
             ],
             reactions: 29, total_comments: 3, comments: null,
             message: 'Oliendo a unas perras #UltraMacho #JustDogLife', reacted_by_user: false, show: false, user_verified: false,
-            comment_by_user: false, user_comment: null
+            comment_by_user: false, user_comment: null,
+            tags: [{type: 1, tagged: 'UltraMacho'}, {type: 1, tagged: 'JustDogLife'}]
         },
         {
             user: 'J Balvin', iat: '1 hr. ago', username: 'jbalvin',
@@ -99,7 +107,8 @@ export class PostRepository implements Repository {
             ],
             reactions: 4000578, total_comments: 368485, comments: null,
             message: 'Dios bendiga al reggaeton #jbalvin #bitches #fuckyeah', reacted_by_user: false, show: false, user_verified: true,
-            comment_by_user: false, user_comment: null
+            comment_by_user: false, user_comment: null,
+            tags: [{type: 1, tagged: 'jbalvin'}, {type: 1, tagged: 'bitches'}, {type: 1, tagged: 'fuckyeah'}]
         },
         {
             user: 'The Film Enthusiast', iat: '8 min. ago', username: 'filmenthusiast',
@@ -120,7 +129,8 @@ export class PostRepository implements Repository {
             ],
             reactions: 8579, total_comments: 54, comments: null,
             message: '#StrangerThings Season 4 set to begin shooting in October this year, according to a new listing from Production Weekly. This means that the new season of the hit series could premiere in 2020! 💥[via @filmthusiastnews]',
-            reacted_by_user: false, show: false, user_verified: false, comment_by_user: false, user_comment: null
+            reacted_by_user: false, show: false, user_verified: false, comment_by_user: false, user_comment: null,
+            tags: [{type: 1, tagged: 'StrangerThings'}, {type: 0, tagged: 'filmthusiastnews'}]
         }
     ];
 
