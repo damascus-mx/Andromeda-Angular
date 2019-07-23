@@ -10,30 +10,16 @@
 import { NgModule } from '@angular/core';
 import {
     MatButtonModule,
-    MatCheckboxModule,
-    MatSidenavModule,
     MatCardModule,
     MatFormFieldModule,
     MatInputModule,
     MatIconModule,
-    MatTableModule,
-    MatPaginatorModule,
     MatToolbarModule,
     MatListModule,
-    MatGridListModule,
     MatChipsModule,
-    MatProgressSpinnerModule,
-    MatSnackBarModule,
-    MatSortModule,
     MatDialogModule,
     MatDividerModule,
     MatBadgeModule,
-    MatTabsModule,
-    MatStepperModule,
-    MatBottomSheetModule,
-    MatSelectModule,
-    MatMenuModule,
-    MatSlideToggleModule,
     MatAutocompleteModule
 } from '@angular/material';
 import { LayoutModule } from '@angular/cdk/layout';
@@ -44,30 +30,16 @@ import {CdkStepperModule} from '@angular/cdk/stepper';
 @NgModule({
     exports: [
         MatButtonModule,
-        MatCheckboxModule,
-        MatSidenavModule,
         MatCardModule,
         MatFormFieldModule,
         MatInputModule,
         MatIconModule,
-        MatTableModule,
-        MatPaginatorModule,
         MatToolbarModule,
         MatListModule,
-        MatGridListModule,
         MatChipsModule,
-        MatProgressSpinnerModule,
-        MatSnackBarModule,
-        MatSortModule,
         MatDialogModule,
         MatDividerModule,
-        MatMenuModule,
         MatBadgeModule,
-        MatSelectModule,
-        MatTabsModule,
-        MatStepperModule,
-        MatBottomSheetModule,
-        MatSlideToggleModule,
         LayoutModule,
         FormsModule,
         ReactiveFormsModule,
@@ -76,4 +48,4 @@ import {CdkStepperModule} from '@angular/cdk/stepper';
     ]
 })
 
-export class MaterialUtils { }
+export class MaterialModule { }

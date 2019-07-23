@@ -13,9 +13,9 @@ import { DeferLoadModule } from '@trademe/ng-defer-load';
 
 import { HomeRoutingModule } from './home-routing.module';
 import { HomeComponent } from './components/home.component';
-import { MaterialUtils } from 'src/app/utils/material.module';
-import { DialogPostComponent } from '../shared/widgets/dialog-post/dialog-post.component';
-import { DialogPostService } from '../shared/widgets/dialog-post/dialog-post.service';
+import { MaterialModule } from 'src/app/common/modules/material.module';
+import { DialogPostComponent } from '../widgets/dialog-post/dialog-post.component';
+import { DialogPostService } from '../widgets/dialog-post/dialog-post.service';
 import { NoimagePipe } from 'src/app/common/pipes/noimage.pipe';
 import { SafeUrlPipe } from 'src/app/common/pipes/safeurl.pipe';
 import { PostRepository } from './api/post.repository';
@@ -52,7 +52,7 @@ const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
   imports: [
     CommonModule,
     HomeRoutingModule,
-    MaterialUtils,
+    MaterialModule,
     DeferLoadModule,
     SwiperModule,
   ]

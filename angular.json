@@ -25,7 +25,7 @@
             ],
             "styles": [
               "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
-              "src/app/utils/andromeda-theme.scss",
+              "src/app/helpers/andromeda-theme.scss",
               "src/styles.css",
               "./node_modules/swiper/dist/css/swiper.min.css"
             ],
@@ -99,7 +99,7 @@
             ],
             "styles": [
               "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
-              "src/app/utils/andromeda-theme.scss",
+              "src/app/helpers/andromeda-theme.scss",
               "src/styles.css"
             ],
             "scripts": []

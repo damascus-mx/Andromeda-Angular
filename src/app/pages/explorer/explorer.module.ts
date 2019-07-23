@@ -5,24 +5,22 @@
  * @license Confidential This file belongs to Damascus IT intellectual property,
  * any unauthorized distribution of this file will be punished by law.
  * @author Alonso Ruiz
- * @description Browser routing module
+ * @description Explorer routing module
  */
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { ScrollingModule } from '@angular/cdk/scrolling';
 
-import { BrowserRoutingModule } from './browser-routing.module';
-import { BrowserComponent } from './components/browser.component';
-import { MaterialUtils } from 'src/app/utils/material.module';
+import { ExplorerRoutingModule } from './explorer-routing.module';
+import { ExplorerComponent } from './components/explorer.component';
+import { MaterialModule } from 'src/app/common/modules/material.module';
 
 
 @NgModule({
-  declarations: [BrowserComponent],
+  declarations: [ExplorerComponent],
   imports: [
-    CommonModule,
-    BrowserRoutingModule,
-    MaterialUtils,
+    ExplorerRoutingModule,
+    MaterialModule,
     ScrollingModule
   ]
 })
-export class BrowserModule { }
+export class ExplorerModule { }

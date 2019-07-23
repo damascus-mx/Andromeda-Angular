@@ -5,17 +5,21 @@
  * @license Confidential This file belongs to Damascus IT intellectual property,
  * any unauthorized distribution of this file will be punished by law.
  * @author Alonso Ruiz
- * @description Browser routing module
+ * @description Home routing module
  */
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { BrowserComponent } from './components/browser.component';
+import { HomeComponent } from './components/home.component';
+import { AuthGuard } from './auth/auth.guard';
+import { HomeRouting } from './home.routing';
 
 
 const routes: Routes = [
   {
     path: '',
-    component: BrowserComponent
+    component: HomeComponent,
+    canActivate: [AuthGuard],
+    children: HomeRouting
   }
 ];
 
@@ -23,4 +27,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class BrowserRoutingModule { }
+export class HomeRoutingModule { }

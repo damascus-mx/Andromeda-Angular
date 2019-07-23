@@ -5,22 +5,22 @@
  * @license Confidential This file belongs to Damascus IT intellectual property,
  * any unauthorized distribution of this file will be punished by law.
  * @author Alonso Ruiz
- * @description Andromeda's Lazy loading routing directory
+ * @description Andromeda's root Lazy loading routing directory
  */
 import { Routes, RouterModule } from '@angular/router';
 
 const ROUTES: Routes = [
     {
         path: 'home',
-        loadChildren: () => import('./src/home/home.module').then(mod => mod.HomeModule)
+        loadChildren: () => import('./pages/home/home.module').then(module => module.HomeModule)
     },
     {
         path: 'search',
-        loadChildren: () => import('./src/browser/browser.module').then(mod => mod.BrowserModule)
+        loadChildren: () => import('./pages/explorer/explorer.module').then(module => module.ExplorerModule)
     },
     {
         path: '404',
-        loadChildren:  () => import('./src/shared/not-found/not-found.module').then(mod => mod.NotFoundModule)
+        loadChildren:  () => import('./pages/shared/not-found/not-found.module').then(module => module.NotFoundModule)
     },
     // Main
     {

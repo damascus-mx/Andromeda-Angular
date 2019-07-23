@@ -1,9 +1,18 @@
+/**
+ * @name Andromeda
+ * @version 0.0.1a
+ * @copyright Damascus. 2019 All rights reserved.
+ * @license Confidential This file belongs to Damascus IT intellectual property,
+ * any unauthorized distribution of this file will be punished by law.
+ * @author Alonso Ruiz
+ * @description Home component
+ */
 import { Component, OnInit, OnDestroy, Input, ViewChildren, QueryList, AfterViewInit } from '@angular/core';
-import { DialogPostComponent } from '../../shared/widgets/dialog-post/dialog-post.component';
+import { DialogPostComponent } from '../../widgets/dialog-post/dialog-post.component';
 import { MatDialog } from '@angular/material';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
-import { DialogPostService } from '../../shared/widgets/dialog-post/dialog-post.service';
+import { DialogPostService } from '../../widgets/dialog-post/dialog-post.service';
 import { Title } from '@angular/platform-browser';
 import { PostRepository, Post } from '../api/post.repository';
 

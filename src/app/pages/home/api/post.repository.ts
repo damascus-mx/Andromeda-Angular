@@ -1,4 +1,13 @@
-import { Repository } from 'src/app/common/interfaces/repository';
+/**
+ * @name Andromeda
+ * @version 0.0.1a
+ * @copyright Damascus. 2019 All rights reserved.
+ * @license Confidential This file belongs to Damascus IT intellectual property,
+ * any unauthorized distribution of this file will be punished by law.
+ * @author Alonso Ruiz
+ * @description Post repository
+ */
+import { Repository } from 'src/app/core/repositories/repository';
 
 export interface Content {
     url: string;
