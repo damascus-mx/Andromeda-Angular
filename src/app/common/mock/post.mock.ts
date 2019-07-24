@@ -48,12 +48,12 @@ export const POSTS: Post[] = [
                 url: 'https://instagram.fntr6-1.fna.fbcdn.net/vp/32f3be07973e42b49ed327bd9d5debe4/5DCFC78A/t51.2885-15/e35/43985365_936100413254322_1562691206546706091_n.jpg?_nc_ht=instagram.fntr6-1.fna.fbcdn.net',
                 type: 0,
                 show: false
-            },
+            }, /*
             {
                 url: 'https://scontent.cdninstagram.com/vp/11213a3584349b8faa1847bbac2a2ef1/5D36C329/t50.2886-16/58438150_270086777232076_2915253887323602944_n.mp4?_nc_ht=scontent.cdninstagram.com',
                 type: 1,
                 show: false
-            }
+            }*/
         ],
         reactions: 1032941, total_comments: 368485, comments: null,
         message: 'Kings. 👑👑👑👑 @maluma @steveaoki #wildlife #malumababy #steveaoki',
@@ -114,7 +114,7 @@ export const POSTS: Post[] = [
         message: 'Dios bendiga al reggaeton #jbalvin #bitches #fuckyeah', reacted_by_user: false, show: false, user_verified: true,
         comment_by_user: false, user_comment: null,
         tags: [{type: 1, tagged: 'jbalvin'}, {type: 1, tagged: 'bitches'}, {type: 1, tagged: 'fuckyeah'}]
-    },
+    },/*
     {
         user: 'The Film Enthusiast', iat: '8 min. ago', username: 'filmenthusiast',
         user_pic: 'https://instagram.fntr6-1.fna.fbcdn.net/vp/28bcf60122d2533dcffdff38320ff357/5DCF07D0/t51.2885-19/s150x150/60760279_442245146561471_7971197295486042112_n.jpg?_nc_ht=instagram.fntr6-1.fna.fbcdn.net',
@@ -124,18 +124,17 @@ export const POSTS: Post[] = [
                 url: 'https://scontent.cdninstagram.com/vp/27d312cafde3bfc3f7c481ec7d5ffe87/5D37A91A/t50.2886-16/67657447_508302069913936_6626636448623702362_n.mp4?_nc_ht=scontent.cdninstagram.com',
                 type: 1,
                 show: false
-            }
-            /*
+            },
             {
                 url: 'https://instagram.fntr6-1.fna.fbcdn.net/vp/a754f3f39cec88005aaa46d1dd004d55/5D33F863/t51.2885-15/e35/67137280_935794703427310_6630961622201072724_n.jpg?_nc_ht=instagram.fntr6-1.fna.fbcdn.net',
                 type: 2,
                 show: false
-            }*/
+            }
         ],
         reactions: 8579, total_comments: 54, comments: null,
         message: '#StrangerThings Season 4 set to begin shooting in October this year, according to a new listing from Production Weekly. This means that the new season of the hit series could premiere in 2020! 💥[via @filmthusiastnews]',
         reacted_by_user: false, show: false, user_verified: false, comment_by_user: false, user_comment: null,
         tags: [{type: 1, tagged: 'StrangerThings'}, {type: 0, tagged: 'filmthusiastnews'}]
-    }
+    }*/
 ];
 

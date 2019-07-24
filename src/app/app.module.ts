@@ -12,24 +12,26 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 // Routing directory
-import { AppRouting } from './app.routing';
+import { RootRouting } from './app.routing';
 
 // Misc
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './common/modules/material.module';
-import { NavigationComponent } from './pages/widgets/navigation/navigation.component';
-import { BottomNavigationComponent } from './pages/widgets/bottom-navigation/bottom-navigation.component';
+import { PagesComponent } from './pages/root/pages.component';
+import { NavigationComponent } from './pages/shared/navigation/navigation.component';
+import { BottomNavigationComponent } from './pages/shared/bottom-navigation/bottom-navigation.component';
 
 @NgModule({
   declarations: [
     AppComponent,
+    PagesComponent,
     NavigationComponent,
-    BottomNavigationComponent,
+    BottomNavigationComponent
   ],
   imports: [
     BrowserModule,
-    AppRouting,
+    RootRouting,
     BrowserAnimationsModule,
     MaterialModule
   ],

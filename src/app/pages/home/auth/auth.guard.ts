@@ -14,9 +14,8 @@ import { ActivatedRouteSnapshot, RouterStateSnapshot, CanActivate } from '@angul
   providedIn: 'root'
 })
 export class AuthGuard implements CanActivate {
-  canActivate(
-    next: ActivatedRouteSnapshot,
-    state: RouterStateSnapshot): boolean {
+
+  canActivate(  next: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
     console.log('AuthGuard#canActivate called');
     return true;
   }

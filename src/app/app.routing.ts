@@ -8,28 +8,23 @@
  * @description Andromeda's root Lazy loading routing directory
  */
 import { Routes, RouterModule } from '@angular/router';
+import { AuthGuard } from './pages/home/auth/auth.guard';
+import { PagesComponent } from './pages/root/pages.component';
 
 const ROUTES: Routes = [
     {
-        path: 'home',
-        loadChildren: () => import('./pages/home/home.module').then(module => module.HomeModule)
-    },
-    {
-        path: 'search',
-        loadChildren: () => import('./pages/explorer/explorer.module').then(module => module.ExplorerModule)
-    },
-    {
         path: '404',
-        loadChildren:  () => import('./pages/shared/not-found/not-found.module').then(module => module.NotFoundModule)
+        loadChildren:  () => import('./pages/shared/pages/not-found/not-found.module').then(module => module.NotFoundModule)
     },
     // Main
     {
         path: '',
-        redirectTo: 'home',
-        pathMatch: 'full'
+        component: PagesComponent,
+        canActivate: [ AuthGuard ],
+        loadChildren: () => import('./pages/pages.module').then(module => module.PagesModule)
     },
     // Not found
-    { path: '**', redirectTo: '404' }
+    { path: '**', redirectTo: '404', pathMatch: 'full' }
 ];
 
-export const AppRouting = RouterModule.forRoot(ROUTES, {useHash: false});
+export const RootRouting = RouterModule.forRoot(ROUTES, {useHash: false});
