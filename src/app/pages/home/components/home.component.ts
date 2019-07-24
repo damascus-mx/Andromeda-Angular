@@ -7,14 +7,14 @@
  * @author Alonso Ruiz
  * @description Home component
  */
-import { Component, OnInit, OnDestroy, Input, ViewChildren, QueryList, AfterViewInit } from '@angular/core';
-import { DialogPostComponent } from '../../widgets/dialog-post/dialog-post.component';
-import { MatDialog } from '@angular/material';
+import { Component, OnInit, OnDestroy, AfterViewInit } from '@angular/core';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
-import { DialogPostService } from '../../widgets/dialog-post/dialog-post.service';
-import { Title } from '@angular/platform-browser';
 import { PostRepository } from '../api/post.repository';
+import { Post } from 'src/app/domain/models/post.model';
+import { Story } from 'src/app/domain/models/story.model';
+import { StoryRepositoryImpl } from '../api/story.repository';
+import { ADS } from 'src/app/common/mock/ads.mock';
 
 @Component({
   selector: 'app-home',
@@ -23,73 +23,29 @@ import { PostRepository } from '../api/post.repository';
 })
 
 export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
-
-  posts: any[] = [];
-  comment: string;
-  currentUser = 'fuckboi69';
-  @ViewChildren('postCard') postCards: QueryList<Component>;
-  imageItemCollection = [];
-
-  // Swipper
-  config: any = {
-    slidesPerView: 1,
-    // autoHeight: true,
-    resizeReInit: true,
-    grabCursor: true,
-    pagination: {
-      el: '.swiper-pagination',
-      dynamicBullets: true,
-    },
-  };
-
-  configStories: any = {
-    slidesPerView: 'auto',
-    freeMode: true,
-    resizeReInit: true,
-    grabCursor: true,
-  };
+  // Data
+  posts: Post[] = [];
+  stories: Story[] = [];
+  ads: any[] = ADS;
 
   // Disposer
   disposer: Subject<void> = new Subject();
 
-
-  constructor(public reportDialog: MatDialog, private dialogService: DialogPostService,
-              private postRepository: PostRepository) {}
+  constructor(private postRepository: PostRepository, private storyRepository: StoryRepositoryImpl) {}
 
   ngOnInit(): void {
     // this.titleService.setTitle('NightLifeX');
-    this.getPosts();
+    this.getData();
   }
 
   ngAfterViewInit(): void {
-    console.log(this.postCards.toArray());
   }
 
-  getPosts() {
+  getData() {
     this.posts = this.postRepository.GetAll();
+    this.stories = this.storyRepository.GetAll();
   }
 
-  onReact(postNumber: number): void {
-
-    if (this.posts[postNumber].reacted_by_user) {
-      this.posts[postNumber].reacted_by_user = false;
-      this.posts[postNumber].reactions--;
-    } else {
-      this.posts[postNumber].reacted_by_user = true;
-      this.posts[postNumber].reactions++;
-    }
-  }
-
-  onComment(postNumber: number): void {
-    this.comment = null;
-    !this.posts[postNumber].comment_by_user ?
-    this.posts[postNumber].comment_by_user = true : this.posts[postNumber].comment_by_user = false;
-  }
-
-  commentPost(postNumber: number) {
-    this.posts[postNumber].user_comment = this.comment;
-    this.posts[postNumber].total_comments++;
-  }
 
   // Dispose observers
   ngOnDestroy(): void {
@@ -99,26 +55,6 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
 
   get totalImagesShown(): number {
     return (this.posts.filter(post => post.show) || []).length;
-  }
-
-  openTools(usernamePost: string, opc?: string): void {
-    const config = {
-      width: '500px',
-      data: {
-        username: usernamePost
-      }
-    };
-
-    const dialogRef = this.dialogService.open(DialogPostComponent, config);
-
-    dialogRef.afterClosed().pipe(takeUntil(this.disposer))
-    .subscribe((result: any) => {
-      console.log('Dialog closed');
-    }, err => {
-
-    }, () => {
-      // Complete
-    });
   }
 
 }

@@ -19,8 +19,8 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './common/modules/material.module';
 import { PagesComponent } from './pages/root/pages.component';
-import { NavigationComponent } from './pages/shared/navigation/navigation.component';
-import { BottomNavigationComponent } from './pages/shared/bottom-navigation/bottom-navigation.component';
+import { NavigationComponent } from './pages/shared/components/navigation/navigation.component';
+import { BottomNavigationComponent } from './pages/shared/components/bottom-navigation/bottom-navigation.component';
 
 @NgModule({
   declarations: [

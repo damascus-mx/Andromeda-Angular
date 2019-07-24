@@ -7,23 +7,37 @@
  * @author Alonso Ruiz
  * @description Home routing module
  */
+// Angular
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { DeferLoadModule } from '@trademe/ng-defer-load';
 
+// Routing
 import { HomeRoutingModule } from './home-routing.module';
-import { HomeComponent } from './components/home.component';
-import { MaterialModule } from 'src/app/common/modules/material.module';
-import { DialogPostComponent } from '../widgets/dialog-post/dialog-post.component';
-import { DialogPostService } from '../widgets/dialog-post/dialog-post.service';
-import { NoimagePipe } from 'src/app/common/pipes/noimage.pipe';
-import { SafeUrlPipe } from 'src/app/common/pipes/safeurl.pipe';
-import { PostRepository } from './api/post.repository';
 
+// UI Modules
+import { MaterialModule } from 'src/app/common/modules/material.module';
 import { SwiperModule } from 'ngx-swiper-wrapper';
 import { SWIPER_CONFIG } from 'ngx-swiper-wrapper';
 import { SwiperConfigInterface } from 'ngx-swiper-wrapper';
+
+// Components
+import { HomeComponent } from './components/home.component';
+import { DialogPostComponent } from '../widgets/dialog-post/dialog-post.component';
+import { PostComponent } from '../shared/components/post/post.component';
+import { StoriesComponent } from '../shared/components/stories/stories.component';
+
+// Pipes
+import { NoimagePipe } from 'src/app/common/pipes/noimage.pipe';
+import { SafeUrlPipe } from 'src/app/common/pipes/safeurl.pipe';
 import { ResponsivetextPipe } from 'src/app/common/pipes/responsivetext.pipe';
+
+// Repositories
+import { PostRepository } from './api/post.repository';
+import { StoryRepositoryImpl } from './api/story.repository';
+
+// Services
+import { DialogPostService } from '../widgets/dialog-post/dialog-post.service';
 
 const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
   direction: 'horizontal',
@@ -33,7 +47,9 @@ const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
 @NgModule({
   declarations: [
     HomeComponent,
+    PostComponent,
     DialogPostComponent,
+    StoriesComponent,
     NoimagePipe,
     SafeUrlPipe,
     ResponsivetextPipe
@@ -44,6 +60,7 @@ const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
   providers: [
     DialogPostService,
     PostRepository,
+    StoryRepositoryImpl,
     {
       provide: SWIPER_CONFIG,
       useValue: DEFAULT_SWIPER_CONFIG

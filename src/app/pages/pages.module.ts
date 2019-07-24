@@ -4,10 +4,8 @@ import { CommonModule } from '@angular/common';
 import { PagesRoutingModule } from './pages-routing.module';
 import { MaterialModule } from '../common/modules/material.module';
 
-
 @NgModule({
-  declarations: [
-  ],
+  declarations: [],
   imports: [
     CommonModule,
     PagesRoutingModule,

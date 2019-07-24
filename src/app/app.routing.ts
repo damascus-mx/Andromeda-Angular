@@ -8,7 +8,7 @@
  * @description Andromeda's root Lazy loading routing directory
  */
 import { Routes, RouterModule } from '@angular/router';
-import { AuthGuard } from './pages/home/auth/auth.guard';
+import { AuthGuard } from './pages/auth/auth.guard';
 import { PagesComponent } from './pages/root/pages.component';
 
 const ROUTES: Routes = [

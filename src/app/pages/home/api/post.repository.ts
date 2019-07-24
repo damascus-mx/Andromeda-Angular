@@ -9,18 +9,17 @@
  */
 import { Repository } from 'src/app/core/repositories/repository';
 import { POSTS } from 'src/app/common/mock/post.mock';
+import { Post } from 'src/app/domain/models/post.model';
 
 
-export class PostRepository implements Repository {
-    posts = POSTS;
+export class PostRepository implements Repository<Post> {
     constructor() {}
 
     GetAll(): any[] {
-        console.log(this.posts);
-        return this.posts;
+        return POSTS;
     }
     GetById(id: any) {
-        return this.posts[id];
+        return POSTS[id];
     }
     Create(model: any): void {
         throw new Error("Method not implemented.");

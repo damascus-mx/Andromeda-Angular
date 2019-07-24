@@ -1,159 +1,21 @@
 <div class="container feed">
     <!-- Ads stories -->
     <div class="feed-ads-container">
-        <mat-card class="feed-ads mat-elevation-z4 animated pulse fast mat-app-background">
-            <div class="feed-ads-header">
-                <h3 i18n="Top Places|Home feed top places title card@@homeTopPlcTitle">Top Places  {{ totalImagesShown }}</h3>
-            </div>
-            <div class="swiper-container" [swiper]="configStories">
-                <div class="swiper-wrapper">
-                    <div class="swiper-slide story-slide" style="width: 90px;" *ngFor="let post of posts;">
-                        <div class="story-circle">
-                            <img src="assets/img/places/republicacuu.png" alt="">
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </mat-card>
+        <app-stories class="feed-ads" [stories]="ads"></app-stories>
     </div>
 
     <div class="post-container" *ngFor="let post of posts; let i = index" (deferLoad)="post.show = true">
         <ng-container *ngIf="post.show" >
             <!-- Post -->
-            <mat-card class="post-card animated fadeIn fast mat-elevation-z4" #postCard>
-                <!-- Header -->
-                <mat-card-header>
-                    <div mat-card-avatar>
-                        <img class="post-pic"
-                        src={{post.user_pic}} 
-                        [alt]="post.user" onError="this.src ='assets/img/common/default-user.png'"
-                        [routerLink]="[ '/home' ]" [queryParams]="{lang: 'es-la'}" fragment="education"
-                        style="cursor: pointer;"
-                        >
-                    </div>
-                    <mat-card-title>
-                        <a [routerLink]="[ '/home' ]" [queryParams]="{lang: 'es-la'}" fragment="education" class="post-user">{{post.user}}</a>
-                        <ng-container *ngIf="post.user_verified === true">
-                            <span><mat-icon class="verified-icon">check_circle</mat-icon></span>
-                        </ng-container>
-                    </mat-card-title>
-                    <mat-card-subtitle i18n="Post Card Subtitle|Home feed subtitle card@@homeCardSub">@{{post.username}} • {{post.iat}}</mat-card-subtitle>
-                    <span class="action-fill"></span>
-                    <div>
-                        <button mat-icon-button (click)="openTools(post.user)"><mat-icon>more_horiz</mat-icon></button>
-                    </div>
-                </mat-card-header>
+            <app-post class="post-card" [post]="post"></app-post>
 
-                <!-- Content container -->
-                <ng-container *ngIf="post.content.length === 1; else swiperEnabled">
-                    <ng-container *ngIf="post.content[0].type != 1; else videoContainer">
-                        <img mat-card-image src={{post.content[0].url}} onError="this.src ='assets/img/common/default-user.png'">
-                    </ng-container>
-                    <ng-template #videoContainer>
-                            <video  mat-card-image
-                            muted loop controls
-                            src={{post.content[0].url}} type="video/mp4" onError="this.src ='assets/img/common/default-user.png'">
-                            <p>This browser does not support the video element.</p>
-                        </video>
-                    </ng-template>
-                </ng-container>
-                <ng-template #swiperEnabled>
-                    <!-- Swiper -->
-                    <div mat-card-image class="swiper-container" [swiper]="config">
-                        <div class="swiper-wrapper">
-                            <ng-container mat-card-image *ngFor="let element of post.content">
-                                <ng-container *ngIf="element.type != 1; else videoContainer">
-                                    <img  class="swiper-slide" src={{element.url}} onError="this.src ='assets/img/common/default-user.png'">
-                                </ng-container>
-                                <ng-template #videoContainer>
-                                        <video class="swiper-slide"
-                                        muted loop controls
-                                        src={{element.url}} type="video/mp4" onError="this.src ='assets/img/common/default-user.png'">
-                                        <p>This browser does not support the video element.</p>
-                                    </video>
-                                </ng-template>
-                            </ng-container>
-                        </div>
-
-                        <div class="swiper-pagination"></div>
-                    </div>
-                </ng-template>
-
-                <!-- Reactions -->
-                <mat-card-actions>
-                    <ng-container *ngIf="post.reacted_by_user === true; else nonReacted">
-                        <button class="animated heartBeat fast" mat-icon-button color="primary" (click)="onReact(i)"><mat-icon>favorite</mat-icon></button>
-                    </ng-container>
-                    <ng-template #nonReacted>
-                        <button class="animated jello fast" mat-icon-button (click)="onReact(i)"><mat-icon>favorite_outline</mat-icon></button>
-                    </ng-template>
-                    <button mat-icon-button (click)="onComment(i)"><mat-icon>question_answer</mat-icon></button>
-                    <button mat-icon-button><mat-icon>share</mat-icon></button>
-                    <span class="action-fill"></span>
-                    <button mat-button color="accent" class="post-likes"><mat-icon matPreffix>favorite</mat-icon> {{post.reactions | number}}</button>
-                </mat-card-actions>
-
-                <!-- Message -->
-                <mat-card-content>
-                    <p>
-                        {{post.message | responsivetext:150}} <span style="color: #ff9100;" *ngIf="post.message.length >= 150"><b>See More</b></span>
-                    </p>
-                    <!-- Tags -->
-                    <div class="post-tags">
-                        <mat-chip-list aria-label="Tagging section" *ngFor="let tag of post.tags | slice:0:3;">
-                            <ng-container *ngIf="tag.type === 0; else hashtag">
-                                <mat-chip color="accent" selected>@{{tag.tagged | responsivetext:5}}</mat-chip>
-                            </ng-container>
-                            <ng-template #hashtag>
-                                <mat-chip color="primary" selected>#{{tag.tagged | responsivetext:7}}</mat-chip>
-                            </ng-template>
-                        </mat-chip-list>
-                        <button mat-icon-button><mat-icon>add</mat-icon></button>                          
-                    </div>
-                    <!-- Comments -->
-                    <div class="post-comment">
-                        <!-- New comment -->
-                        <span class="post-user-comment animated fadeIn fast" [ngClass]="{'disable': !post.user_comment, 'enable': post.user_comment}" >
-                            <b style="color: #ff9100">@{{currentUser}}</b> {{post.user_comment}}
-                        </span>
-                        <!-- Total comments -->
-                        <span i18n="Card Comments|Home feed card comments card@@homeCardComment">+ {{post.total_comments | number}} comments</span>
-
-                        <!-- Comments box -->
-                        <div id="post-comment-wrapper" [ngClass]="{'disable': !post.comment_by_user, 'enable': post.comment_by_user}">
-                            <div class="post-comment-box animated fadeInUp fast" >
-                                <mat-form-field appearance="outline" style="margin-bottom: -10px">
-                                    <mat-label>Add a comment</mat-label>
-                                    <textarea  matInput placeholder="Say something." [(ngModel)]="comment"></textarea>
-                                </mat-form-field>
-                                <button mat-mini-fab (click)="commentPost(i)" color="accent" aria-label="Add a comment button">
-                                    <mat-icon>send</mat-icon>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </mat-card-content>
-            </mat-card>
-            
-            <ng-container class="feed" *ngIf="i % 2 === 0">
-                <!-- Stories -->
+            <!-- Stories -->
+            <ng-container *ngIf="i % 2 === 0">
                 <div class="feed-ads-container">
-                    <mat-card class="feed-ads mat-elevation-z4 animated pulse fast mat-app-background" >
-                        <div class="feed-ads-header">
-                            <h3 i18n="Top Stories|Home feed top stories title card@@homeTopStrTitle">Top Stories</h3>
-                        </div>
-                        <div class="swiper-container" [swiper]="configStories">
-                            <div class="swiper-wrapper">
-                                <div class="swiper-slide story-slide" *ngFor="let post of posts;">
-                                    <div class="story-circle">
-                                        <img class="" src={{post.user_pic}} >
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </mat-card>
+                    <app-stories class="feed-ads" [stories]="stories"></app-stories>
                 </div>
             </ng-container>
+
         </ng-container>
     </div>
 </div>
