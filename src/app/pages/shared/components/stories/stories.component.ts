@@ -13,6 +13,7 @@ export class StoriesComponent implements OnInit, OnDestroy {
   storiesSwiper: any = {
     slidesPerView: 'auto',
     freeMode: true,
+    freeModeFluid : true,
     resizeReInit: true,
     grabCursor: true,
   };

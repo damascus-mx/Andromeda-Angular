@@ -14,24 +14,24 @@ import { TagType } from 'src/app/enums/tag.enum';
 
 export const POSTS: Post[] = [
     {
-        user: 'Dan Bilzerian', iat: 'Just Now', username: 'danbilzerian',
+        id: 0, user: 'Dan Bilzerian', iat: 'Just Now', username: 'danbilzerian',
         user_pic: 'https://instagram.fntr6-1.fna.fbcdn.net/vp/d15e96067143bbcbaae4ceefc5766723/5DB494FF/t51.2885-19/s150x150/41677722_309612136484816_4022476815346958336_n.jpg?_nc_ht=instagram.fntr6-1.fna.fbcdn.net',
         content: [
             {
                 url: 'https://instagram.fntr6-1.fna.fbcdn.net/vp/0fc176568eba9d5e36cb74d690788c0d/5DCD0AAF/t51.2885-15/e35/43913555_126298765017616_1011547909646441890_n.jpg?_nc_ht=instagram.fntr6-1.fna.fbcdn.net',
                 type: ContentType.image,
-                show: false
+                poster: null
             },
             {
                 url: 'https://instagram.fntr6-1.fna.fbcdn.net/vp/32f3be07973e42b49ed327bd9d5debe4/5DCFC78A/t51.2885-15/e35/43985365_936100413254322_1562691206546706091_n.jpg?_nc_ht=instagram.fntr6-1.fna.fbcdn.net',
                 type: ContentType.image,
-                show: false
-            }, /*
+                poster: null
+            },
             {
-                url: 'https://scontent.cdninstagram.com/vp/11213a3584349b8faa1847bbac2a2ef1/5D36C329/t50.2886-16/58438150_270086777232076_2915253887323602944_n.mp4?_nc_ht=scontent.cdninstagram.com',
+                url: 'https://scontent.cdninstagram.com/vp/d82905d12abc5c6bca7ca8546ebf82e8/5D3CB19A/t50.2886-16/65063499_344337012858583_6582257566913396736_n.mp4?_nc_ht=scontent.cdninstagram.com',
                 type: ContentType.video,
-                show: false
-            }*/
+                poster: 'https://instagram.fntr6-1.fna.fbcdn.net/vp/b89ff68e8f194a20cea920410adc0159/5D3C8748/t51.2885-15/e35/64911448_338576153480737_4031371555550485882_n.jpg?_nc_ht=instagram.fntr6-1.fna.fbcdn.net',
+            }
         ],
         reactions: 1032941, total_comments: 368485, comments: null,
         message: 'Kings. 👑👑👑👑 @maluma @steveaoki #wildlife #malumababy #steveaoki',
@@ -40,26 +40,51 @@ export const POSTS: Post[] = [
             {type: TagType.user, tagged: 'maluma'}, { type: TagType.user, tagged: 'steveaoki' },
             {type: TagType.hash, tagged: 'wildlife'}
         ],
-        likes: []
+        likes: [
+            {
+                user: 'National Geographic', username: 'natgeo',
+                user_pic: 'https://scontent-lax3-1.cdninstagram.com/vp/ab59482805436e5fa09a5006d9e8178b/5DE9B4E8/t51.2885-19/s150x150/13597791_261499887553333_1855531912_a.jpg?_nc_ht=scontent-lax3-1.cdninstagram.com'
+            },
+            {
+                user: 'National Geographic', username: 'natgeo',
+                user_pic: 'https://scontent-lax3-1.cdninstagram.com/vp/ab59482805436e5fa09a5006d9e8178b/5DE9B4E8/t51.2885-19/s150x150/13597791_261499887553333_1855531912_a.jpg?_nc_ht=scontent-lax3-1.cdninstagram.com'
+            },
+            {
+                user: 'National Geographic', username: 'natgeo',
+                user_pic: 'https://scontent-lax3-1.cdninstagram.com/vp/ab59482805436e5fa09a5006d9e8178b/5DE9B4E8/t51.2885-19/s150x150/13597791_261499887553333_1855531912_a.jpg?_nc_ht=scontent-lax3-1.cdninstagram.com'
+            },
+            {
+                user: 'National Geographic', username: 'natgeo',
+                user_pic: 'https://scontent-lax3-1.cdninstagram.com/vp/ab59482805436e5fa09a5006d9e8178b/5DE9B4E8/t51.2885-19/s150x150/13597791_261499887553333_1855531912_a.jpg?_nc_ht=scontent-lax3-1.cdninstagram.com'
+            },
+            {
+                user: 'JBalvin', username: 'jbalvin',
+                user_pic: 'https://instagram.fntr6-1.fna.fbcdn.net/vp/5f1a2aa20cc7f2f598c74988f27ce707/5DC81F40/t51.2885-19/s150x150/50949721_1502579463208225_2518030465403715584_n.jpg?_nc_ht=instagram.fntr6-1.fna.fbcdn.net'
+            },
+            {
+                user: 'Hiram Vega', username: 'hiramunozl',
+                user_pic: 'https://scontent-lax3-1.cdninstagram.com/vp/3c71640e03a6e75b7e97921a084ae304/5DEB0112/t51.2885-19/s320x320/65807850_333791757565999_6726542801334435840_n.jpg?_nc_ht=scontent-lax3-1.cdninstagram.com'
+            }
+        ]
     },
     {
-        user: 'National Geographic', iat: '10 days ago', username: 'natgeo',
+        id: 1, user: 'National Geographic', iat: '10 days ago', username: 'natgeo',
         user_pic: 'https://scontent-lax3-1.cdninstagram.com/vp/ab59482805436e5fa09a5006d9e8178b/5DE9B4E8/t51.2885-19/s150x150/13597791_261499887553333_1855531912_a.jpg?_nc_ht=scontent-lax3-1.cdninstagram.com',
         content: [
             {
                 url: 'https://scontent-lax3-1.cdninstagram.com/vp/c6bcc0eca4c4ebeec6514e09b0a5c67c/5DB002DC/t51.2885-15/e35/s1080x1080/66067424_711562099287206_4971644151218203888_n.jpg?_nc_ht=scontent-lax3-1.cdninstagram.com',
                 type: ContentType.image,
-                show: false
+                poster: null
             },
             {
                 url: 'https://scontent-lax3-1.cdninstagram.com/vp/f2618d458614bd2861e3514c4d2d06c6/5DEEAC56/t51.2885-15/e35/s1080x1080/67087114_3130326846992316_7552604814536304182_n.jpg?_nc_ht=scontent-lax3-1.cdninstagram.com',
                 type: ContentType.image,
-                show: false
+                poster: null
             },
             {
                 url: 'https://scontent-lax3-1.cdninstagram.com/vp/e6f3f9d7c38bf40d780cccdef9b8bf5e/5DE54691/t51.2885-15/e35/s1080x1080/67193120_156107055510324_4128112282628904754_n.jpg?_nc_ht=scontent-lax3-1.cdninstagram.com',
                 type: ContentType.image,
-                show: false
+                poster: null
             }
         ],
         reactions: 3899, total_comments: 450, comments: null,
@@ -69,13 +94,13 @@ export const POSTS: Post[] = [
         likes: []
     },
     {
-        user: 'Bruno Arevalo', iat: '10 min. ago', username: 'br1arevalo',
+        id: 2, user: 'Bruno Arevalo', iat: '10 min. ago', username: 'br1arevalo',
         user_pic: 'https://material.angular.io/assets/img/examples/shiba1.jpg',
         content: [
             {
                 url: 'https://material.angular.io/assets/img/examples/shiba2.jpg',
                 type: ContentType.image,
-                show: false
+                poster: null
             }
         ],
         reactions: 29, total_comments: 3, comments: null,
@@ -85,13 +110,13 @@ export const POSTS: Post[] = [
         likes: []
     },
     {
-        user: 'J Balvin', iat: '1 hr. ago', username: 'jbalvin',
+        id: 3, user: 'J Balvin', iat: '1 hr. ago', username: 'jbalvin',
         user_pic: 'https://instagram.fntr6-1.fna.fbcdn.net/vp/5f1a2aa20cc7f2f598c74988f27ce707/5DC81F40/t51.2885-19/s150x150/50949721_1502579463208225_2518030465403715584_n.jpg?_nc_ht=instagram.fntr6-1.fna.fbcdn.net',
         content: [
             {
                 url: 'https://instagram.fntr6-1.fna.fbcdn.net/vp/9ad39c541665ce930b19da692bb2b2f5/5DA92CE5/t51.2885-15/e35/p1080x1080/65047793_2295897530524755_8071433904541774619_n.jpg?_nc_ht=instagram.fntr6-1.fna.fbcdn.net',
                 type: ContentType.image,
-                show: false
+                poster: null
             }
         ],
         reactions: 4000578, total_comments: 368485, comments: null,
@@ -101,13 +126,13 @@ export const POSTS: Post[] = [
         likes: []
     },
     {
-        user: 'Hiram Vega', iat: '1 week ago.', username: 'hiramunozl',
+        id: 4, user: 'Hiram Vega', iat: '1 week ago.', username: 'hiramunozl',
         user_pic: 'https://scontent-lax3-1.cdninstagram.com/vp/3c71640e03a6e75b7e97921a084ae304/5DEB0112/t51.2885-19/s320x320/65807850_333791757565999_6726542801334435840_n.jpg?_nc_ht=scontent-lax3-1.cdninstagram.com',
         content: [
             {
                 url: 'https://scontent-lax3-1.cdninstagram.com/vp/5e5d93b734cc475f738398508a904904/5DE90A4B/t51.2885-15/e35/p1080x1080/67417418_1646923982110784_1597810393399550430_n.jpg?_nc_ht=scontent-lax3-1.cdninstagram.com',
                 type: ContentType.image,
-                show: false
+                poster: null
             }
         ],
         reactions: 2, total_comments: 0, comments: null,

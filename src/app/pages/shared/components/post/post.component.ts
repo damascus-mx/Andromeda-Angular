@@ -6,6 +6,7 @@ import { takeUntil } from 'rxjs/operators';
 import { Subject } from 'rxjs';
 import { Post } from 'src/app/domain/models/post.model';
 import { DialogLikesComponent, DialogLikesData } from './components/likes/likes.component';
+import { SwiperConfigInterface } from 'ngx-swiper-wrapper';
 
 @Component({
   selector: 'app-post',
@@ -17,15 +18,26 @@ export class PostComponent implements OnInit, OnDestroy {
   comment: string;
   currentUser = 'fuckboi69';
   // Swipper
-  postSwiper: any = {
+  postSwiper: SwiperConfigInterface = {
+    observer: true,
     slidesPerView: 1,
     // autoHeight: true,
-    resizeReInit: true,
     grabCursor: true,
     pagination: {
       el: '.swiper-pagination',
       dynamicBullets: true,
     },
+    zoom: true,
+    preloadImages: false,
+    lazy: {
+      loadPrevNext: false,
+      loadPrevNextAmount: 1,
+      loadOnTransitionStart: true,
+      elementClass: 'swiper-lazy',
+      loadingClass: 'swiper-lazy-loading',
+      loadedClass: 'swiper-lazy-loaded',
+      preloaderClass: 'swiper-lazy-preloader',
+    }
   };
   // Disposer
   disposer: Subject<void> = new Subject();
@@ -78,7 +90,6 @@ export class PostComponent implements OnInit, OnDestroy {
 
     dialogRef.afterClosed().pipe(takeUntil(this.disposer))
     .subscribe((result: any) => {
-      console.log('Dialog closed');
     }, err => {
 
     }, () => {
@@ -94,7 +105,7 @@ export class PostComponent implements OnInit, OnDestroy {
 
     // Dialog
     const config = {
-      width: '500px',
+      width: '250px',
       data: payload
     };
 
@@ -102,7 +113,6 @@ export class PostComponent implements OnInit, OnDestroy {
 
     dialogRef.afterClosed().pipe(takeUntil(this.disposer))
     .subscribe((result: any) => {
-      console.log('Dialog closed');
     }, err => {
 
     }, () => {

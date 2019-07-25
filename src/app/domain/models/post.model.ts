@@ -1,7 +1,7 @@
 interface Content {
     url: string;
     type: number;
-    show: boolean;
+    poster: string;
 }
 interface Tag {
     type: number;
@@ -17,6 +17,7 @@ interface Like {
     user_pic: string;
 }
 export interface Post {
+    id: number;
     user: string;
     username: string;
     user_verified: boolean;

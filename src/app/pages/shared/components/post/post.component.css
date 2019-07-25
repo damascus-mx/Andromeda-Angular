@@ -118,6 +118,19 @@
     }
   
     /* Swiper*/
+    .swiper-slide {
+      height: initial;
+    }
+
+    .swiper-lazy {
+      opacity: 0;
+      transition: opacity 700ms ease-in-out;
+    }
+    
+    .swiper-lazy-loaded {
+      opacity: 1 !important;
+    }
+
     .swiper-pagination >>> .swiper-pagination-bullet-active {
       background: #f50057 !important;
     }

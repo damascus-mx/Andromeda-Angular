@@ -39,16 +39,24 @@
         <!-- Swiper -->
         <div mat-card-image class="swiper-container" [swiper]="postSwiper">
             <div class="swiper-wrapper">
-                <ng-container mat-card-image *ngFor="let element of post.content">
-                    <ng-container *ngIf="element.type != 1; else videoContainer">
-                        <img  class="swiper-slide" src={{element.url}} onError="this.src ='assets/img/common/default-user.png'">
+                <ng-container mat-card-image *ngFor="let element of post.content" >
+                    <ng-container *ngIf="element.type != 1; else videoContainer" >
+                        <img class="swiper-slide swiper-lazy" [attr.data-src]="element.url" onError="this.src ='assets/img/common/default-user.png'"  >
                     </ng-container>
                     <ng-template #videoContainer>
-                            <video class="swiper-slide"
-                            muted loop controls
-                            src={{element.url}} type="video/mp4" onError="this.src ='assets/img/common/default-user.png'">
+                        <!--
+                        <mat-video class="swiper-slide swiper-lazy"
+                            [autoplay]="false" [preload]="false" [fullscreen]="false" [loop]="true" playsinline=""
+                            [quality]="false"
+                            [download]="false" color="primary" spinner="spin" [poster]="element.poster">
+                            <source matVideoSource [src]="element.url" type="video/mp4">
+                        </mat-video>-->
+                        <video class="swiper-slide swiper-lazy" autoplay
+                        muted loop controls playsinline="" preload="none" [poster]="element.poster"
+                        [attr.data-src]="element.url" type="video/mp4" onError="this.src ='assets/img/common/default-user.png'">
                         </video>
                     </ng-template>
+                    <div class="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
                 </ng-container>
             </div>
 
@@ -67,7 +75,7 @@
         <button mat-icon-button (click)="onComment()"><mat-icon>question_answer</mat-icon></button>
         <button mat-icon-button><mat-icon>share</mat-icon></button>
         <span class="action-fill"></span>
-        <button mat-button (click)="openLikes(post.user)" color="accent" class="post-likes"><mat-icon matPreffix>favorite</mat-icon> {{post.reactions | number}}</button>
+        <button mat-button (click)="openLikes(post.id)" color="accent" class="post-likes"><mat-icon matPreffix>favorite</mat-icon> {{post.reactions | number}}</button>
     </mat-card-actions>
 
     <!-- Message -->

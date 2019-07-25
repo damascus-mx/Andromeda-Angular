@@ -20,6 +20,7 @@ import { MaterialModule } from 'src/app/common/modules/material.module';
 import { SwiperModule } from 'ngx-swiper-wrapper';
 import { SWIPER_CONFIG } from 'ngx-swiper-wrapper';
 import { SwiperConfigInterface } from 'ngx-swiper-wrapper';
+import { MatVideoModule } from 'mat-video';
 
 // Components
 import { HomeComponent } from './components/home.component';
@@ -75,6 +76,7 @@ const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
     MaterialModule,
     DeferLoadModule,
     SwiperModule,
+    MatVideoModule,
   ]
 })
 export class HomeModule { }

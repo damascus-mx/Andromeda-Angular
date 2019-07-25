@@ -1,8 +1,9 @@
-<h1 mat-dialog-title>{{data.Id}}'s post</h1>
+<h3 style="margin-top: 0">{{post.user}}'s post</h3>
 <div mat-dialog-content>
-    <mat-list dense>
-        <mat-list-item> Pepper </mat-list-item>
-        <mat-list-item> Salt </mat-list-item>
-        <mat-list-item> Paprika </mat-list-item>
-    </mat-list>
+    <mat-option *ngFor="let like of post.likes" [value]="like.username">
+        <div class="user-line">
+            <img data-src={{like.user_pic}} alt="User picture" onError="this.src ='assets/img/common/default-user.png'">
+            <h5 > {{like.username}} </h5>
+        </div>
+    </mat-option>
 </div>
