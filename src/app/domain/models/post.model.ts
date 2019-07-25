@@ -7,6 +7,15 @@ interface Tag {
     type: number;
     tagged: string;
 }
+interface Comment {
+    username: string;
+    comment: string;
+}
+interface Like {
+    user: string;
+    username: string;
+    user_pic: string;
+}
 export interface Post {
     user: string;
     username: string;
@@ -16,8 +25,9 @@ export interface Post {
     content: Content[];
     message: string;
     reactions: number;
+    likes: Like[];
     total_comments: number;
-    comments: string[];
+    comments: Comment[];
     reacted_by_user: boolean;
     comment_by_user: boolean;
     user_comment: string;

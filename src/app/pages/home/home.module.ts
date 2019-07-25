@@ -26,6 +26,7 @@ import { HomeComponent } from './components/home.component';
 import { DialogPostComponent } from '../widgets/dialog-post/dialog-post.component';
 import { PostComponent } from '../shared/components/post/post.component';
 import { StoriesComponent } from '../shared/components/stories/stories.component';
+import { DialogLikesComponent } from '../shared/components/post/components/likes/likes.component';
 
 // Pipes
 import { NoimagePipe } from 'src/app/common/pipes/noimage.pipe';
@@ -50,12 +51,14 @@ const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
     PostComponent,
     DialogPostComponent,
     StoriesComponent,
+    DialogLikesComponent,
     NoimagePipe,
     SafeUrlPipe,
     ResponsivetextPipe
   ],
   entryComponents: [
     DialogPostComponent,
+    DialogLikesComponent
   ],
   providers: [
     DialogPostService,

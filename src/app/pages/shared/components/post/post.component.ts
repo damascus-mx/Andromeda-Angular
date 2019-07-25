@@ -5,6 +5,7 @@ import { DialogPostComponent } from 'src/app/pages/widgets/dialog-post/dialog-po
 import { takeUntil } from 'rxjs/operators';
 import { Subject } from 'rxjs';
 import { Post } from 'src/app/domain/models/post.model';
+import { DialogLikesComponent, DialogLikesData } from './components/likes/likes.component';
 
 @Component({
   selector: 'app-post',
@@ -29,7 +30,7 @@ export class PostComponent implements OnInit, OnDestroy {
   // Disposer
   disposer: Subject<void> = new Subject();
 
-  constructor(public reportDialog: MatDialog, private dialogService: DialogPostService,) {
+  constructor(public reportDialog: MatDialog, private dialogService: DialogPostService) {
   }
 
   ngOnInit(): void {
@@ -59,8 +60,10 @@ export class PostComponent implements OnInit, OnDestroy {
   }
 
   commentPost() {
-    this.post.user_comment = this.comment;
-    this.post.total_comments++;
+    if ( this.comment !== null ) {
+      this.post.user_comment = this.comment;
+      this.post.total_comments++;
+    }
   }
 
   openTools(usernamePost: string, opc?: string): void {
@@ -72,6 +75,30 @@ export class PostComponent implements OnInit, OnDestroy {
     };
 
     const dialogRef = this.dialogService.open(DialogPostComponent, config);
+
+    dialogRef.afterClosed().pipe(takeUntil(this.disposer))
+    .subscribe((result: any) => {
+      console.log('Dialog closed');
+    }, err => {
+
+    }, () => {
+      // Complete
+    });
+  }
+
+  openLikes(postId: any): void {
+    // Payload data
+    const payload: DialogLikesData = {
+      Id: postId
+    };
+
+    // Dialog
+    const config = {
+      width: '500px',
+      data: payload
+    };
+
+    const dialogRef = this.dialogService.open(DialogLikesComponent, config);
 
     dialogRef.afterClosed().pipe(takeUntil(this.disposer))
     .subscribe((result: any) => {

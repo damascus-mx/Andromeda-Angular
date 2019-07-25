@@ -32,7 +32,6 @@
                 <video  mat-card-image
                 muted loop controls
                 src={{post.content[0].url}} type="video/mp4" onError="this.src ='assets/img/common/default-user.png'">
-                <p>This browser does not support the video element.</p>
             </video>
         </ng-template>
     </ng-container>
@@ -48,7 +47,6 @@
                             <video class="swiper-slide"
                             muted loop controls
                             src={{element.url}} type="video/mp4" onError="this.src ='assets/img/common/default-user.png'">
-                            <p>This browser does not support the video element.</p>
                         </video>
                     </ng-template>
                 </ng-container>
@@ -69,7 +67,7 @@
         <button mat-icon-button (click)="onComment()"><mat-icon>question_answer</mat-icon></button>
         <button mat-icon-button><mat-icon>share</mat-icon></button>
         <span class="action-fill"></span>
-        <button mat-button color="accent" class="post-likes"><mat-icon matPreffix>favorite</mat-icon> {{post.reactions | number}}</button>
+        <button mat-button (click)="openLikes(post.user)" color="accent" class="post-likes"><mat-icon matPreffix>favorite</mat-icon> {{post.reactions | number}}</button>
     </mat-card-actions>
 
     <!-- Message -->
