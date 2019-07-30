@@ -7,9 +7,10 @@
  * @author Alonso Ruiz
  * @description Home component
  */
-import { Component, OnInit, OnDestroy, AfterViewInit } from '@angular/core';
+import { Component, OnInit, OnDestroy, AfterViewInit, ViewChild, ChangeDetectionStrategy } from '@angular/core';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
+import { CdkVirtualScrollViewport } from '@angular/cdk/scrolling';
 import { PostRepository } from '../api/post.repository';
 import { Post } from 'src/app/domain/models/post.model';
 import { Story } from 'src/app/domain/models/story.model';
@@ -19,7 +20,8 @@ import { ADS } from 'src/app/common/mock/ads.mock';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+  styleUrls: ['./home.component.css'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 
 export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
@@ -27,11 +29,21 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
   posts: Post[] = [];
   stories: Story[] = [];
   ads: any[] = ADS;
+  private allPost: Post[] = [];
+
+  // Infinite scroll props
+  private finishPage: number;
+  private actualPage: number;
+  private showUpButton: boolean;
+  @ViewChild(CdkVirtualScrollViewport, { static: false }) viewport: CdkVirtualScrollViewport;
 
   // Disposer
   disposer: Subject<void> = new Subject();
 
-  constructor(private postRepository: PostRepository, private storyRepository: StoryRepositoryImpl) {}
+  constructor(private postRepository: PostRepository, private storyRepository: StoryRepositoryImpl) {
+    this.actualPage = 0;
+    this.showUpButton = false;
+  }
 
   ngOnInit(): void {
     // this.titleService.setTitle('NightLifeX');
@@ -41,8 +53,11 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
   ngAfterViewInit(): void {
   }
 
-  getData() {
-    this.posts = this.postRepository.GetAll();
+  getData(): void {
+    this.allPost = this.postRepository.GetAll();
+    this.finishPage = this.allPost.length - 1;
+
+    this.posts.push(this.postRepository.GetById(this.actualPage));
     this.stories = this.storyRepository.GetAll();
   }
 
@@ -53,8 +68,17 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
     this.disposer.complete();
   }
 
-  get totalImagesShown(): number {
-    return (this.posts.filter(post => post.show) || []).length;
+  onScroll(): void {
+    if (this.actualPage < this.finishPage) {
+      this.actualPage++;
+      this.getData();
+      console.log('Getting data');
+    }
+  }
+
+  scrollTop(): void {
+    document.body.scrollTop = 0; // Safari
+    document.documentElement.scrollTop = 0;
   }
 
 }

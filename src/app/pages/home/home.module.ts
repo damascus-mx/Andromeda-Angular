@@ -21,6 +21,8 @@ import { SwiperModule } from 'ngx-swiper-wrapper';
 import { SWIPER_CONFIG } from 'ngx-swiper-wrapper';
 import { SwiperConfigInterface } from 'ngx-swiper-wrapper';
 import { MatVideoModule } from 'mat-video';
+import { InfiniteScrollModule } from 'ngx-infinite-scroll';
+import { ScrollingModule } from '@angular/cdk/scrolling';
 
 // Components
 import { HomeComponent } from './components/home.component';
@@ -75,7 +77,9 @@ const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
     HomeRoutingModule,
     MaterialModule,
     DeferLoadModule,
+    InfiniteScrollModule,
     SwiperModule,
+    ScrollingModule,
     MatVideoModule,
   ]
 })

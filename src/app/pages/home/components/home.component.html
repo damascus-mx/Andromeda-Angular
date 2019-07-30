@@ -4,8 +4,12 @@
         <app-stories class="feed-ads" [stories]="ads"></app-stories>
     </div>
 
-    <div class="post-container" *ngFor="let post of posts; let i = index" (deferLoad)="post.show = true">
-        <ng-container *ngIf="post.show" >
+    <div class="post-container"
+    infiniteScroll
+    [infiniteScrollDistance]="2"
+    [infiniteScrollThrottle]="50"
+    (scrolled)="onScroll()" >
+        <ng-container *ngFor="let post of posts; let i = index;" >
             <!-- Post -->
             <app-post class="post-card" [post]="post"></app-post>
 
@@ -15,7 +19,6 @@
                     <app-stories class="feed-ads" [stories]="stories"></app-stories>
                 </div>
             </ng-container>
-
         </ng-container>
     </div>
 </div>

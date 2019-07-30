@@ -134,11 +134,6 @@ export const POSTS: Post[] = [
                 type: ContentType.image,
                 poster: null
             },
-            {
-                url: 'https://scontent.fntr6-1.fna.fbcdn.net/v/t15.5256-10/59723294_2210423255661365_6955702220226560000_n.jpg?_nc_cat=110&_nc_oc=AQkZIwb-oUFRnzh4GnDKfbC4x41BIZ_lRr4rSU8f8su7Kj1CraMoZuRXAeeeGD6xjiw&_nc_ht=scontent.fntr6-1.fna&oh=48f1cb1e82ac1d2864d52ebfca369240&oe=5DAE9634',
-                type: ContentType.image,
-                poster: null
-            }
         ],
         reactions: 2, total_comments: 0, comments: null,
         message: 'Mirando al universo #HiramHawkings #SoyHermoso', reacted_by_user: false, show: false, user_verified: true,
