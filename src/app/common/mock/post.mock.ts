@@ -28,9 +28,9 @@ export const POSTS: Post[] = [
                 poster: null
             },
             {
-                url: 'https://scontent.cdninstagram.com/vp/d82905d12abc5c6bca7ca8546ebf82e8/5D3CB19A/t50.2886-16/65063499_344337012858583_6582257566913396736_n.mp4?_nc_ht=scontent.cdninstagram.com',
+                url: 'https://scontent.cdninstagram.com/vp/6bbbea12c8e2cbe36d2b89a55a3c8bb3/5D42A05A/t50.2886-16/65063499_344337012858583_6582257566913396736_n.mp4?_nc_ht=scontent.cdninstagram.com',
                 type: ContentType.video,
-                poster: 'https://instagram.fntr6-1.fna.fbcdn.net/vp/b89ff68e8f194a20cea920410adc0159/5D3C8748/t51.2885-15/e35/64911448_338576153480737_4031371555550485882_n.jpg?_nc_ht=instagram.fntr6-1.fna.fbcdn.net',
+                poster: 'https://scontent-lax3-1.cdninstagram.com/vp/566c964f75c2e9026ba60ff517d4f34b/5D41CD48/t51.2885-15/e35/64911448_338576153480737_4031371555550485882_n.jpg?_nc_ht=scontent-lax3-1.cdninstagram.com',
             }
         ],
         reactions: 1032941, total_comments: 368485, comments: null,
@@ -131,6 +131,11 @@ export const POSTS: Post[] = [
         content: [
             {
                 url: 'https://scontent-lax3-1.cdninstagram.com/vp/5e5d93b734cc475f738398508a904904/5DE90A4B/t51.2885-15/e35/p1080x1080/67417418_1646923982110784_1597810393399550430_n.jpg?_nc_ht=scontent-lax3-1.cdninstagram.com',
+                type: ContentType.image,
+                poster: null
+            },
+            {
+                url: 'https://scontent.fntr6-1.fna.fbcdn.net/v/t15.5256-10/59723294_2210423255661365_6955702220226560000_n.jpg?_nc_cat=110&_nc_oc=AQkZIwb-oUFRnzh4GnDKfbC4x41BIZ_lRr4rSU8f8su7Kj1CraMoZuRXAeeeGD6xjiw&_nc_ht=scontent.fntr6-1.fna&oh=48f1cb1e82ac1d2864d52ebfca369240&oe=5DAE9634',
                 type: ContentType.image,
                 poster: null
             }

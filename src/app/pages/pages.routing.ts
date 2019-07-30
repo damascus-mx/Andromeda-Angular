@@ -10,6 +10,10 @@ const AppRouting: Routes = [
         loadChildren: () => import('src/app/pages/explorer/explorer.module').then(module => module.ExplorerModule)
     },
     {
+        path: 'place/:id',
+        loadChildren: () => import('src/app/pages/place/place.module').then(module => module.PlaceModule)
+    },
+    {
         path: '',
         redirectTo: '/home',
         pathMatch: 'full'
