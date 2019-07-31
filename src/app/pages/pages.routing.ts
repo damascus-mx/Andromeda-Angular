@@ -2,7 +2,6 @@ import { Routes, RouterModule } from '@angular/router';
 import { PagesComponent } from './root/pages.component';
 
 const AppRouting: Routes = [
-
     {
         path: '',
         component: PagesComponent,

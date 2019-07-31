@@ -15,9 +15,15 @@ const ROUTES: Routes = [
         path: '404',
         loadChildren:  () => import('./pages/shared/pages/not-found/not-found.module').then(module => module.NotFoundModule)
     },
+    // Register landing page
     {
         path: 'main',
-        loadChildren: () => import('./initial/landing/landing.module').then(module => module.LandingModule)
+        loadChildren: () => import('./root/landing/landing.module').then(module => module.LandingModule)
+    },
+    // Login - Auth
+    {
+        path: 'auth',
+        loadChildren: () => import('./root/auth/auth.module').then(module => module.AuthModule)
     },
     // Main
     {
