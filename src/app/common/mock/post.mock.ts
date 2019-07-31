@@ -38,7 +38,7 @@ export const POSTS: Post[] = [
         reacted_by_user: true, show: false, user_verified: true, comment_by_user: false, user_comment: null,
         tags: [
             {type: TagType.user, tagged: 'maluma'}, { type: TagType.user, tagged: 'steveaoki' },
-            {type: TagType.hash, tagged: 'wildlife'}
+            {type: TagType.hash, tagged: 'wildlife'}, {type: TagType.hash, tagged: 'malumababy'}
         ],
         likes: [
             {

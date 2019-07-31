@@ -18,16 +18,12 @@ import { RootRouting } from './app.routing';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './common/modules/material.module';
-import { PagesComponent } from './pages/root/pages.component';
-import { NavigationComponent } from './pages/shared/components/navigation/navigation.component';
-import { BottomNavigationComponent } from './pages/shared/components/bottom-navigation/bottom-navigation.component';
+
+import { UserService } from './services/user/user.service';
 
 @NgModule({
   declarations: [
     AppComponent,
-    PagesComponent,
-    NavigationComponent,
-    BottomNavigationComponent
   ],
   imports: [
     BrowserModule,
@@ -35,7 +31,7 @@ import { BottomNavigationComponent } from './pages/shared/components/bottom-navi
     BrowserAnimationsModule,
     MaterialModule
   ],
-  providers: [],
+  providers: [UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

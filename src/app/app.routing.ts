@@ -9,17 +9,19 @@
  */
 import { Routes, RouterModule } from '@angular/router';
 import { AuthGuard } from './services/guards/auth.guard';
-import { PagesComponent } from './pages/root/pages.component';
 
 const ROUTES: Routes = [
     {
         path: '404',
         loadChildren:  () => import('./pages/shared/pages/not-found/not-found.module').then(module => module.NotFoundModule)
     },
+    {
+        path: 'main',
+        loadChildren: () => import('./initial/landing/landing.module').then(module => module.LandingModule)
+    },
     // Main
     {
         path: '',
-        component: PagesComponent,
         canActivate: [ AuthGuard ],
         loadChildren: () => import('./pages/pages.module').then(module => module.PagesModule)
     },

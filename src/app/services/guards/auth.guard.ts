@@ -8,15 +8,23 @@
  * @description Home auth guard
  */
 import { Injectable } from '@angular/core';
-import { ActivatedRouteSnapshot, RouterStateSnapshot, CanActivate } from '@angular/router';
+import { ActivatedRouteSnapshot, RouterStateSnapshot, CanActivate, Router } from '@angular/router';
+import { UserService } from '../user/user.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthGuard implements CanActivate {
 
+  constructor(private userService: UserService, private router: Router) {
+  }
+
   canActivate(  next: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
-    console.log('AuthGuard#canActivate called');
-    return true;
+    if ( this.userService.isLogged() ) {
+      return true;
+    } else {
+      this.router.navigate(['/main']);
+      return false;
+    }
   }
 }
