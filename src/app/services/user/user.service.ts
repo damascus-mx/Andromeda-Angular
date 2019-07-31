@@ -28,10 +28,24 @@ export class UserService {
             actual_state: null,
             posts: null
         };
+
+        const userToStore = JSON.stringify(this.user);
+        localStorage.setItem('credentials', userToStore);
+    }
+
+    logOut(): void {
+        this.user = null;
+        localStorage.clear();
     }
 
     isLogged(): boolean {
         this.logIn();
-        return this.user ? true : false;
+        const userLogged = localStorage.getItem('credentials');
+        return userLogged ? true : false;
+    }
+
+    getUser(): User {
+        this.user = JSON.parse(localStorage.getItem('credentials'));
+        return this.user;
     }
 }

@@ -17,6 +17,8 @@ import { Subject } from 'rxjs';
 import { Post } from 'src/app/domain/models/post.model';
 import { DialogLikesComponent, DialogLikesData } from './components/likes/likes.component';
 import { SwiperConfigInterface } from 'ngx-swiper-wrapper';
+import { User } from 'src/app/domain/models/user.model';
+import { UserService } from 'src/app/services/user/user.service';
 
 @Component({
   selector: 'app-post',
@@ -26,7 +28,10 @@ import { SwiperConfigInterface } from 'ngx-swiper-wrapper';
 export class PostComponent implements OnInit, OnDestroy {
   @Input() post: Post;
   comment: string;
-  currentUser = 'fuckboi69';
+
+  // Credentials
+  user: User;
+
   // Swipper
   postSwiper: SwiperConfigInterface = {
     observer: true,
@@ -52,7 +57,8 @@ export class PostComponent implements OnInit, OnDestroy {
   // Disposer
   disposer: Subject<void> = new Subject();
 
-  constructor(public reportDialog: MatDialog, private dialogService: DialogPostService) {
+  constructor(public reportDialog: MatDialog, private dialogService: DialogPostService, private userService: UserService) {
+    this.user = this.userService.getUser();
   }
 
   ngOnInit(): void {

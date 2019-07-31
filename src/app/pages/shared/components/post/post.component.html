@@ -100,7 +100,7 @@
         <div class="post-comment">
             <!-- New comment -->
             <span class="post-user-comment animated fadeIn fast" [ngClass]="{'disable': !post.user_comment, 'enable': post.user_comment}" >
-                <b style="color: #ff9100">@{{currentUser}}</b> {{post.user_comment}}
+                <b style="color: #ff9100">@{{user.username}}</b> {{post.user_comment}}
             </span>
             <!-- Total comments -->
             <span i18n="Card Comments|Home feed card comments card@@homeCardComment">+ {{post.total_comments | number}} comments</span>
