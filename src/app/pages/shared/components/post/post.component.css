@@ -118,9 +118,10 @@
     }
   
     /* Swiper*/
+    /*
     .swiper-slide {
       height: initial;
-    }
+    }*/
 
     .swiper-lazy {
       opacity: 0;
