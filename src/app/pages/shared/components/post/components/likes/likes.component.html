@@ -1,6 +1,10 @@
 <h3 style="margin-top: 0">{{post.user}}'s post</h3>
-<div mat-dialog-content>
-    <mat-option *ngFor="let like of post.likes" [value]="like.username">
+<div mat-dialog-content infiniteScroll
+[infiniteScrollDistance]="2"
+[infiniteScrollThrottle]="50"
+[scrollWindow]="false"
+(scrolled)="onScroll()" style="max-height: 130px;  scrollbar-width: none;" >
+    <mat-option *ngFor="let like of likes" [value]="like.username">
         <div class="user-line">
             <img data-src={{like.user_pic}} alt="User picture" onError="this.src ='assets/img/common/default-user.png'">
             <h5 > {{like.username}} </h5>
