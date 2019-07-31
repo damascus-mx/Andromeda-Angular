@@ -1,12 +1,12 @@
 <div class="container feed">
     <!-- Ads stories -->
     <div class="feed-ads-container">
-        <app-stories class="feed-ads" [stories]="ads"></app-stories>
+        <app-stories class="feed-ads" [stories]="ads" [title]="'Top places'"></app-stories>
     </div>
 
     <div class="post-container"
     infiniteScroll
-    [infiniteScrollDistance]="1"
+    [infiniteScrollDistance]="2"
     [infiniteScrollThrottle]="50"
     (scrolled)="onScroll()" >
         <ng-container *ngFor="let post of posts; let i = index;" >
@@ -16,7 +16,7 @@
             <!-- Stories -->
             <ng-container *ngIf="(i + 1) % 5 === 0">
                 <div class="feed-ads-container">
-                    <app-stories class="feed-ads" [stories]="stories"></app-stories>
+                    <app-stories class="feed-ads" [stories]="stories" [title]="'Friends stories'"></app-stories>
                 </div>
             </ng-container>
         </ng-container>

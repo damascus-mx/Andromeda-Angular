@@ -3,7 +3,7 @@
     <!-- Header -->
     <mat-card-header>
         <div mat-card-avatar>
-            <img class="post-pic"
+            <img class="post-pic animated fadeIn slow"
             src={{post.user_pic}} 
             [alt]="post.user" onError="this.src ='assets/img/common/default-user.png'"
             [routerLink]="[ '/home' ]" [queryParams]="{lang: 'es-la'}" fragment="education"
@@ -19,7 +19,7 @@
         <mat-card-subtitle i18n="Post Card Subtitle|Home feed subtitle card@@homeCardSub">@{{post.username}} • {{post.iat}}</mat-card-subtitle>
         <span class="action-fill"></span>
         <div>
-            <button mat-icon-button (click)="openTools(post.user)"><mat-icon>more_horiz</mat-icon></button>
+            <button mat-icon-button (click)="openTools(post.user)"><mat-icon>more_vert</mat-icon></button>
         </div>
     </mat-card-header>
 
@@ -29,7 +29,7 @@
             <img mat-card-image src={{post.content[0].url}} onError="this.src ='assets/img/common/default-user.png'">
         </ng-container>
         <ng-template #videoContainer>
-                <video  mat-card-image
+                <video  mat-card-image class="animated fadeIn fast"
                 muted loop controls
                 src={{post.content[0].url}} type="video/mp4" onError="this.src ='assets/img/common/default-user.png'">
             </video>
@@ -92,7 +92,7 @@
                     <mat-chip color="primary" selected>#{{tag.tagged | responsivetext:7}}</mat-chip>
                 </ng-template>
             </mat-chip-list>
-            <button mat-icon-button><mat-icon>add</mat-icon></button>                          
+            <button mat-icon-button><mat-icon>more_horiz</mat-icon></button>                          
         </div>
         <!-- Comments -->
         <div class="post-comment">

@@ -1,12 +1,13 @@
 <mat-card class="feed-ads mat-elevation-z4 animated pulse fast mat-app-background" >
     <div class="feed-ads-header">
-        <h3 i18n="Top Stories|Home feed top stories title card@@homeTopStrTitle">Top Stories</h3>
+        <h3 i18n="Top Stories|Home feed top stories title card@@homeTopStrTitle">{{title}}</h3>
     </div>
     <div class="swiper-container" [swiper]="storiesSwiper">
         <div class="swiper-wrapper">
             <div class="swiper-slide story-slide" *ngFor="let story of stories;">
                 <div class="story-circle">
-                    <img class="" src={{story.user_pic}} >
+                    <img class="swiper-lazy animated fadeIn fast" [attr.data-src]="story.user_pic"  onError="this.src ='assets/img/common/default-user.png'" >
+                    <div class="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
                 </div>
             </div>
         </div>
