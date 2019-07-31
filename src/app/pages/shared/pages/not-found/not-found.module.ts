@@ -5,7 +5,7 @@
  * @license Confidential This file belongs to Damascus IT intellectual property,
  * any unauthorized distribution of this file will be punished by law.
  * @author Alonso Ruiz
- * @description Not Found routing module
+ * @description Not Found module
  */
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';

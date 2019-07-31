@@ -1,3 +1,13 @@
+/**
+ * @name Andromeda
+ * @version 0.0.1a
+ * @copyright Damascus. 2019 All rights reserved.
+ * @license Confidential This file belongs to Damascus IT intellectual property,
+ * any unauthorized distribution of this file will be punished by law.
+ * @author Alonso Ruiz
+ * @description Post's like dialog component
+ */
+
 import { Component, OnInit, Inject, ViewChild } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { PostRepository } from 'src/app/pages/home/api/post.repository';

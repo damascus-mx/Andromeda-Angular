@@ -7,6 +7,7 @@
  * @author Alonso Ruiz
  * @description Andromeda's main component
  */
+
 import { Component } from '@angular/core';
 
 @Component({

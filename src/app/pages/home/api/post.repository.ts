@@ -5,7 +5,7 @@
  * @license Confidential This file belongs to Damascus IT intellectual property,
  * any unauthorized distribution of this file will be punished by law.
  * @author Alonso Ruiz
- * @description Post repository
+ * @description Post repository implementation
  */
 import { Repository } from 'src/app/core/repositories/repository';
 import { POSTS } from 'src/app/common/mock/post.mock';

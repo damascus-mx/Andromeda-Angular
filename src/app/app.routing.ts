@@ -7,6 +7,7 @@
  * @author Alonso Ruiz
  * @description Andromeda's root Lazy loading routing directory
  */
+
 import { Routes, RouterModule } from '@angular/router';
 import { AuthGuard } from './services/guards/auth.guard';
 
