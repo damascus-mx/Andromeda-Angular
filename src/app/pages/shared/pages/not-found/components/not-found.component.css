@@ -1,0 +1,36 @@
+.wrapper {
+    display: flex;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+
+    justify-content: center;
+    align-items: center;
+
+    height: 100%;
+    width: 100%;
+
+    font-family: 'Poppins', sans-serif;
+}
+
+.container {
+    display: flex;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    flex-flow: column wrap;
+
+    justify-content: center;
+    align-items: center;
+}
+
+#title {
+    font-weight: 700;
+    font-size: 2.5em;
+    text-align: center;
+}
+
+.container > img {
+    width: 90%;
+    height: auto;
+}

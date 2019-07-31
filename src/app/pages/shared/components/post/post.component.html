@@ -92,7 +92,9 @@
                     <mat-chip color="primary" selected>#{{tag.tagged | responsivetext:7}}</mat-chip>
                 </ng-template>
             </mat-chip-list>
-            <button mat-icon-button><mat-icon>more_horiz</mat-icon></button>                          
+            <ng-container *ngIf="post.tags.length > 3">
+                <button mat-icon-button><mat-icon>more_horiz</mat-icon></button> 
+            </ng-container>
         </div>
         <!-- Comments -->
         <div class="post-comment">

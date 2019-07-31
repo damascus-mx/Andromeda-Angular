@@ -21,7 +21,7 @@ export class PostComponent implements OnInit, OnDestroy {
   postSwiper: SwiperConfigInterface = {
     observer: true,
     slidesPerView: 1,
-    // autoHeight: true,
+    autoHeight: true,
     grabCursor: true,
     pagination: {
       el: '.swiper-pagination',
