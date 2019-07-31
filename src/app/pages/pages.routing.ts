@@ -29,9 +29,15 @@ const AppRouting: Routes = [
             {
                 path: 'place/:id',
                 loadChildren: () => import('src/app/pages/place/place.module').then(module => module.PlaceModule)
+            },
+            {
+                path: 'not-found',
+                loadChildren:  () => import('../pages/shared/pages/not-found/not-found.module').then(module => module.NotFoundModule)
             }
         ]
-    }
+    },
+    // Not found
+    { path: '**', redirectTo: 'not-found', pathMatch: 'full' }
 ];
 
 export const APP_ROUTES = RouterModule.forChild(AppRouting);

@@ -8,7 +8,6 @@
  * @description Page component - Root module
  */
 
-
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
@@ -17,6 +16,7 @@ import { MaterialModule } from '../common/modules/material.module';
 import { PagesComponent } from './root/pages.component';
 import { NavigationComponent } from './shared/components/navigation/navigation.component';
 import { BottomNavigationComponent } from './shared/components/bottom-navigation/bottom-navigation.component';
+import { UserService } from '../services/user/user.service';
 
 @NgModule({
   declarations: [
@@ -29,6 +29,6 @@ import { BottomNavigationComponent } from './shared/components/bottom-navigation
     PagesRoutingModule,
     MaterialModule
   ],
-  providers: []
+  providers: [UserService]
 })
 export class PagesModule { }
