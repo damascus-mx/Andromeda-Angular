@@ -8,14 +8,15 @@
  * @description Andromeda's user service
  */
 
-import { Injectable } from "@angular/core";
+import { Injectable } from '@angular/core';
 import { User } from 'src/app/domain/models/user.model';
+import { CookieService } from 'ngx-cookie-service';
 
 @Injectable()
 export class UserService {
     private user: User;
 
-    constructor() {
+    constructor(private cookieService: CookieService) {
     }
 
     logIn(): void {
@@ -31,21 +32,20 @@ export class UserService {
         };
 
         const userToStore = JSON.stringify(this.user);
-        localStorage.setItem('credentials', userToStore);
+        this.cookieService.set('auth', userToStore);
     }
 
     logOut(): void {
         this.user = null;
-        localStorage.clear();
+        this.cookieService.deleteAll();
     }
 
     isLogged(): boolean {
-        const userLogged = localStorage.getItem('credentials');
-        return userLogged ? true : false;
+        return this.cookieService.check('auth') ? true : false;
     }
 
     getUser(): User {
-        this.user = JSON.parse(localStorage.getItem('credentials'));
+        this.user = JSON.parse(this.cookieService.get('auth'));
         return this.user;
     }
 }

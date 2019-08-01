@@ -18,7 +18,7 @@ const ROUTES: Routes = [
     },
     // Register landing page
     {
-        path: 'main',
+        path: 'welcome',
         loadChildren: () => import('./root/landing/landing.module').then(module => module.LandingModule)
     },
     // Login - Auth

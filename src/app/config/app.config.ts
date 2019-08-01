@@ -5,7 +5,8 @@
  * @license Confidential This file belongs to Damascus IT intellectual property,
  * any unauthorized distribution of this file will be punished by law.
  * @author Alonso Ruiz
- * @description Andromeda's APIS list
+ * @description Andromeda's global data
  */
 
 export const ANDROMEDA_API = 'localhost:3977/api';
+export const APP_NAME = 'NightLifeX';
