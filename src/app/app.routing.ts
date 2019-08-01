@@ -13,7 +13,7 @@ import { AuthGuard } from './services/guards/auth.guard';
 
 const ROUTES: Routes = [
     {
-        path: '404',
+        path: 'not-found',
         loadChildren:  () => import('./pages/shared/pages/not-found/not-found.module').then(module => module.NotFoundModule)
     },
     // Register landing page

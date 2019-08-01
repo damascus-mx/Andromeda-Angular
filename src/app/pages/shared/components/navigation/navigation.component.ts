@@ -12,6 +12,7 @@ import { Component, OnInit } from '@angular/core';
 import {FormControl} from '@angular/forms';
 import {Observable} from 'rxjs';
 import {map, startWith} from 'rxjs/operators';
+import { APP_NAME } from 'src/app/config/app.config';
 
 @Component({
   selector: 'app-navigation',
@@ -19,6 +20,7 @@ import {map, startWith} from 'rxjs/operators';
   styleUrls: ['./navigation.component.css']
 })
 export class NavigationComponent implements OnInit {
+  appName: string = APP_NAME;
   searchControl = new FormControl();
   options: string[] = ['Lenore CUU', 'Fernando Herrera', 'Republica CUU' , 'Dan Bilzerian', 'Monica Arreondo'];
   filteredOptions: Observable<string[]>;

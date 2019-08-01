@@ -31,7 +31,7 @@ const AppRouting: Routes = [
                 loadChildren: () => import('src/app/pages/place/place.module').then(module => module.PlaceModule)
             },
             {
-                path: 'not-found',
+                path: '404',
                 loadChildren:  () => import('../pages/shared/pages/not-found/not-found.module').then(module => module.NotFoundModule)
             }
         ]

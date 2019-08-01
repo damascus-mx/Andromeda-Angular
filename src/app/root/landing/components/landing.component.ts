@@ -9,6 +9,7 @@
  */
 
 import { Component, OnInit } from '@angular/core';
+import { APP_NAME } from 'src/app/config/app.config';
 
 @Component({
   selector: 'app-landing',
@@ -16,6 +17,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./landing.component.css']
 })
 export class LandingComponent implements OnInit {
+  // App name
+  appName: string = APP_NAME;
 
   constructor() { }
 
