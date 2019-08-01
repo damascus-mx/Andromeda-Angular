@@ -13,12 +13,14 @@ import { CommonModule } from '@angular/common';
 
 import { LandingRoutingModule } from './landing-routing.module';
 import { LandingComponent } from './components/landing.component';
+import { MaterialModule } from 'src/app/common/modules/material.module';
 
 
 @NgModule({
   declarations: [LandingComponent],
   imports: [
     CommonModule,
+    MaterialModule,
     LandingRoutingModule
   ]
 })

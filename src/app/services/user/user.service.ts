@@ -21,6 +21,7 @@ export class UserService {
     logIn(): void {
         this.user = {
             username: 'elvergudo',
+            password: 'caca123',
             name: 'Elver',
             surname: 'Gudo',
             user_pic: 'https://scontent-lax3-1.cdninstagram.com/vp/3c71640e03a6e75b7e97921a084ae304/5DEB0112/t51.2885-19/s320x320/65807850_333791757565999_6726542801334435840_n.jpg?_nc_ht=scontent-lax3-1.cdninstagram.com',
@@ -39,7 +40,6 @@ export class UserService {
     }
 
     isLogged(): boolean {
-        this.logIn();
         const userLogged = localStorage.getItem('credentials');
         return userLogged ? true : false;
     }

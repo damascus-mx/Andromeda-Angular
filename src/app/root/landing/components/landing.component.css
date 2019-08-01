@@ -1,0 +1,242 @@
+.wrapper {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+
+    display: flex;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    flex-flow: row-reverse wrap;
+
+    align-items: flex-start;
+    justify-content: flex-start;
+}
+
+.about-container, .form-container {
+    width: 100%;
+}
+
+.form-container {
+    height: 100%;
+}
+
+.flip-x {
+    -moz-transform: scaleX(-1);
+    -o-transform: scaleX(-1);
+    -webkit-transform: scaleX(-1);
+    -ms-transform: scaleX(-1);
+    transform: scaleX(-1);
+    -ms-filter: "FlipH";
+    filter: FlipH;
+}
+
+#app-name {
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 2.4rem;
+}
+
+/* About */
+
+.about-content > * {
+    font-family: 'Poppins', sans-serif;
+}
+
+.about-container {
+    display: flex;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    flex-flow: row wrap;
+
+    align-items: initial;
+    justify-content: flex-start;
+
+    text-align: center;
+
+    order: 2;
+}
+
+.about-content {
+    width: 100%;
+    max-width: 100%;
+}
+
+.about-header {
+    display: flex;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    flex-flow: row wrap;
+
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 100%;
+
+    padding-top: 25px;
+}
+
+.about-header > * {
+    margin: 0 10px;
+}
+
+.slot {
+    display: flex;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    flex-flow: row;
+    align-items: center;
+    justify-content: space-around;
+
+    width: 100%;
+    max-width: 100%;
+    margin: 20px 0;
+}
+
+.slot > * {
+    width: 50%;
+    max-width: 50%;
+}
+
+.content-card {
+    max-width: 90%;
+    margin: 0 10px;
+    text-align: center;
+    background-image: url('src/assets/img/common/andromeda-back.svg');
+    background-size: cover;
+    background-repeat: repeat-y;
+}
+
+.card-title {
+    font-size: 20px;
+}
+
+.right > img, .left > img {
+    width: 90%;
+    height: auto;
+    margin: 0 8px;
+}
+
+h1, h2, h3, h4, h5, p, span {
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Form */
+.form-container {
+    display: flex;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    flex-flow: column wrap;
+
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+    max-height: 100%;
+    order: 1;
+}
+
+.register-card {
+    max-width: 70%;
+    margin-top: 60px;
+    min-width: 70%;
+    min-height: 45%;
+}
+
+.register-card > .register-header {
+    font-family: 'Poppins', sans-serif;
+    text-align: left;
+    font-size: x-large;
+}
+
+.register-subtitle {
+    text-align: left;
+}
+
+.register-field {
+    width: 90%;
+    max-width: 90%;
+    margin: 0 15px;
+}
+
+/* Footer */
+.footer {
+    right: 0;
+    bottom: 0;
+    left: 0;
+    min-height: 10%;
+    width: 100%;
+
+    display: flex;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    flex-flow: column;
+
+    justify-content: space-around;
+    align-items: center;
+    text-align: center;
+
+    order: 3;
+    z-index: -1;
+}
+
+/* Desktop */
+@media (min-width: 1281px) {
+  
+    .about-content {
+        padding: 0 10%;
+    }
+
+    .register-card {
+        max-width: 40%;
+        min-width: 40%;
+    }
+
+    /*
+    .footer {
+        position: absolute;
+    }*/
+    
+}
+
+/* Tablets and Desktop */
+@media (min-width: 768px){
+    .wrapper{
+        flex-flow: row wrap;
+        justify-content: center;
+    }
+
+    .about-container, .form-container {
+        width: 50%;
+        height: 90%;
+        max-height: 90%;
+        max-width: 50%;
+    }
+
+    .about-container {
+        order: 1;
+        overflow: auto;
+        scrollbar-width: none;
+    }
+
+    .about-content {
+        max-height: 90%;
+    }
+
+    .form-container {
+        order: 2;
+        max-height: 90%;
+    }
+
+    .footer {
+        flex-flow: row wrap;
+        min-height: 10%;
+    }
+}
+
+/* Misc */
