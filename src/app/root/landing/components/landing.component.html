@@ -100,7 +100,14 @@
                         </mat-form-field>
                     </p>
                     <p>
-                        <button class="register-field" mat-flat-button color="accent">Sign Up</button>
+                        <button class="register-field" mat-flat-button color="accent" (click)="onRegister()">
+                            <ng-container *ngIf="!isLoading; else loadingTemplate">
+                                <span class="animated fadeIn fast">Sign Up</span>
+                            </ng-container>
+                            <ng-template #loadingTemplate>
+                                <mat-progress-bar class="animated fadeIn fast" style="margin: 18px 0;" mode="indeterminate"></mat-progress-bar>
+                            </ng-template>                          
+                        </button>
                     </p>
                 </form>
             </mat-card-content>
@@ -109,15 +116,20 @@
     </div>
     <div class="footer mat-app-background mat-elevation-z8 animated slideInUp fast">
         <div class="row">
-            <h4>About Us</h4>
+            <div class="row-header"><h4>About Us</h4></div>
+            <div class="row-content"></div>
         </div>
         <div class="row">
-            <h4>Developers</h4>
-            <p>Andromeda API</p>
-            <p>Andromeda Cloud</p>
+            <div class="row-header"><h4>Developers</h4></div>
+            <div class="row-content">
+                <p>Andromeda API</p>
+                <p>Andromeda Cloud</p>
+                <p>Careers</p>
+            </div>
         </div>
         <div class="row">
-            <h4>{{appName}} for Business</h4>
+            <div class="row-header"><h4>{{appName}} for Business</h4></div>
+            <div class="row-content"></div>
         </div>
     </div>
 </div>

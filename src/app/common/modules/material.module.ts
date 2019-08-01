@@ -29,6 +29,7 @@ import {CdkStepperModule} from '@angular/cdk/stepper';
         Material.MatBadgeModule,
         Material.MatAutocompleteModule,
         Material.MatProgressSpinnerModule,
+        Material.MatProgressBarModule,
         LayoutModule,
         FormsModule,
         ReactiveFormsModule,

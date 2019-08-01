@@ -142,7 +142,6 @@ h1, h2, h3, h4, h5, p, span {
 
 .register-card {
     max-width: 70%;
-    margin-top: 60px;
     min-width: 70%;
 }
 
@@ -184,6 +183,21 @@ h1, h2, h3, h4, h5, p, span {
     z-index: -1;
 }
 
+.row {
+    display: flex;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    flex-flow: column;
+}
+
+.row-content {
+}
+
+.row-content > p {
+    margin-top: 0;
+}
+
 /* Desktop */
 @media (min-width: 1281px) {
   
@@ -202,6 +216,7 @@ h1, h2, h3, h4, h5, p, span {
     }*/
     
 }
+
 
 /* Tablets and Desktop */
 @media (min-width: 768px) {
@@ -230,10 +245,13 @@ h1, h2, h3, h4, h5, p, span {
     .form-container {
         order: 2;
         max-height: 90%;
+        overflow: auto;
+        scrollbar-width: none;
     }
 
     .footer {
         flex-flow: row wrap;
+        align-items: flex-start;
         min-height: 10%;
     }
 }

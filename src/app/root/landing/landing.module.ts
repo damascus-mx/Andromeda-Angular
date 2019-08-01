@@ -14,6 +14,7 @@ import { CommonModule } from '@angular/common';
 import { LandingRoutingModule } from './landing-routing.module';
 import { LandingComponent } from './components/landing.component';
 import { MaterialModule } from 'src/app/common/modules/material.module';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { MaterialModule } from 'src/app/common/modules/material.module';
   imports: [
     CommonModule,
     MaterialModule,
-    LandingRoutingModule
+    LandingRoutingModule,
+    FontAwesomeModule
   ]
 })
 export class LandingModule { }

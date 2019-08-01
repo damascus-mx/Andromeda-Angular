@@ -19,10 +19,18 @@ import { APP_NAME } from 'src/app/config/app.config';
 export class LandingComponent implements OnInit {
   // App name
   appName: string = APP_NAME;
+  isLoading = false;
 
   constructor() { }
 
   ngOnInit() {
+  }
+
+  onRegister(): void {
+    this.isLoading = true;
+    setTimeout(() => {
+      this.isLoading = false;
+    }, 5000);
   }
 
 }
