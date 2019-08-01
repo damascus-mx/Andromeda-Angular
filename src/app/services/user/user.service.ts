@@ -17,6 +17,7 @@ export class UserService {
     private user: User;
 
     constructor(private cookieService: CookieService) {
+        this.logIn();
     }
 
     logIn(): void {

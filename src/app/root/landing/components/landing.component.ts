@@ -10,6 +10,8 @@
 
 import { Component, OnInit } from '@angular/core';
 import { APP_NAME } from 'src/app/config/app.config';
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { faTwitter, faFacebook, faInstagram } from '@fortawesome/free-brands-svg-icons';
 
 @Component({
   selector: 'app-landing',
@@ -21,16 +23,23 @@ export class LandingComponent implements OnInit {
   appName: string = APP_NAME;
   isLoading = false;
 
-  constructor() { }
+  constructor() {
+    library.add(faTwitter);
+    library.add(faFacebook);
+    library.add(faInstagram);
+  }
 
   ngOnInit() {
   }
 
   onRegister(): void {
-    this.isLoading = true;
-    setTimeout(() => {
-      this.isLoading = false;
-    }, 5000);
+    if (this.isLoading === false) {
+      console.log('Requesting data...');
+      this.isLoading = true;
+      setTimeout(() => {
+        this.isLoading = false;
+      }, 5000);
+    }
   }
 
 }

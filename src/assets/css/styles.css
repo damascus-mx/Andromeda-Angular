@@ -1,11 +1,10 @@
 @import url('https://fonts.googleapis.com/css?family=Josefin+Sans:700&display=swap');
-@import url('https://fonts.googleapis.com/css?family=Poppins:400,700&display=swap');
-@import url('https://fonts.googleapis.com/css?family=Lato:400,700&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,700&display=swap');
 
-html, body { height: 100%; }
+html, body { height: 100%; scroll-behavior: smooth; }
 body { 
   margin: 0;
-  font-family: 'Lato', sans-serif;
+  font-family: 'Poppins', sans-serif;
   background-image: url('src/assets/img/common/andromeda-back.svg');
 
   background-attachment: fixed;
@@ -46,7 +45,7 @@ a{
 
 h1, h2, h3, h4, h5, h6, .mat-tab-label, .mat-dialog-title { font-family: 'Josefin Sans', sans-serif; font-weight: 700; }
 mat-card, table, input, mat-form-field, mat-raised-button, mat-button, mat-flat-button, mat-stroked-button, button, .mat-stepper-vertical, .mat-stepper-horizontal > * {
-    font-family: 'Lato', sans-serif !important;
+    font-family: 'Poppins', sans-serif !important;
 }
 
 mat-raised-button, mat-button, mat-flat-button, mat-stroked-button, .mat-tab-label, mat-fab, mat-mini-fab { font-weight: 700!important; }

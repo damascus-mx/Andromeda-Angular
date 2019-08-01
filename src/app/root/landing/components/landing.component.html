@@ -1,11 +1,10 @@
 <div class="wrapper">
-    <div class="about-container animated fadeInLeftBig fast">
+    <div class="about-container">
         <div class="about-header animated slideInDown">
             <img src="assets/img/common/nightlifex.svg" alt="" height="48">
             <h2 id="app-name">{{appName}}</h2>
         </div>
-        <div class="about-content">
-
+        <div class="about-content animated zoomIn fast">
             <div class="slot">
                 <div class="left">
                     <img src="assets/img/landing/places.svg" alt="Place representation" />
@@ -74,8 +73,8 @@
             -->
         </div>   
     </div>
-    <div class="form-container animated fadeInRightBig fast">
-        <mat-card class="register-card mat-elevation-z8">
+    <div class="form-container">
+        <mat-card class="register-card mat-elevation-z8 animated zoomIn fast">
             <div class="register-header">
                 <div style="text-align: center;"><img style="border-radius: 100%" src="assets/img/common/nightlifex.svg" alt="" height="64"></div>
                 <span><b>Join your friends</b></span>
@@ -117,14 +116,21 @@
     <div class="footer mat-app-background mat-elevation-z8 animated slideInUp fast">
         <div class="row">
             <div class="row-header"><h4>About Us</h4></div>
-            <div class="row-content"></div>
+            <div class="row-content">
+                <div class="social">
+                    <a href="https://twitter.com/twitter"><fa-icon [icon]="['fab', 'twitter']" size="2x" [fixedWidth]="true"></fa-icon></a>
+                    <a href="https://www.facebook.com/CallofDuty/"><fa-icon [icon]="['fab', 'facebook']" size="2x" [fixedWidth]="true"></fa-icon></a>
+                    <a href="https://www.instagram.com/cristiano"><fa-icon [icon]="['fab', 'instagram']" size="2x" [fixedWidth]="true" ></fa-icon></a>
+                    <a href="https://www.damascus.mx"><mat-icon style="transform: scale(1.4); margin-left: 5px; padding: 10px 0;">public</mat-icon></a>
+                </div>
+            </div>
         </div>
         <div class="row">
             <div class="row-header"><h4>Developers</h4></div>
             <div class="row-content">
-                <p>Andromeda API</p>
-                <p>Andromeda Cloud</p>
-                <p>Careers</p>
+                <p><a href="">Andromeda API</a></p>
+                <p><a href="">Andromeda Cloud</a></p>
+                <p><a href="">Careers</a></p>
             </div>
         </div>
         <div class="row">

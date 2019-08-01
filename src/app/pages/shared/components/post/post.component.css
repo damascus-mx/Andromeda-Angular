@@ -13,6 +13,17 @@
       max-width: inherit;
       margin: 10px 0;
     }
+
+    .post-header {
+      display: flex;
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -moz-box;
+      flex-flow: row wrap;
+
+      justify-content: flex-start;
+      align-items: center;
+    }
   
     .post-comment{
       color: #9e9e9e;
@@ -30,6 +41,7 @@
       font-family: 'Josefin Sans', sans-serif;
       font-weight: 700;
       color: inherit;
+      max-width: 80%;
     }
   
     .action-fill{
@@ -72,6 +84,10 @@
   
     .post-tags > * {
       margin: 0 5px 0 0;
+    }
+
+    .tag-chip {
+      font-size: 12px;
     }
   
     .post-comment-box {
@@ -148,6 +164,7 @@
   
     .swiper-container {
       width: 100%;
+      z-index: 0;
     }
   
     .post-card > .swiper-container {
