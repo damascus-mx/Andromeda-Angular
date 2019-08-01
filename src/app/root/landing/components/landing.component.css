@@ -144,7 +144,6 @@ h1, h2, h3, h4, h5, p, span {
     max-width: 70%;
     margin-top: 60px;
     min-width: 70%;
-    min-height: 45%;
 }
 
 .register-card > .register-header {
@@ -205,7 +204,7 @@ h1, h2, h3, h4, h5, p, span {
 }
 
 /* Tablets and Desktop */
-@media (min-width: 768px){
+@media (min-width: 768px) {
     .wrapper{
         flex-flow: row wrap;
         justify-content: center;
