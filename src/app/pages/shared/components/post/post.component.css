@@ -40,8 +40,9 @@
     .post-user{
       font-family: 'Josefin Sans', sans-serif;
       font-weight: 700;
+      font-size: 18px;
       color: inherit;
-      max-width: 80%;
+      max-width: 100%;
     }
   
     .action-fill{
@@ -61,7 +62,7 @@
     }
     
     .verified-icon {
-      margin: 0 4px;
+      margin: 0 2px;
       font-size: 16px;
       color: #00b0ff;
     }

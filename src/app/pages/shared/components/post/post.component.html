@@ -12,10 +12,8 @@
         </div>
         <mat-card-title>
             <div class="post-header">
-                <a [routerLink]="[ '/home' ]" [queryParams]="{lang: 'es-la'}" fragment="education" class="post-user">{{post.user}}</a>
-                <div *ngIf="post.user_verified === true">
-                    <span style="padding-bottom: 2px;"><mat-icon class="verified-icon">check_circle</mat-icon></span>
-                </div>
+                <a [routerLink]="[ '/home' ]" [queryParams]="{lang: 'es-la'}" fragment="education" class="post-user">{{post.user | responsivetext:20}}</a>
+                <span *ngIf="post.user_verified === true"><mat-icon class="verified-icon">check_circle</mat-icon></span>
             </div>
         </mat-card-title>
         <mat-card-subtitle i18n="Post Card Subtitle|Home feed subtitle card@@homeCardSub">@{{post.username}} • {{post.iat}}</mat-card-subtitle>
