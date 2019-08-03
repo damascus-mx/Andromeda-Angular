@@ -4,4 +4,5 @@ export interface SignUpViewModel {
     password: string;
     name: string;
     surname: string;
+    confirmPass: string;
 }

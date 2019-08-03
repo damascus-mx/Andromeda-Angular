@@ -105,10 +105,26 @@
                             </ul>
                         </mat-error>
                     </mat-form-field>
+                    <mat-form-field class="register-field" appearance="outline">
+                        <mat-label>Confirm Password</mat-label>
+                        <input matInput placeholder="Enter your password" [type]="hideConfirm ? 'password' : 'text'" [(ngModel)]="signUpModel.confirmPass" name="confirm" required
+                        formControlName="confirmControl" [errorStateMatcher]="confirmMatcher">
+                        <button mat-icon-button matSuffix (click)="hideConfirm = !hideConfirm" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hideConfirm">
+                        <mat-icon>{{hideConfirm ? 'visibility_off' : 'visibility'}}</mat-icon>
+                        </button>
+                        <mat-error class="animated fadeIn" *ngIf="signUp.get('confirmControl').hasError('required')">
+                            Confirm your password is <strong>required</strong>
+                        </mat-error>          
+                    </mat-form-field>
+                    <ng-container>
+                        <div style="text-align: left;">
+                            <span class="mat-error animated fadeIn" style="font-size: 75%; padding-left: 25px;" *ngIf="signUpModel.password !== signUpModel.confirmPass">Password don't match</span>
+                        </div>
+                    </ng-container>
                 </p>
                 <p>
                     <button class="register-field" mat-flat-button color="accent" (click)="onRegister()" 
-                    [disabled]="!signUp.valid">
+                    [disabled]="!signUp.valid || signUpModel.password !== signUpModel.confirmPass">
                         <ng-container *ngIf="!isLoading; else loadingTemplate">
                             <span class="animated fadeIn fast">Complete Sign Up</span>
                         </ng-container>

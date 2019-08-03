@@ -10,3 +10,5 @@
 
 export const ANDROMEDA_API = 'localhost:3977/api';
 export const APP_NAME = 'NightLifeX';
+export const COMPANY_NAME = 'Damascus IT';
+export const CURRENT_YEAR = new Date().getFullYear();

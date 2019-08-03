@@ -22,6 +22,7 @@ export class SignUpComponent implements OnInit, OnDestroy {
 
   // UI
   hide = true;
+  hideConfirm = true;
 
   // Form group w props
   signUp = new FormGroup({
@@ -35,12 +36,6 @@ export class SignUpComponent implements OnInit, OnDestroy {
       Validators.required,
       Validators.email
     ]),
-    passControl: new FormControl('',  [
-      Validators.required,
-      Validators.maxLength(15),
-      Validators.minLength(8),
-      Validators.pattern('^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$')
-    ]),
     nameControl: new FormControl('', [
       Validators.required,
       Validators.maxLength(15),
@@ -49,18 +44,28 @@ export class SignUpComponent implements OnInit, OnDestroy {
     ]),
     surnameControl: new FormControl('', [
       Validators.required,
-      Validators.maxLength(25),
+      Validators.maxLength(15),
       Validators.minLength(1),
       Validators.pattern('^[a-zA-ZÀ-ÿ\u00f1\u00d1 ]+(\s*[a-zA-ZÀ-ÿ\u00f1\u00d1]*)*[a-zA-ZÀ-ÿ\u00f1\u00d1]+$')
+    ]),
+    passControl: new FormControl('',  [
+      Validators.required,
+      Validators.maxLength(25),
+      Validators.minLength(8),
+      Validators.pattern(/^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{7,15}$/)
+    ]),
+    confirmControl: new FormControl('',  [
+      Validators.required
     ])
   });
 
   // Matchers
   userMatcher = new ErrorStateMatcherHelper();
   emailMatcher = new ErrorStateMatcherHelper();
-  passwordMatcher = new ErrorStateMatcherHelper();
   nameMatcher = new ErrorStateMatcherHelper();
   surnameMatcher = new ErrorStateMatcherHelper();
+  passwordMatcher = new ErrorStateMatcherHelper();
+  confirmMatcher = new ErrorStateMatcherHelper();
 
   // Diposer
   disposer: Subject<void> = new Subject();
@@ -71,7 +76,8 @@ export class SignUpComponent implements OnInit, OnDestroy {
       email: null,
       password: null,
       name: null,
-      surname: null
+      surname: null,
+      confirmPass: null
     };
 
     this.store.select('signUpForm').pipe(takeUntil(this.disposer))

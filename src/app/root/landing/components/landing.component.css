@@ -195,6 +195,10 @@ h1, h2, h3, h4, h5, p, span {
     flex-flow: column;
 }
 
+.copyright {
+    width: 100%;
+}
+
 .social {
     display: flex;
     display: -webkit-box;

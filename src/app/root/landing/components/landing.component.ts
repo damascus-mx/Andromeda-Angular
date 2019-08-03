@@ -9,7 +9,7 @@
  */
 
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { APP_NAME } from 'src/app/config/app.config';
+import { APP_NAME, COMPANY_NAME, CURRENT_YEAR } from 'src/app/config/app.config';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faTwitter, faFacebook, faInstagram, faFacebookSquare, faGoogle, faGithub } from '@fortawesome/free-brands-svg-icons';
 import { Subject } from 'rxjs';
@@ -22,17 +22,18 @@ import { Router } from '@angular/router';
 import { FormControl, Validators, FormGroup } from '@angular/forms';
 import { ErrorStateMatcherHelper } from 'src/app/helpers/ui/errorstate.helper';
 
-/** Error when invalid control is dirty, touched, or submitted. */
-
-
 @Component({
   selector: 'app-landing',
   templateUrl: './landing.component.html',
   styleUrls: ['./landing.component.css']
 })
 export class LandingComponent implements OnInit, OnDestroy {
-  // App name
+  // App data
   appName: string = APP_NAME;
+  companyName: string = COMPANY_NAME;
+  currentYear: number = CURRENT_YEAR;
+
+  // UI
   isLoading = false;
 
   // Formgroup
