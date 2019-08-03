@@ -11,7 +11,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { APP_NAME } from 'src/app/config/app.config';
 import { library } from '@fortawesome/fontawesome-svg-core';
-import { faTwitter, faFacebook, faInstagram, faFacebookSquare, faGoogle } from '@fortawesome/free-brands-svg-icons';
+import { faTwitter, faFacebook, faInstagram, faFacebookSquare, faGoogle, faGithub } from '@fortawesome/free-brands-svg-icons';
 import { Subject } from 'rxjs';
 import { AppState } from '../redux/landing.reducers';
 import { Store } from '@ngrx/store';
@@ -64,6 +64,7 @@ export class LandingComponent implements OnInit, OnDestroy {
   addIcons(): void {
     library.add(faTwitter);
     library.add(faFacebook);
+    library.add(faGithub);
     library.add(faFacebookSquare);
     library.add(faGoogle);
     library.add(faInstagram);

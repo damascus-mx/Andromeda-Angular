@@ -294,5 +294,7 @@ h1, h2, h3, h4, h5, p, span {
         margin-top: 25px; 
         max-height: none;
         height: auto;
+        padding-bottom: 20px;
+        padding-top: 10px;
     }
 }
