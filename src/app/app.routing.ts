@@ -19,16 +19,19 @@ const ROUTES: Routes = [
     // Register landing page
     {
         path: 'welcome',
+        canActivate: [ AuthGuard ],
         loadChildren: () => import('./root/landing/landing.module').then(module => module.LandingModule)
     },
     // Sign Up
     {
         path: 'signup',
+        canActivate: [ AuthGuard ],
         loadChildren: () => import('./root/signup/signup.module').then(module => module.SignupModule)
     },
     // Login - Auth
     {
         path: 'auth',
+        canActivate: [ AuthGuard ],
         loadChildren: () => import('./root/auth/auth.module').then(module => module.AuthModule)
     },
     // Main

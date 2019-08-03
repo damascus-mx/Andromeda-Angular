@@ -21,8 +21,17 @@ export class AuthGuard implements CanActivate {
 
   canActivate(  next: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
     if ( this.userService.isLogged() ) {
+      if (state.url === '/welcome' || state.url === '/signup' || state.url === '/auth' ) {
+        this.router.navigate(['/']);
+        return false;
+      }
+
       return true;
     } else {
+      if (state.url === '/welcome' || state.url === '/signup' || state.url === '/auth' ) {
+        return true;
+      }
+
       this.router.navigate(['/welcome']);
       return false;
     }
