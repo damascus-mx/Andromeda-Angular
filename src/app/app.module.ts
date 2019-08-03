@@ -24,6 +24,12 @@ import { MaterialModule } from './common/modules/material.module';
 import { UserService } from './services/user/user.service';
 import { CookieService } from 'ngx-cookie-service';
 
+// Redux
+import { StoreModule } from '@ngrx/store';
+import { landingReducer } from './root/landing/redux/landing.reducer';
+import { environment } from 'src/environments/environment.prod';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -32,7 +38,12 @@ import { CookieService } from 'ngx-cookie-service';
     BrowserModule,
     RootRouting,
     BrowserAnimationsModule,
-    MaterialModule
+    MaterialModule,
+    StoreModule.forRoot({signUpForm: landingReducer}),
+    StoreDevtoolsModule.instrument({
+      maxAge: 25,
+      logOnly: environment.production
+    })
   ],
   providers: [UserService, CookieService],
   bootstrap: [AppComponent]

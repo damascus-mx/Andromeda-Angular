@@ -21,6 +21,11 @@ const ROUTES: Routes = [
         path: 'welcome',
         loadChildren: () => import('./root/landing/landing.module').then(module => module.LandingModule)
     },
+    // Sign Up
+    {
+        path: 'signup',
+        loadChildren: () => import('./root/signup/signup.module').then(module => module.SignupModule)
+    },
     // Login - Auth
     {
         path: 'auth',

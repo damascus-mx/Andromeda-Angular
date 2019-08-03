@@ -15,15 +15,16 @@ import { LandingRoutingModule } from './landing-routing.module';
 import { LandingComponent } from './components/landing.component';
 import { MaterialModule } from 'src/app/common/modules/material.module';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [LandingComponent],
   imports: [
     CommonModule,
     MaterialModule,
+    FormsModule,
     LandingRoutingModule,
-    FontAwesomeModule
+    FontAwesomeModule,
   ]
 })
 export class LandingModule { }

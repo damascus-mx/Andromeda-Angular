@@ -8,38 +8,86 @@
  * @description Landing - Register component
  */
 
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { APP_NAME } from 'src/app/config/app.config';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faTwitter, faFacebook, faInstagram } from '@fortawesome/free-brands-svg-icons';
+import { Subject } from 'rxjs';
+import { AppState } from '../redux/landing.reducers';
+import { Store } from '@ngrx/store';
+import { LandingViewModel } from '../models/landing.model';
+import * as landingActions from '../redux/landing.actions';
+import { takeUntil } from 'rxjs/operators';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-landing',
   templateUrl: './landing.component.html',
   styleUrls: ['./landing.component.css']
 })
-export class LandingComponent implements OnInit {
+export class LandingComponent implements OnInit, OnDestroy {
   // App name
   appName: string = APP_NAME;
   isLoading = false;
 
-  constructor() {
+  // Data
+  signUpRedux: LandingViewModel;
+  signUpModel: LandingViewModel;
+
+  // Disposer
+  disposer: Subject<void> = new Subject();
+
+  constructor(private store: Store<AppState>, private router: Router) {
+    this.store.select('signUpForm').pipe(takeUntil(this.disposer))
+    .subscribe(state => {
+      this.signUpRedux = state;
+    }, err => {
+      console.log(err);
+    });
+
+    this.signUpModel = {
+      username: null,
+      email: null
+    };
+  }
+
+  ngOnInit(): void {
+    this.addIcons();
+  }
+
+  ngOnDestroy(): void {
+    this.disposer.next();
+    this.disposer.complete();
+  }
+
+  // Fontawesome icons
+  addIcons(): void {
     library.add(faTwitter);
     library.add(faFacebook);
     library.add(faInstagram);
   }
 
-  ngOnInit() {
-  }
-
   onRegister(): void {
-    if (this.isLoading === false) {
+    if ( this.signUpModel != null && this.signUpModel.email && this.signUpModel.username ) {
+      const setUsername = new landingActions.SetUsernameAction(this.signUpModel.username);
+      const setEmail = new landingActions.SetEmailAction(this.signUpModel.email);
+
+      this.store.dispatch(setUsername);
+      this.store.dispatch(setEmail);
+
+      this.router.navigate(['/signup']);
+    }
+
+    /*if (this.isLoading === false) {
       console.log('Requesting data...');
       this.isLoading = true;
       setTimeout(() => {
+        console.log(this.signUpModel);
+
+
         this.isLoading = false;
-      }, 5000);
-    }
+      }, 2000);
+    }*/
   }
 
 }

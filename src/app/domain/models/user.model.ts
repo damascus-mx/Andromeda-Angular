@@ -11,6 +11,7 @@ import { Post } from './post.model';
 
 export interface User {
     username: string;
+    email: string;
     password: string;
     name: string;
     surname: string;

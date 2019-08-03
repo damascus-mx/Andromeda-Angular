@@ -17,12 +17,12 @@ export class UserService {
     private user: User;
 
     constructor(private cookieService: CookieService) {
-        this.logIn();
     }
 
     logIn(): void {
         this.user = {
             username: 'elvergudo',
+            email: 'elvergalarga@outlook.com',
             password: 'caca123',
             name: 'Elver',
             surname: 'Gudo',
