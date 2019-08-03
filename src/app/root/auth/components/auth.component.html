@@ -1,1 +1,69 @@
-<p>auth works!</p>
+<div class="wrapper">
+    <div class="form-container">
+        <mat-card class="register-card mat-elevation-z8 animated zoomIn fast">
+            <div class="register-header">
+                <div style="text-align: center;"><img style="border-radius: 100%" src="assets/img/common/nightlifex.svg" alt="" height="64"></div>
+                <span><b style="font-family: 'Josefin Sans', sans-serif;">{{appName}}</b></span>
+            </div>
+            <mat-card-subtitle class="register-subtitle">
+                <span>We're glad to see you back</span>
+            </mat-card-subtitle>
+            <mat-card-content>
+                <form  [formGroup]="signInGroup" id="signInForm">
+                    <p>
+                        <mat-form-field class="register-field" appearance="outline">
+                            <mat-label>Username</mat-label>
+                            <input matInput placeholder="Enter your username" [(ngModel)]="authModel.user" name="user" required
+                            formControlName="userControl" [errorStateMatcher]="userMatcher"
+                            >
+                            <mat-error class="animated fadeIn" *ngIf="signInGroup.get('userControl').hasError('required')">
+                                Username is <strong>required</strong>
+                            </mat-error>
+                            <mat-error class="animated fadeIn" *ngIf="signInGroup.get('userControl').hasError('pattern')">
+                                Username must contain only alphanumerical and ('@, , -, _') characters
+                            </mat-error>
+                        </mat-form-field>
+                    </p>
+                    <p>
+                        <mat-form-field class="register-field" appearance="outline" id="passField">
+                            <mat-label>Password</mat-label>
+                            <input matInput placeholder="Enter your password" [type]="hide ? 'password' : 'text'" [(ngModel)]="authModel.password" name="password" required
+                            formControlName="passwordControl" [errorStateMatcher]="passwordMatcher">
+                            <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                            <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                            </button>
+                            <mat-error class="animated fadeIn" *ngIf="signInGroup.get('passwordControl').hasError('required')">
+                                Password is <strong>required</strong>
+                            </mat-error>
+                        </mat-form-field>
+                    </p>
+                    <p>
+                        <button class="register-field" mat-raised-button color="primary" (click)="onAuth()" [disabled]="!signInGroup.valid">
+                            <ng-container *ngIf="!isLoading; else loadingTemplate">
+                                <span class="animated fadeIn fast">Sign In</span>
+                            </ng-container>
+                            <ng-template #loadingTemplate>
+                                <mat-progress-bar class="animated fadeIn fast" style="margin: 18px 0;" mode="indeterminate"></mat-progress-bar>
+                            </ng-template>                          
+                        </button>
+                    </p>
+                </form>
+            </mat-card-content>
+            <mat-card-footer></mat-card-footer>
+        </mat-card>
+    
+        <!-- Optional Sign Up -->
+        <mat-card class="register-card mat-elevation-z8 animated zoomIn fast" style="margin-top: 25px;">
+            <div class="register-header" style="text-align: left; padding-bottom: 10px;">
+                <span><b>Looking more?</b></span>
+            </div>
+            <mat-card-subtitle style="text-align: left;">
+                <span>Use your Facebook / Google account to sign in</span>
+            </mat-card-subtitle>
+            <mat-card-actions>
+                <button mat-raised-button class="facebook-background"><fa-icon [icon]="['fab', 'facebook-square']" size="lg" [fixedWidth]="true"></fa-icon> Facebook</button>
+                <button mat-raised-button color="warn"><fa-icon [icon]="['fab', 'google']" size="lg" [fixedWidth]="true"></fa-icon> Google</button>
+            </mat-card-actions>
+        </mat-card>
+    </div>
+</div>

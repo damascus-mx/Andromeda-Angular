@@ -13,6 +13,8 @@ import { CommonModule } from '@angular/common';
 
 import { AuthRoutingModule } from './auth-routing.module';
 import { AuthComponent } from './components/auth.component';
+import { MaterialModule } from 'src/app/common/modules/material.module';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 
 @NgModule({
@@ -21,7 +23,9 @@ import { AuthComponent } from './components/auth.component';
   ],
   imports: [
     CommonModule,
-    AuthRoutingModule
+    AuthRoutingModule,
+    MaterialModule,
+    FontAwesomeModule
   ]
 })
 export class AuthModule { }

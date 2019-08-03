@@ -19,6 +19,7 @@ export class UserService {
     private user: User;
 
     constructor(private cookieService: CookieService) {
+        this.generateUser();
     }
 
     Create(model: SignUpViewModel): void {
@@ -46,22 +47,23 @@ export class UserService {
         return USERS;
     }
 
-    logIn(): void {
-        this.user = {
-            username: 'elvergudo',
-            email: 'elvergalarga@outlook.com',
-            password: 'caca123',
-            name: 'Elver',
-            surname: 'Gudo',
-            user_pic: 'https://scontent-lax3-1.cdninstagram.com/vp/3c71640e03a6e75b7e97921a084ae304/5DEB0112/t51.2885-19/s320x320/65807850_333791757565999_6726542801334435840_n.jpg?_nc_ht=scontent-lax3-1.cdninstagram.com',
-            followers: 580,
-            actual_state: null,
-            posts: null
-        };
-        USERS.push(this.user);
+    logIn(user: string, password: string): boolean {
+        let userToLog: User = null;
 
-        const userToStore = JSON.stringify(this.user);
-        this.cookieService.set('auth', userToStore);
+        for (const userDB of USERS) {
+            if (userDB.email === user || userDB.username === user) {
+                if (userDB.password === password) {
+                    userToLog = userDB;
+                    this.user = userToLog;
+
+                    const userToStore = JSON.stringify(userToLog);
+                    this.cookieService.set('auth', userToStore);
+                    return true;
+                }
+            }
+        }
+
+        return false;
     }
 
     logOut(): void {
@@ -76,5 +78,20 @@ export class UserService {
     getUser(): User {
         this.user = JSON.parse(this.cookieService.get('auth'));
         return this.user;
+    }
+
+    private generateUser() {
+        const user = {
+            username: 'elvergudo',
+            email: 'elvergalarga@outlook.com',
+            password: 'caca123',
+            name: 'Elver',
+            surname: 'Gudo',
+            user_pic: 'https://scontent-lax3-1.cdninstagram.com/vp/3c71640e03a6e75b7e97921a084ae304/5DEB0112/t51.2885-19/s320x320/65807850_333791757565999_6726542801334435840_n.jpg?_nc_ht=scontent-lax3-1.cdninstagram.com',
+            followers: 580,
+            actual_state: null,
+            posts: null
+        };
+        USERS.push(user);
     }
 }
