@@ -77,16 +77,16 @@
                             <input matInput placeholder="Enter your username" [(ngModel)]="signUpModel.username" name="username" required
                             formControlName="userFormControl" [errorStateMatcher]="userMatcher"
                             >
-                            <mat-error *ngIf="signUpGroup.get('userFormControl').hasError('required')">
+                            <mat-error class="animated fadeIn" *ngIf="signUpGroup.get('userFormControl').hasError('required')">
                                 Username is <strong>required</strong>
                             </mat-error>
-                            <mat-error *ngIf="signUpGroup.get('userFormControl').hasError('maxlength')">
+                            <mat-error class="animated fadeIn" *ngIf="signUpGroup.get('userFormControl').hasError('maxlength')">
                                 Username must be below 15-length
                             </mat-error>
-                            <mat-error *ngIf="signUpGroup.get('userFormControl').hasError('minlength')">
-                                Username must be above 7-length
+                            <mat-error class="animated fadeIn" *ngIf="signUpGroup.get('userFormControl').hasError('minlength')">
+                                Username must be above 5-length
                             </mat-error>
-                            <mat-error *ngIf="signUpGroup.get('userFormControl').hasError('pattern')">
+                            <mat-error class="animated fadeIn" *ngIf="signUpGroup.get('userFormControl').hasError('pattern')">
                                 Username must contain only alphanumerical and ('_') characters
                             </mat-error>
                         </mat-form-field>
@@ -97,10 +97,10 @@
                             <input matInput placeholder="Enter your email" [(ngModel)]="signUpModel.email" name="email" required
                             formControlName="emailFormControl" [errorStateMatcher]="emailMatcher"
                             >
-                            <mat-error *ngIf="signUpGroup.get('emailFormControl').hasError('email') && !signUpGroup.get('emailFormControl').hasError('required')">
+                            <mat-error class="animated fadeIn" *ngIf="signUpGroup.get('emailFormControl').hasError('email') && !signUpGroup.get('emailFormControl').hasError('required')">
                                 Please enter a valid email address
                             </mat-error>
-                            <mat-error *ngIf="signUpGroup.get('emailFormControl').hasError('required')">
+                            <mat-error class="animated fadeIn" *ngIf="signUpGroup.get('emailFormControl').hasError('required')">
                                 Email is <strong>required</strong>
                             </mat-error>
                         </mat-form-field>

@@ -40,7 +40,7 @@ export class LandingComponent implements OnInit, OnDestroy {
     userFormControl: new FormControl('', [
       Validators.required,
       Validators.maxLength(15),
-      Validators.minLength(7),
+      Validators.minLength(5),
       Validators.pattern('^[a-zA-Z0-9_.]+$')
     ]),
     emailFormControl: new FormControl('', [

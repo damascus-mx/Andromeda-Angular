@@ -7,43 +7,108 @@
             <mat-divider></mat-divider>
         </div>
         <mat-card-content>
-            <form #signUpForm="ngForm">
+            <form [formGroup]="signUp">
                 <p>
                     <mat-form-field class="register-field" appearance="outline">
                         <mat-label>Username</mat-label>
-                        <input matInput placeholder="Enter your username" [(ngModel)]="signUpModel.username" name="username" required>
+                        <input matInput placeholder="Enter your username" [(ngModel)]="signUpModel.username" name="username" required
+                        formControlName="userControl" [errorStateMatcher]="userMatcher">
+                        <mat-error class="animated fadeIn" *ngIf="signUp.get('userControl').hasError('required')">
+                            Username is <strong>required</strong>
+                        </mat-error>
+                        <mat-error class="animated fadeIn" *ngIf="signUp.get('userControl').hasError('maxlength')">
+                            Username must be below 15-length
+                        </mat-error>
+                        <mat-error class="animated fadeIn" *ngIf="signUp.get('userControl').hasError('minlength')">
+                            Username must be above 5-length
+                        </mat-error>
+                        <mat-error class="animated fadeIn" *ngIf="signUp.get('userControl').hasError('pattern')">
+                            Username must contain only alphanumerical and ('_') characters
+                        </mat-error>
                     </mat-form-field>
                 </p>
                 <p>
                     <mat-form-field class="register-field" appearance="outline">
                         <mat-label>Email</mat-label>
-                        <input matInput placeholder="Enter your email" [(ngModel)]="signUpModel.email" name="email" required>
+                        <input matInput placeholder="Enter your email" [(ngModel)]="signUpModel.email" name="email" required
+                        formControlName="emailControl" [errorStateMatcher]="emailMatcher">
+                        <mat-error class="animated fadeIn" *ngIf="signUp.get('emailControl').hasError('email') && !signUp.get('emailControl').hasError('required')">
+                            Please enter a valid email address
+                        </mat-error>
+                        <mat-error class="animated fadeIn" *ngIf="signUp.get('emailControl').hasError('required')">
+                            Email is <strong>required</strong>
+                        </mat-error>
                     </mat-form-field>
                 </p>
                 <p>
                     <mat-form-field class="register-field" appearance="outline">
                         <mat-label>Name</mat-label>
-                        <input matInput placeholder="Enter your name" [(ngModel)]="signUpModel.name" name="name" required>
+                        <input matInput placeholder="Enter your name" [(ngModel)]="signUpModel.name" name="name" required
+                        formControlName="nameControl" [errorStateMatcher]="nameMatcher">
+                        <mat-error class="animated fadeIn" *ngIf="signUp.get('nameControl').hasError('required')">
+                            Name is <strong>required</strong>
+                        </mat-error>
+                        <mat-error class="animated fadeIn" *ngIf="signUp.get('nameControl').hasError('maxlength')">
+                            Name must be below 15-length
+                        </mat-error>
+                        <mat-error class="animated fadeIn" *ngIf="signUp.get('nameControl').hasError('minlength')">
+                            Name must be above 1-length
+                        </mat-error>
+                        <mat-error class="animated fadeIn" *ngIf="signUp.get('nameControl').hasError('pattern')">
+                            Name must contain only alphabet characters
+                        </mat-error>
                     </mat-form-field>
                 </p>
                 <p>
                     <mat-form-field class="register-field" appearance="outline">
                         <mat-label>Last Name</mat-label>
-                        <input matInput placeholder="Enter your last name" [(ngModel)]="signUpModel.surname" name="surname" required>
+                        <input matInput placeholder="Enter your last name" [(ngModel)]="signUpModel.surname" name="surname" required
+                        formControlName="surnameControl" [errorStateMatcher]="surnameMatcher">
+                        <mat-error class="animated fadeIn" *ngIf="signUp.get('surnameControl').hasError('required')">
+                            Last Name is <strong>required</strong>
+                        </mat-error>
+                        <mat-error class="animated fadeIn" *ngIf="signUp.get('surnameControl').hasError('maxlength')">
+                            Last Name must be below 15-length
+                        </mat-error>
+                        <mat-error class="animated fadeIn" *ngIf="signUp.get('surnameControl').hasError('minlength')">
+                            Last Name must be above 1-length
+                        </mat-error>
+                        <mat-error class="animated fadeIn" *ngIf="signUp.get('surnameControl').hasError('pattern')">
+                            Last Name must contain only alphabet characters
+                        </mat-error>
                     </mat-form-field>
                 </p>
                 <p>
                     <mat-form-field class="register-field" appearance="outline">
                         <mat-label>Password</mat-label>
-                        <input matInput placeholder="Enter your password" [type]="hide ? 'password' : 'text'" [(ngModel)]="signUpModel.password" name="password" required>
+                        <input matInput placeholder="Enter your password" [type]="hide ? 'password' : 'text'" [(ngModel)]="signUpModel.password" name="password" required
+                        formControlName="passControl" [errorStateMatcher]="passwordMatcher">
                         <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
                         <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
                         </button>
+                        <mat-error class="animated fadeIn" *ngIf="signUp.get('passControl').hasError('required')">
+                            Password is <strong>required</strong>
+                        </mat-error>
+                        <mat-error class="animated fadeIn" *ngIf="signUp.get('passControl').hasError('maxlength')">
+                            Password must be below 25-length
+                        </mat-error>
+                        <mat-error class="animated fadeIn" *ngIf="signUp.get('passControl').hasError('minlength')">
+                            Password must be above 8-length
+                        </mat-error>
+                        <mat-error class="animated fadeIn" *ngIf="signUp.get('passControl').hasError('pattern')">
+                            Password must contain:
+                            <ul>
+                                <li>Uppercase letter</li>
+                                <li>Lowercase letter</li>
+                                <li>One digit</li>
+                                <li>'-, _, $, #, ?, !' characters</li>
+                            </ul>
+                        </mat-error>
                     </mat-form-field>
                 </p>
                 <p>
                     <button class="register-field" mat-flat-button color="accent" (click)="onRegister()" 
-                    [disabled]="!signUpModel.username || !signUpModel.email || !signUpModel.password || !signUpModel.name || !signUpModel.surname ">
+                    [disabled]="!signUp.valid">
                         <ng-container *ngIf="!isLoading; else loadingTemplate">
                             <span class="animated fadeIn fast">Complete Sign Up</span>
                         </ng-container>

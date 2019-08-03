@@ -6,6 +6,8 @@ import { takeUntil } from 'rxjs/operators';
 import { SignUpViewModel } from '../models/signup.models';
 import { APP_NAME } from 'src/app/config/app.config';
 import { UserService } from 'src/app/services/user/user.service';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { ErrorStateMatcherHelper } from 'src/app/helpers/ui/errorstate.helper';
 
 @Component({
   selector: 'app-signup',
@@ -20,6 +22,45 @@ export class SignUpComponent implements OnInit, OnDestroy {
 
   // UI
   hide = true;
+
+  // Form group w props
+  signUp = new FormGroup({
+    userControl: new FormControl('', [
+      Validators.required,
+      Validators.maxLength(15),
+      Validators.minLength(5),
+      Validators.pattern('^[a-zA-Z0-9_.]+$')
+    ]),
+    emailControl: new FormControl('', [
+      Validators.required,
+      Validators.email
+    ]),
+    passControl: new FormControl('',  [
+      Validators.required,
+      Validators.maxLength(15),
+      Validators.minLength(8),
+      Validators.pattern('^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$')
+    ]),
+    nameControl: new FormControl('', [
+      Validators.required,
+      Validators.maxLength(15),
+      Validators.minLength(1),
+      Validators.pattern('^[a-zA-ZÀ-ÿ\u00f1\u00d1 ]+(\s*[a-zA-ZÀ-ÿ\u00f1\u00d1]*)*[a-zA-ZÀ-ÿ\u00f1\u00d1]+$')
+    ]),
+    surnameControl: new FormControl('', [
+      Validators.required,
+      Validators.maxLength(25),
+      Validators.minLength(1),
+      Validators.pattern('^[a-zA-ZÀ-ÿ\u00f1\u00d1 ]+(\s*[a-zA-ZÀ-ÿ\u00f1\u00d1]*)*[a-zA-ZÀ-ÿ\u00f1\u00d1]+$')
+    ])
+  });
+
+  // Matchers
+  userMatcher = new ErrorStateMatcherHelper();
+  emailMatcher = new ErrorStateMatcherHelper();
+  passwordMatcher = new ErrorStateMatcherHelper();
+  nameMatcher = new ErrorStateMatcherHelper();
+  surnameMatcher = new ErrorStateMatcherHelper();
 
   // Diposer
   disposer: Subject<void> = new Subject();
