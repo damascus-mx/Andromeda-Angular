@@ -13,12 +13,16 @@ import { CommonModule } from '@angular/common';
 
 import { SignupRoutingModule } from './signup-routing.module';
 import { SignUpComponent } from './components/signup.component';
+import { MaterialModule } from 'src/app/common/modules/material.module';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
   declarations: [SignUpComponent],
   imports: [
     CommonModule,
+    MaterialModule,
+    FormsModule,
     SignupRoutingModule,
   ]
 })

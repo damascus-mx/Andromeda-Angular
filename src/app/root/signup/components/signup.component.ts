@@ -4,6 +4,8 @@ import { Store } from '@ngrx/store';
 import { AppState } from '../../landing/redux/landing.reducers';
 import { takeUntil } from 'rxjs/operators';
 import { SignUpViewModel } from '../models/signup.models';
+import { APP_NAME } from 'src/app/config/app.config';
+import { UserService } from 'src/app/services/user/user.service';
 
 @Component({
   selector: 'app-signup',
@@ -13,11 +15,16 @@ import { SignUpViewModel } from '../models/signup.models';
 export class SignUpComponent implements OnInit, OnDestroy {
   // Data
   signUpModel: SignUpViewModel;
+  appName: string = APP_NAME;
+  isLoading = false;
+
+  // UI
+  hide = true;
 
   // Diposer
   disposer: Subject<void> = new Subject();
 
-  constructor(private store: Store<AppState>) {
+  constructor(private store: Store<AppState>, private userService: UserService) {
     this.signUpModel = {
       username: null,
       email: null,
@@ -41,6 +48,17 @@ export class SignUpComponent implements OnInit, OnDestroy {
   ngOnDestroy(): void {
     this.disposer.next();
     this.disposer.complete();
+  }
+
+  onRegister(): void {
+    if (this.isLoading === false) {
+      this.userService.Create(this.signUpModel);
+      this.isLoading = true;
+      setTimeout(() => {
+        console.log(this.userService.GetAll());
+        this.isLoading = false;
+      }, 2000);
+    }
   }
 
 }

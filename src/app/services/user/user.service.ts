@@ -11,12 +11,39 @@
 import { Injectable } from '@angular/core';
 import { User } from 'src/app/domain/models/user.model';
 import { CookieService } from 'ngx-cookie-service';
+import { SignUpViewModel } from 'src/app/root/signup/models/signup.models';
+import { USERS } from 'src/app/common/mock/user.mock';
 
 @Injectable()
 export class UserService {
     private user: User;
 
     constructor(private cookieService: CookieService) {
+    }
+
+    Create(model: SignUpViewModel): void {
+        // Wrap data
+        const user: User = {
+            name: model.name,
+            surname: model.surname,
+            username: model.username,
+            email: model.email,
+            password: model.password,
+            user_pic: null,
+            followers: 0,
+            posts: null,
+            actual_state: null
+        };
+
+        USERS.push(user);
+    }
+
+    GetById(id: any): User {
+        return USERS[id];
+    }
+
+    GetAll(): User[] {
+        return USERS;
     }
 
     logIn(): void {
@@ -31,6 +58,7 @@ export class UserService {
             actual_state: null,
             posts: null
         };
+        USERS.push(this.user);
 
         const userToStore = JSON.stringify(this.user);
         this.cookieService.set('auth', userToStore);
