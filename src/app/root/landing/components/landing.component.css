@@ -59,6 +59,7 @@
 
     margin-bottom: 40px;
     padding: 0 10px;
+    max-height: 100%;
 }
 
 .about-content {
@@ -133,13 +134,13 @@ h1, h2, h3, h4, h5, p, span {
     display: -webkit-box;
     display: -webkit-flex;
     display: -moz-box;
-    flex-flow: column wrap;
+    flex-flow: column;
+    max-height: 100%;
 
     align-items: center;
     justify-content: center;
 
     text-align: center;
-    max-height: 100%;
     order: 1;
 }
 
@@ -150,18 +151,22 @@ h1, h2, h3, h4, h5, p, span {
 
 .register-card > .register-header {
     font-family: 'Poppins', sans-serif;
-    text-align: left;
+    text-align: center;
     font-size: x-large;
 }
 
 .register-subtitle {
-    text-align: left;
+    text-align: center;
 }
 
 .register-field {
     width: 90%;
     max-width: 90%;
     margin: 0 15px;
+}
+
+#signUpForm > p{
+    margin: 0;
 }
 
 /* Footer */
@@ -263,7 +268,6 @@ h1, h2, h3, h4, h5, p, span {
 
     .form-container {
         order: 2;
-        max-height: 90%;
         overflow: auto;
         scrollbar-width: none;
     }
@@ -276,3 +280,19 @@ h1, h2, h3, h4, h5, p, span {
 }
 
 /* Misc */
+@media (max-height: 700px) and (orientation: portrait){
+    .about-container, .form-container {
+        margin-top: 25px; 
+        max-height: none;
+        height: auto;
+    }
+}
+
+
+@media (max-height: 590px) and (orientation: landscape) {
+    .about-container, .form-container {
+        margin-top: 25px; 
+        max-height: none;
+        height: auto;
+    }
+}
