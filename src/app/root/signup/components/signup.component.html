@@ -79,7 +79,7 @@
                     </mat-form-field>
                 </p>
                 <p>
-                    <mat-form-field class="register-field" appearance="outline">
+                    <mat-form-field class="register-field" appearance="outline" id="passField">
                         <mat-label>Password</mat-label>
                         <input matInput placeholder="Enter your password" [type]="hide ? 'password' : 'text'" [(ngModel)]="signUpModel.password" name="password" required
                         formControlName="passControl" [errorStateMatcher]="passwordMatcher">
@@ -105,7 +105,7 @@
                             </ul>
                         </mat-error>
                     </mat-form-field>
-                    <mat-form-field class="register-field" appearance="outline">
+                    <mat-form-field class="register-field" appearance="outline" id="confirmField">
                         <mat-label>Confirm Password</mat-label>
                         <input matInput placeholder="Enter your password" [type]="hideConfirm ? 'password' : 'text'" [(ngModel)]="signUpModel.confirmPass" name="confirm" required
                         formControlName="confirmControl" [errorStateMatcher]="confirmMatcher">
@@ -116,11 +116,7 @@
                             Confirm your password is <strong>required</strong>
                         </mat-error>          
                     </mat-form-field>
-                    <ng-container>
-                        <div style="text-align: left;">
-                            <span class="mat-error animated fadeIn" style="font-size: 75%; padding-left: 25px;" *ngIf="signUpModel.password !== signUpModel.confirmPass">Password don't match</span>
-                        </div>
-                    </ng-container>
+                    <span class="mat-error animated fadeIn" style="font-size: 75%; padding-left: 25px;" *ngIf="signUpModel.password !== signUpModel.confirmPass">Password don't match</span>
                 </p>
                 <p>
                     <button class="register-field" mat-flat-button color="accent" (click)="onRegister()" 
