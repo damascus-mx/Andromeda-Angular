@@ -19,6 +19,11 @@ import { LandingViewModel } from '../models/landing.model';
 import * as landingActions from '../redux/landing.actions';
 import { takeUntil } from 'rxjs/operators';
 import { Router } from '@angular/router';
+import { FormControl, Validators, FormGroup } from '@angular/forms';
+import { ErrorStateMatcherHelper } from 'src/app/helpers/ui/errorstate.helper';
+
+/** Error when invalid control is dirty, touched, or submitted. */
+
 
 @Component({
   selector: 'app-landing',
@@ -29,6 +34,26 @@ export class LandingComponent implements OnInit, OnDestroy {
   // App name
   appName: string = APP_NAME;
   isLoading = false;
+
+  // Formgroup
+  signUpGroup = new FormGroup({
+    userFormControl: new FormControl('', [
+      Validators.required,
+      Validators.maxLength(15),
+      Validators.minLength(7),
+      Validators.pattern('^[a-zA-Z0-9_.]+$')
+    ]),
+    emailFormControl: new FormControl('', [
+      Validators.required,
+      Validators.email
+    ])
+  });
+
+  // Username validator
+  userMatcher = new ErrorStateMatcherHelper();
+
+  // Email validator
+  emailMatcher = new ErrorStateMatcherHelper();
 
   // Data
   signUpRedux: LandingViewModel;

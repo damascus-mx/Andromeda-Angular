@@ -70,21 +70,43 @@
                 <span>Get started with {{appName}}</span>
             </mat-card-subtitle>
             <mat-card-content>
-                <form #signUpForm="ngForm" id="signUpForm">
+                <form  [formGroup]="signUpGroup" id="signUpForm">
                     <p>
                         <mat-form-field class="register-field" appearance="outline">
                             <mat-label>Username</mat-label>
-                            <input matInput placeholder="Enter your username" [(ngModel)]="signUpModel.username" name="username" required>
+                            <input matInput placeholder="Enter your username" [(ngModel)]="signUpModel.username" name="username" required
+                            formControlName="userFormControl" [errorStateMatcher]="userMatcher"
+                            >
+                            <mat-error *ngIf="signUpGroup.get('userFormControl').hasError('required')">
+                                Username is <strong>required</strong>
+                            </mat-error>
+                            <mat-error *ngIf="signUpGroup.get('userFormControl').hasError('maxlength')">
+                                Username must be below 15-length
+                            </mat-error>
+                            <mat-error *ngIf="signUpGroup.get('userFormControl').hasError('minlength')">
+                                Username must be above 7-length
+                            </mat-error>
+                            <mat-error *ngIf="signUpGroup.get('userFormControl').hasError('pattern')">
+                                Username must contain only alphanumerical and ('_') characters
+                            </mat-error>
                         </mat-form-field>
                     </p>
                     <p>
                         <mat-form-field class="register-field" appearance="outline">
                             <mat-label>Email</mat-label>
-                            <input matInput placeholder="Enter your email" [(ngModel)]="signUpModel.email" name="email" required>
+                            <input matInput placeholder="Enter your email" [(ngModel)]="signUpModel.email" name="email" required
+                            formControlName="emailFormControl" [errorStateMatcher]="emailMatcher"
+                            >
+                            <mat-error *ngIf="signUpGroup.get('emailFormControl').hasError('email') && !signUpGroup.get('emailFormControl').hasError('required')">
+                                Please enter a valid email address
+                            </mat-error>
+                            <mat-error *ngIf="signUpGroup.get('emailFormControl').hasError('required')">
+                                Email is <strong>required</strong>
+                            </mat-error>
                         </mat-form-field>
                     </p>
                     <p>
-                        <button class="register-field" mat-raised-button color="primary" (click)="onRegister()" [disabled]="!signUpModel.username || !signUpModel.email">
+                        <button class="register-field" mat-raised-button color="primary" (click)="onRegister()" [disabled]="!signUpGroup.valid">
                             <ng-container *ngIf="!isLoading; else loadingTemplate">
                                 <span class="animated fadeIn fast">Sign Up</span>
                             </ng-container>
