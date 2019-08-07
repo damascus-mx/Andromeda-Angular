@@ -85,6 +85,10 @@
     width: 100%;
   }
 
+  .swiper-slide {
+    width: auto;
+  }
+
 /* Mobile */
 @media (max-width: 760px) {
   .feed-ads {

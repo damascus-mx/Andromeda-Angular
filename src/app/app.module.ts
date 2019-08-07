@@ -18,7 +18,6 @@ import { RootRouting } from './app.routing';
 // Misc
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MaterialModule } from './common/modules/material.module';
 
 // Services
 import { UserService } from './services/user/user.service';
@@ -38,7 +37,6 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
     BrowserModule,
     RootRouting,
     BrowserAnimationsModule,
-    MaterialModule,
     StoreModule.forRoot({signUpForm: landingReducer}),
     StoreDevtoolsModule.instrument({
       maxAge: 25,
