@@ -37,7 +37,7 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
     BrowserModule,
     RootRouting,
     BrowserAnimationsModule,
-    StoreModule.forRoot({signUpForm: landingReducer}),
+    StoreModule.forRoot({SIGN_UP: landingReducer}),
     StoreDevtoolsModule.instrument({
       maxAge: 25,
       logOnly: environment.production

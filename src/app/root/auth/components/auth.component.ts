@@ -29,6 +29,9 @@ export class AuthComponent implements OnInit {
   authModel: AuthenticationViewModel;
   user: User;
 
+  // One-Way props
+  incorrectUserMessage: string = null;
+
   // Form
   signInGroup = new FormGroup({
     userControl: new FormControl('', [
@@ -69,10 +72,12 @@ export class AuthComponent implements OnInit {
     if (this.isLoading === false) {
       if (this.userService.logIn(this.authModel.user, this.authModel.password)) {
         this.user = this.userService.getUser();
+        this.incorrectUserMessage = null;
         console.log(`Logged as ${this.user.name} ${this.user.surname}`);
         this.router.navigate(['/']);
       } else {
         console.log('Auth failed');
+        this.incorrectUserMessage = 'User / Password are incorrect.';
       }
 
       this.isLoading = true;

@@ -80,7 +80,7 @@ export class SignUpComponent implements OnInit, OnDestroy {
       confirmPass: null
     };
 
-    this.store.select('signUpForm').pipe(takeUntil(this.disposer))
+    this.store.select('SIGN_UP').pipe(takeUntil(this.disposer))
     .subscribe(state => {
       this.signUpModel.username = state.username;
       this.signUpModel.email = state.email;

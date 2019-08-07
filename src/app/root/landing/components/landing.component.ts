@@ -64,7 +64,7 @@ export class LandingComponent implements OnInit, OnDestroy {
   disposer: Subject<void> = new Subject();
 
   constructor(private store: Store<AppState>, private router: Router) {
-    this.store.select('signUpForm').pipe(takeUntil(this.disposer))
+    this.store.select('SIGN_UP').pipe(takeUntil(this.disposer))
     .subscribe(state => {
       this.signUpRedux = state;
     }, err => {

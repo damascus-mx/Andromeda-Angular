@@ -136,12 +136,12 @@
       margin-left: -15px;
       padding: 0;
     }
+
+    .mat-card-title {
+      margin-bottom: 5px;      
+    }
   
     /* Swiper*/
-    /*
-    .swiper-slide {
-      height: initial;
-    }*/
 
     .swiper-lazy {
       opacity: 0;

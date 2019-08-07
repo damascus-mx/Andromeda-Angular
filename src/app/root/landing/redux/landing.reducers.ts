@@ -11,5 +11,5 @@
 import { LandingViewModel } from '../models/landing.model';
 
 export interface AppState {
-    signUpForm: LandingViewModel;
+    SIGN_UP: LandingViewModel;
 }

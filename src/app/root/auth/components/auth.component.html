@@ -9,6 +9,9 @@
                 <span>We're glad to see you back</span>
             </mat-card-subtitle>
             <mat-card-content>
+                <ng-container *ngIf="incorrectUserMessage !== null">
+                    <span class="mat-error animated fadeIn" style="font-size: 90%;">{{incorrectUserMessage}}</span>
+                </ng-container>
                 <form  [formGroup]="signInGroup" id="signInForm">
                     <p>
                         <mat-form-field class="register-field" appearance="outline">
