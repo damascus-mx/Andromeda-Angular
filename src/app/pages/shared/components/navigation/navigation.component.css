@@ -40,6 +40,10 @@
    display: none;
  }
 
+ .single-control {
+   display: inherit;
+ }
+
  /* Search bar */
 ::ng-deep .search-form >  .mat-form-field-appearance-outline .mat-form-field-infix { padding: 0.4em 0px;}
 ::ng-deep .search-form >  .mat-form-field-appearance-outline .mat-form-field-infix .mat-form-field-label-wrapper { top: -1.5em; }
@@ -54,6 +58,9 @@
      flex: 0;
   }
 
+  .single-control {
+    display: none;
+  }
   
  .mat-divider {
     height: 30px;

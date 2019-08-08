@@ -34,17 +34,24 @@
         <button mat-icon-button aria-label="Add Post Button" routerLink="/publish">
             <mat-icon>add_box</mat-icon>
         </button>
-
-        <button mat-icon-button aria-label="Profile Button" routerLink="/profile">
-            <mat-icon>person</mat-icon>
-        </button>
       
         <button mat-icon-button aria-label="Notifications Button" routerLink="/notifications" matBadge="99" matBadgeColor="warn">
             <mat-icon>notifications</mat-icon>
         </button>
-    
+
+        <button mat-icon-button aria-label="Inbox button"  matBadge="8" matBadgeColor="warn" routerLink="/messages">
+            <mat-icon>chat_bubble</mat-icon>
+        </button>
+
+        <button mat-icon-button aria-label="Profile Button" routerLink="/profile">
+            <mat-icon>person</mat-icon>
+        </button>
     </div>
-    <button mat-icon-button aria-label="Inbox button"  matBadge="8" matBadgeColor="warn">
-        <mat-icon>chat_bubble</mat-icon>
-    </button>
+
+    <div class="single-control animated zoomIn">
+        <button mat-icon-button aria-label="Inbox button"  matBadge="8" matBadgeColor="warn" routerLink="/messages">
+            <mat-icon>chat_bubble</mat-icon>
+        </button>
+    </div>
+
 </mat-toolbar>
