@@ -190,16 +190,11 @@
     align-content: center;
     max-width: inherit;
     width: inherit;
+    margin-bottom: 20%;
 }
 
 .content-card {
-    width: 80%;
-    max-width: 80%;
     padding: 0;
-}
-
-.content-card > .mat-tab-group {
-    max-width: 100%;
 }
 
 ::ng-deep .content-card > .mat-tab-group > .mat-tab-body-wrapper {
@@ -210,10 +205,15 @@
 
 /* Desktop */
 @media (min-width: 1281px) {}
+
 /* Tablets and Desktop */
 @media (min-width: 768px) {
     .wrapper > * {
         max-width: 450px;
         width: 432px;
+    }
+
+    .content {
+        margin-bottom: 0;
     }
 }

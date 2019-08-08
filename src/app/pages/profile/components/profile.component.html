@@ -60,14 +60,19 @@
                         Content 1 - Loaded: {{getTimeLoaded(1) | date:'medium'}}
                         </ng-template>
                     </mat-tab>
-                    <mat-tab label="Second">
+                    <mat-tab label="Events">
                         <ng-template matTabContent>
                         Content 2 - Loaded: {{getTimeLoaded(2) | date:'medium'}}
                         </ng-template>
                     </mat-tab>
-                    <mat-tab label="Third">
+                    <mat-tab label="Reviews">
                         <ng-template matTabContent>
                         Content 3 - Loaded: {{getTimeLoaded(3) | date:'medium'}}
+                        </ng-template>
+                    </mat-tab>
+                    <mat-tab label="Stats" *ngIf="isConfig">
+                        <ng-template matTabContent>
+                        Content 4 - Loaded: {{getTimeLoaded(4) | date:'medium'}}
                         </ng-template>
                     </mat-tab>
                 </mat-tab-group>                          
