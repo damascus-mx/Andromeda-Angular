@@ -1,3 +1,77 @@
-<div class="test">
-    <p>profile works!</p>
+<div class="wrapper">
+    <div class="background-wrapper animated fadeIn fast">
+        <img class="mat-elevation-z8" src="assets/img/profiles/covers/cover_1.jpg" alt="Cover picture">
+    </div>
+    <div class="profile-container">
+        <div class="information">
+            <mat-card class="info-card mat-elevation-z8 animated zoomIn">
+                <div class="profile-img">
+                    <img class="border-primary mat-elevation-z4" [src]="user.image" alt="Profile picture" onError="this.src ='assets/img/common/default-user.png'">
+                </div>
+                <div class="status">
+                    <mat-icon [ngClass]="{'active': user.active, 'inactive': !user.active}">lens</mat-icon>
+                </div>
+                <div class="profile-content">
+                    <h2>{{user.name}} {{user.surname}}</h2>
+                    <ng-container *ngIf="user.actual_state;">
+                        <p>Currently at <a [routerLink]="[ '/place', 1 ]"><b>{{user.actual_state}}</b></a></p>
+                    </ng-container>
+                    <div style="margin-bottom: 10px;"></div>
+                    <div class="user-info">
+                        <div class="info-item">
+                            <div><mat-icon>pages</mat-icon></div>
+                            <div><b> {{user.posts.length | number}} </b></div>
+                        </div>
+                        <div class="info-item">
+                            <div><mat-icon>people</mat-icon></div>
+                            <div><b> {{user.total_followers | number}} </b></div>
+                        </div>
+                        <div class="info-item">
+                            <div><mat-icon>people_outline</mat-icon></div>
+                            <div><b> {{user.total_following | number}} </b></div>
+                        </div>
+                    </div>
+                    <div style="margin-bottom: 20px;"></div>
+                    
+                    <div class="profile-actions">
+                        <div class="follow">
+                            <button mat-raised-button color="primary">
+                                <ng-container *ngIf="isConfig; else isConfigTmpl">
+                                    <span>Settings</span>
+                                </ng-container>
+                                <ng-template #isConfigTmpl>
+                                    <span>Follow</span>
+                                </ng-template>
+                            </button>
+                        </div>
+                        <div class="misc-actions" *ngIf="!isConfig">
+                            <button mat-button id="call"><mat-icon>local_phone</mat-icon></button>
+                            <button mat-button id="message"><mat-icon>sms</mat-icon></button>
+                        </div>
+                    </div>
+                </div>
+            </mat-card>
+        </div>
+        <div class="content">
+            <mat-card class="content-card mat-elevation-z8 animated zoomIn">
+                <mat-tab-group>
+                    <mat-tab label="Posts">
+                        <ng-template matTabContent>
+                        Content 1 - Loaded: {{getTimeLoaded(1) | date:'medium'}}
+                        </ng-template>
+                    </mat-tab>
+                    <mat-tab label="Second">
+                        <ng-template matTabContent>
+                        Content 2 - Loaded: {{getTimeLoaded(2) | date:'medium'}}
+                        </ng-template>
+                    </mat-tab>
+                    <mat-tab label="Third">
+                        <ng-template matTabContent>
+                        Content 3 - Loaded: {{getTimeLoaded(3) | date:'medium'}}
+                        </ng-template>
+                    </mat-tab>
+                </mat-tab-group>                          
+            </mat-card>
+        </div>
+    </div>
 </div>

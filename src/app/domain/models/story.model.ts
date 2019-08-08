@@ -9,6 +9,6 @@
  */
 export interface Story {
     user: string;
-    user_pic: string;
+    image: string;
     seen: boolean;
 }

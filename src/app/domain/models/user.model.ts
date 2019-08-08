@@ -15,8 +15,12 @@ export interface User {
     password: string;
     name: string;
     surname: string;
-    user_pic: string;
-    followers: number;
+    image: string;
+    total_followers: number;
+    followers: User[];
+    total_following: number;
+    following: User[];
     actual_state: string;
+    active: boolean;
     posts: Post[];
 }

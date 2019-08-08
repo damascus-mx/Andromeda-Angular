@@ -3,8 +3,8 @@
     <!-- Header -->
     <mat-card-header>
         <div mat-card-avatar>
-            <img class="post-pic animated fadeIn slow"
-            src={{post.user_pic}} 
+            <img class="post-pic border-sm-primary mat-elevation-z4 animated fadeIn slow"
+            src={{post.image}} 
             [alt]="post.user" onError="this.src ='assets/img/common/default-user.png'"
             [routerLink]="[ '/home' ]" [queryParams]="{lang: 'es-la'}" fragment="education"
             style="cursor: pointer;"

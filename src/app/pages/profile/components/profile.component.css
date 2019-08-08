@@ -1,0 +1,219 @@
+.wrapper {
+    height: 100%;
+    width: 100%;
+    max-width: 100%;
+
+    display: flex;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+
+    flex-flow: row;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Background */
+.background-wrapper {
+    z-index: -1;
+    position: absolute;
+    top: 70px;
+    width: 100%;
+}
+
+.background-wrapper > img, .background-wrapper > video {
+    width: 100%;
+    height: 400px;
+}
+
+
+/* Profile */
+.profile-container {
+    z-index: 0;
+
+    height: 100%;
+    width: 100%;
+    max-width: 100%;
+
+    display: flex;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+
+    flex-flow: column wrap;
+    justify-content: center;
+    align-content: center;
+}
+
+.information {
+    display: flex;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+
+    flex-flow: row wrap;
+    justify-content: center;
+    align-content: center;
+    max-width: inherit;
+    width: inherit;
+}
+
+.info-card {
+    display: flex;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+
+    flex-flow: column wrap;
+    justify-content: center;
+    align-content: center;
+    margin-top: 300px;
+    width: 80%;
+    max-width: 80%;
+}
+
+.profile-img {
+    display: flex;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+
+    flex-flow: row wrap;
+    justify-content: center;
+    align-content: center;
+    position: absolute;
+    top: -65px;
+    right: 0;
+    left: 0;
+    z-index: 0;
+}
+
+.profile-img > img {
+    width: 128px;
+    height: 128px;
+    border-radius: 100%;
+}
+
+.status {
+    width: 100%;
+    max-width: 100%;
+
+    display: flex;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+
+    justify-content: flex-end;
+    z-index: 1;
+}
+
+.user-info {
+    display: flex;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    flex-flow: row;
+
+    justify-content: center;
+    align-items: center;
+    margin: 0 5px;
+}
+
+.user-info > * {
+    width: 30%;
+}
+
+.user-info
+
+.info-item {
+    color: #bdbdbd;
+}
+
+.active {
+    color: #00c853;
+}
+
+.inactive {
+    color: #bdbdbd;
+}
+
+.profile-content {
+    display: flex;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    flex-flow: column wrap;
+    margin-top: 15px;
+    text-align: center;
+}
+
+.profile-content > h2 {
+    margin-bottom: 0;
+}
+
+.profile-content > p {
+    margin: 0;
+    font-size: 80%;
+    color: #bdbdbd;
+}
+
+.follow > button {
+    width: 100%;
+}
+
+.misc-actions {
+    margin-top: 15px;
+}
+
+.misc-actions > * {
+    width: 45%;
+    margin: 0 5px 0 0;
+}
+
+#call {
+    color: #4caf50;
+}
+
+#message {
+    color: #00b0ff;
+}
+
+.content {
+    margin-top: 25px;
+    display: flex;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+
+    flex-flow: row wrap;
+    justify-content: center;
+    align-content: center;
+    max-width: inherit;
+    width: inherit;
+}
+
+.content-card {
+    width: 80%;
+    max-width: 80%;
+    padding: 0;
+}
+
+.content-card > .mat-tab-group {
+    max-width: 100%;
+}
+
+::ng-deep .content-card > .mat-tab-group > .mat-tab-body-wrapper {
+    padding: 20px;
+}
+
+/* CSS Queries */
+
+/* Desktop */
+@media (min-width: 1281px) {}
+/* Tablets and Desktop */
+@media (min-width: 768px) {
+    .wrapper > * {
+        max-width: 450px;
+        width: 432px;
+    }
+}

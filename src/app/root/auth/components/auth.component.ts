@@ -71,7 +71,7 @@ export class AuthComponent implements OnInit {
   onAuth(): void {
     if (this.isLoading === false) {
       if (this.userService.logIn(this.authModel.user, this.authModel.password)) {
-        this.user = this.userService.getUser();
+        this.user = this.userService.GetUserInSession();
         this.incorrectUserMessage = null;
         console.log(`Logged as ${this.user.name} ${this.user.surname}`);
         this.router.navigate(['/']);

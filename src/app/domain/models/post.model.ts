@@ -24,7 +24,7 @@ interface Comment {
 interface Like {
     user: string;
     username: string;
-    user_pic: string;
+    image: string;
 }
 export interface Post {
     id: number;
@@ -32,7 +32,7 @@ export interface Post {
     username: string;
     user_verified: boolean;
     iat: string;
-    user_pic: string;
+    image: string;
     content: Content[];
     message: string;
     reactions: number;

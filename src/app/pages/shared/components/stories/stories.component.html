@@ -6,7 +6,7 @@
         <div class="swiper-wrapper">
             <div class="swiper-slide story-slide" *ngFor="let story of stories;">
                 <div class="story-circle">
-                    <img class="swiper-lazy animated fadeIn fast" [attr.data-src]="story.user_pic"  onError="this.src ='assets/img/common/default-user.png'" >
+                    <img class="swiper-lazy animated fadeIn fast" [attr.data-src]="story.image"  onError="this.src ='assets/img/common/default-user.png'" >
                     <div class="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
                 </div>
             </div>

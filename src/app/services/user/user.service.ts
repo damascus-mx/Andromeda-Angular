@@ -30,9 +30,13 @@ export class UserService {
             username: model.username,
             email: model.email,
             password: model.password,
-            user_pic: null,
-            followers: 0,
-            posts: null,
+            image: null,
+            total_followers: 0,
+            total_following: 0,
+            following: [],
+            followers: [],
+            posts: [],
+            active: false,
             actual_state: null
         };
 
@@ -75,7 +79,7 @@ export class UserService {
         return this.cookieService.check('auth') ? true : false;
     }
 
-    getUser(): User {
+    GetUserInSession(): User {
         this.user = JSON.parse(this.cookieService.get('auth'));
         return this.user;
     }
@@ -87,10 +91,14 @@ export class UserService {
             password: 'caca123',
             name: 'Elver',
             surname: 'Gudo',
-            user_pic: 'https://scontent-lax3-1.cdninstagram.com/vp/3c71640e03a6e75b7e97921a084ae304/5DEB0112/t51.2885-19/s320x320/65807850_333791757565999_6726542801334435840_n.jpg?_nc_ht=scontent-lax3-1.cdninstagram.com',
-            followers: 580,
-            actual_state: null,
-            posts: null
+            image: 'https://scontent-lax3-1.cdninstagram.com/vp/3c71640e03a6e75b7e97921a084ae304/5DEB0112/t51.2885-19/s320x320/65807850_333791757565999_6726542801334435840_n.jpg?_nc_ht=scontent-lax3-1.cdninstagram.com',
+            total_followers: 9588,
+            total_following: 143,
+            following: [],
+            followers: [],
+            actual_state: 'Republica CUU',
+            active: true,
+            posts: []
         };
         USERS.push(user);
     }

@@ -6,7 +6,7 @@
 (scrolled)="onScroll()" style="max-height: 140px;  scrollbar-width: none;" >
     <mat-option *ngFor="let like of likes" [value]="like.username">
         <div class="user-line">
-            <img data-src={{like.user_pic}} alt="User picture" onError="this.src ='assets/img/common/default-user.png'">
+            <img data-src={{like.image}} alt="User picture" onError="this.src ='assets/img/common/default-user.png'">
             <h5 > {{like.username}} </h5>
         </div>
     </mat-option>

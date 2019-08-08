@@ -90,3 +90,19 @@ mat-raised-button, mat-button, mat-flat-button, mat-stroked-button, .mat-tab-lab
   -ms-touch-action: manipulation;
   touch-action: manipulation;
 }
+
+.border-primary {
+  border: 5px solid var(--color-primary);
+}
+
+.border-accent {
+  border: 5px solid var(--color-accent);
+}
+
+.border-sm-primary {
+  border: 3px solid var(--color-primary);
+}
+
+.border-sm-accent {
+  border: 3px solid var(--color-accent);
+}

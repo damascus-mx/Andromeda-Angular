@@ -58,7 +58,7 @@ export class PostComponent implements OnInit, OnDestroy {
   disposer: Subject<void> = new Subject();
 
   constructor(public reportDialog: MatDialog, private dialogService: DialogPostService, private userService: UserService) {
-    this.user = this.userService.getUser();
+    this.user = this.userService.GetUserInSession();
   }
 
   ngOnInit(): void {
