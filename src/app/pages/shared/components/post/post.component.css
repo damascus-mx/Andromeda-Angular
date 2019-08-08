@@ -171,17 +171,16 @@
     .post-card > .swiper-container {
       width: calc(100% + 32px);
     }
+
+    .swiper-wrapper > img, .swiper-wrapper > video {
+      width: auto;
+    }
   
   /* Mobile */
   @media (max-width: 760px) {
   
-    .post-card {
-      width: 90% !important;
-    }
-  
     .mat-card, .feed-ads {
       max-width: 100% !important;
-      width: 100%;
     }
   }
   

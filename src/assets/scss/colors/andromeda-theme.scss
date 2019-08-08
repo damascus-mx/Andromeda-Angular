@@ -1,7 +1,7 @@
 @import '~@angular/material/theming';
 @include mat-core();
 
-$andromeda-primary: mat-palette($mat-pink, 400);
+$andromeda-primary: mat-palette($mat-pink);
 $andromeda-accent:  mat-palette($mat-orange, A400, A400, A700);
 $andromeda-warn:    mat-palette($mat-red);
 $andromeda-light-theme: mat-light-theme($andromeda-primary, $andromeda-accent, $andromeda-warn);

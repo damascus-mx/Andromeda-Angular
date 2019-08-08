@@ -1,7 +1,7 @@
 <!-- Post -->
 <mat-card class="post-card animated fadeIn fast mat-elevation-z4" #postCard>
     <!-- Header -->
-    <mat-card-header>
+    <mat-card-header [routerLink]="[ '/post/post.id' ]">
         <div mat-card-avatar>
             <img class="post-pic animated fadeIn slow"
             src={{post.user_pic}} 
@@ -12,7 +12,7 @@
         </div>
         <mat-card-title>
             <div class="post-header">
-                <a [routerLink]="[ '/home' ]" [queryParams]="{lang: 'es-la'}" fragment="education" class="post-user">{{post.user | responsivetext:20}}</a>
+                <a [routerLink]="[ '/' ]" [queryParams]="{lang: 'es-la'}" fragment="education" class="post-user">{{post.user | responsivetext:20}}</a>
                 <span *ngIf="post.user_verified === true"><mat-icon class="verified-icon">check_circle</mat-icon></span>
             </div>
         </mat-card-title>
@@ -26,11 +26,11 @@
     <!-- Content container -->
     <ng-container *ngIf="post.content.length === 1; else swiperEnabled">
         <ng-container *ngIf="post.content[0].type != 1; else videoContainer">
-            <img mat-card-image src={{post.content[0].url}} onError="this.src ='assets/img/common/default-user.png'">
+            <img mat-card-image (dblclick)="onReact()" src={{post.content[0].url}} onError="this.src ='assets/img/common/default-user.png'">
         </ng-container>
         <ng-template #videoContainer>
                 <video  mat-card-image class="animated fadeIn fast"
-                muted loop controls
+                muted loop controls (dblclick)="onReact()" [poster]="post.content[0].poster"
                 src={{post.content[0].url}} type="video/mp4" onError="this.src ='assets/img/common/default-user.png'">
             </video>
         </ng-template>
@@ -41,7 +41,7 @@
             <div class="swiper-wrapper">
                 <ng-container mat-card-image *ngFor="let element of post.content" >
                     <ng-container *ngIf="element.type != 1; else videoContainer" >
-                        <img class="swiper-slide swiper-lazy" [attr.data-src]="element.url" onError="this.src ='assets/img/common/default-user.png'"  >
+                        <img class="swiper-slide swiper-lazy" (dblclick)="onReact()" [attr.data-src]="element.url" onError="this.src ='assets/img/common/default-user.png'"  >
                     </ng-container>
                     <ng-template #videoContainer>
                         <!--
@@ -51,7 +51,7 @@
                             [download]="false" color="primary" spinner="spin" [poster]="element.poster">
                             <source matVideoSource [src]="element.url" type="video/mp4">
                         </mat-video>-->
-                        <video class="swiper-slide swiper-lazy" autoplay
+                        <video class="swiper-slide swiper-lazy" autoplay (dblclick)="onReact()"
                         muted loop controls playsinline="" preload="none" [poster]="element.poster"
                         [attr.data-src]="element.url" type="video/mp4" onError="this.src ='assets/img/common/default-user.png'">
                         </video>

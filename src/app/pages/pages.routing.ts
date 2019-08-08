@@ -8,7 +8,6 @@
  * @description Page component - Root routes
  */
 
-
 import { Routes, RouterModule } from '@angular/router';
 import { PagesComponent } from './root/pages.component';
 
@@ -29,6 +28,14 @@ const AppRouting: Routes = [
             {
                 path: 'place/:id',
                 loadChildren: () => import('src/app/pages/place/place.module').then(module => module.PlaceModule)
+            },
+            {
+                path: 'profile',
+                loadChildren: () => import('src/app/pages/profile/profile.module').then(module => module.ProfileModule)
+            },
+            {
+                path: 'profile/:username',
+                loadChildren: () => import('src/app/pages/profile/profile.module').then(module => module.ProfileModule)
             },
             {
                 path: '404',
