@@ -30,11 +30,11 @@ const AppRouting: Routes = [
                 loadChildren: () => import('src/app/pages/place/place.module').then(module => module.PlaceModule)
             },
             {
-                path: 'profile',
+                path: 'user',
                 loadChildren: () => import('src/app/pages/profile/profile.module').then(module => module.ProfileModule)
             },
             {
-                path: 'profile/:username',
+                path: 'user/:username',
                 loadChildren: () => import('src/app/pages/profile/profile.module').then(module => module.ProfileModule)
             },
             {

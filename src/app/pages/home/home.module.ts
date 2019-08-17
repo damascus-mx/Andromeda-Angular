@@ -10,7 +10,6 @@
 // Angular
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { DeferLoadModule } from '@trademe/ng-defer-load';
 
 // Routing
 import { HomeRoutingModule } from './home-routing.module';
@@ -20,21 +19,12 @@ import { MaterialModule } from 'src/app/common/modules/material.module';
 import { SwiperModule } from 'ngx-swiper-wrapper';
 import { SWIPER_CONFIG } from 'ngx-swiper-wrapper';
 import { SwiperConfigInterface } from 'ngx-swiper-wrapper';
-import { MatVideoModule } from 'mat-video';
 import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 import { ScrollingModule } from '@angular/cdk/scrolling';
 
 // Components
 import { HomeComponent } from './components/home.component';
-import { DialogPostComponent } from '../widgets/dialog-post/dialog-post.component';
-import { PostComponent } from '../shared/components/post/post.component';
 import { StoriesComponent } from '../shared/components/stories/stories.component';
-import { DialogLikesComponent } from '../shared/components/post/components/likes/likes.component';
-
-// Pipes
-import { NoimagePipe } from 'src/app/common/pipes/noimage.pipe';
-import { SafeUrlPipe } from 'src/app/common/pipes/safeurl.pipe';
-import { ResponsivetextPipe } from 'src/app/common/pipes/responsivetext.pipe';
 
 // Repositories
 import { PostRepository } from './api/post.repository';
@@ -42,6 +32,7 @@ import { StoryRepositoryImpl } from './api/story.repository';
 
 // Services
 import { DialogPostService } from '../widgets/dialog-post/dialog-post.service';
+import { PostModule } from '../shared/components/post/post.module';
 
 const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
   direction: 'horizontal',
@@ -51,17 +42,7 @@ const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
 @NgModule({
   declarations: [
     HomeComponent,
-    PostComponent,
-    DialogPostComponent,
     StoriesComponent,
-    DialogLikesComponent,
-    NoimagePipe,
-    SafeUrlPipe,
-    ResponsivetextPipe
-  ],
-  entryComponents: [
-    DialogPostComponent,
-    DialogLikesComponent
   ],
   providers: [
     DialogPostService,
@@ -76,11 +57,10 @@ const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
     CommonModule,
     HomeRoutingModule,
     MaterialModule,
-    DeferLoadModule,
+    PostModule,
     InfiniteScrollModule,
     SwiperModule,
     ScrollingModule,
-    MatVideoModule,
   ]
 })
 export class HomeModule { }

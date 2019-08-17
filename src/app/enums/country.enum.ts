@@ -1,0 +1,21 @@
+export enum CountryType {
+    us,
+    mx,
+    es,
+    ag,
+    in,
+    co,
+    de,
+    fr,
+    nl,
+    gb,
+    ca,
+    cl,
+    cn,
+    ae,
+    br,
+    au,
+    pt,
+    pe,
+    uy
+}

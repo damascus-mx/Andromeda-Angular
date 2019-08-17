@@ -14,6 +14,9 @@ import { CommonModule } from '@angular/common';
 import { ProfileRoutingModule } from './profile-routing.module';
 import { ProfileComponent } from './components/profile.component';
 import { MaterialModule } from 'src/app/common/modules/material.module';
+import { PostRepository } from '../home/api/post.repository';
+import { PostModule } from '../shared/components/post/post.module';
+import { DialogPostService } from '../widgets/dialog-post/dialog-post.service';
 
 
 @NgModule({
@@ -21,7 +24,12 @@ import { MaterialModule } from 'src/app/common/modules/material.module';
   imports: [
     CommonModule,
     ProfileRoutingModule,
-    MaterialModule
+    MaterialModule,
+    PostModule
+  ],
+  providers: [
+    PostRepository,
+    DialogPostService,
   ]
 })
 export class ProfileModule { }

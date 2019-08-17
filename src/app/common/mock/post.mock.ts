@@ -33,7 +33,7 @@ export const POSTS: Post[] = [
                 poster: 'https://scontent-lax3-1.cdninstagram.com/vp/566c964f75c2e9026ba60ff517d4f34b/5D41CD48/t51.2885-15/e35/64911448_338576153480737_4031371555550485882_n.jpg?_nc_ht=scontent-lax3-1.cdninstagram.com',
             }
         ],
-        reactions: 1032941, total_comments: 368485, comments: null,
+        reactions: 1032941, total_comments: 368485, comments: null, place: false,
         message: 'Kings. 👑👑👑👑 @maluma @steveaoki #wildlife #malumababy #steveaoki',
         reacted_by_user: true, show: false, user_verified: true, comment_by_user: false, user_comment: null,
         tags: [
@@ -68,29 +68,29 @@ export const POSTS: Post[] = [
         ]
     },
     {
-        id: 1, user: 'National Geographic', iat: '10 days ago', username: 'natgeo',
-        image: 'https://scontent-lax3-1.cdninstagram.com/vp/ab59482805436e5fa09a5006d9e8178b/5DE9B4E8/t51.2885-19/s150x150/13597791_261499887553333_1855531912_a.jpg?_nc_ht=scontent-lax3-1.cdninstagram.com',
+        id: 1, user: 'Marquee Las Vegas', iat: '13 days ago', username: 'marqueelv',
+        image: 'https://instagram.fntr6-1.fna.fbcdn.net/vp/8f74504d19f8ddba6cfdcf599f7cbb12/5DE3551F/t51.2885-19/s150x150/58831730_1110356885814453_4785412111201206272_n.jpg?_nc_ht=instagram.fntr6-1.fna.fbcdn.net',
         content: [
             {
-                url: 'https://scontent-lax3-1.cdninstagram.com/vp/c6bcc0eca4c4ebeec6514e09b0a5c67c/5DB002DC/t51.2885-15/e35/s1080x1080/66067424_711562099287206_4971644151218203888_n.jpg?_nc_ht=scontent-lax3-1.cdninstagram.com',
+                url: 'https://scontent.cdninstagram.com/vp/1a1c5f985db91d931f2668d943a54ec0/5D4F431F/t50.2886-16/67216523_131607451409577_724955764653738059_n.mp4?_nc_ht=scontent.cdninstagram.com',
+                type: ContentType.video,
+                poster: 'https://instagram.fntr6-1.fna.fbcdn.net/vp/6e8f32b8a5e6f9e0e39fbda18a9afcf2/5D4F3B48/t51.2885-15/e35/66374497_148304512919779_1044866921734854037_n.jpg?_nc_ht=instagram.fntr6-1.fna.fbcdn.net'
+            },
+            {
+                url: 'https://instagram.fntr6-1.fna.fbcdn.net/vp/e8074c162fc5008e5e37710c15bfba70/5DC88CD0/t51.2885-15/e35/p1080x1080/65961906_491275825022299_8648252356819426426_n.jpg?_nc_ht=instagram.fntr6-1.fna.fbcdn.net',
                 type: ContentType.image,
                 poster: null
             },
             {
-                url: 'https://scontent-lax3-1.cdninstagram.com/vp/f2618d458614bd2861e3514c4d2d06c6/5DEEAC56/t51.2885-15/e35/s1080x1080/67087114_3130326846992316_7552604814536304182_n.jpg?_nc_ht=scontent-lax3-1.cdninstagram.com',
-                type: ContentType.image,
-                poster: null
-            },
-            {
-                url: 'https://scontent-lax3-1.cdninstagram.com/vp/e6f3f9d7c38bf40d780cccdef9b8bf5e/5DE54691/t51.2885-15/e35/s1080x1080/67193120_156107055510324_4128112282628904754_n.jpg?_nc_ht=scontent-lax3-1.cdninstagram.com',
+                url: 'https://instagram.fntr6-1.fna.fbcdn.net/vp/ec896b1bf5c8faea8d1671a7fb15304f/5DDE83EE/t51.2885-15/e35/p1080x1080/66260432_447284649451683_3377670158591451131_n.jpg?_nc_ht=instagram.fntr6-1.fna.fbcdn.net',
                 type: ContentType.image,
                 poster: null
             }
         ],
-        reactions: 3899, total_comments: 450, comments: null,
-        message: 'Photo by Stephen Wilkes @stephenwilkes',
+        reactions: 331, total_comments: 78, comments: null, place: true,
+        message: 'ATTENTION ALL CAMPERS! Marquee University Summer Camp is back in session Thursday, August 15th with @DEORRO!',
         reacted_by_user: false, show: false, user_verified: true, comment_by_user: false, user_comment: null,
-        tags: [{type: TagType.user, tagged: 'stephenwilkes'}],
+        tags: [{type: TagType.user, tagged: 'deorro'}, {type: TagType.hash, tagged: 'MarqueeLV'}],
         likes: []
     },
     {
@@ -103,7 +103,7 @@ export const POSTS: Post[] = [
                 poster: null
             }
         ],
-        reactions: 29, total_comments: 3, comments: null,
+        reactions: 29, total_comments: 3, comments: null, place: false,
         message: 'Oliendo a unas perras #UltraMacho #JustDogLife', reacted_by_user: false, show: false, user_verified: false,
         comment_by_user: false, user_comment: null,
         tags: [{type: TagType.hash, tagged: 'UltraMacho'}, {type: TagType.hash, tagged: 'JustDogLife'}],
@@ -119,14 +119,14 @@ export const POSTS: Post[] = [
                 poster: null
             }
         ],
-        reactions: 4000578, total_comments: 368485, comments: null,
+        reactions: 4000578, total_comments: 368485, comments: null, place: false,
         message: 'Dios bendiga al reggaeton #jbalvin #bitches #fuckyeah', reacted_by_user: false, show: false, user_verified: true,
         comment_by_user: false, user_comment: null,
         tags: [{type: TagType.hash, tagged: 'jbalvin'}, {type: TagType.hash, tagged: 'bitches'}, {type: TagType.hash, tagged: 'fuckyeah'}],
         likes: []
     },
     {
-        id: 4, user: 'Hiram Vega', iat: '1 week ago.', username: 'hiramunozl',
+        id: 4, user: 'Hiram Vega', iat: '1 week ago.', username: 'hiramuzl', place: false,
         image: 'https://scontent-lax3-1.cdninstagram.com/vp/3c71640e03a6e75b7e97921a084ae304/5DEB0112/t51.2885-19/s320x320/65807850_333791757565999_6726542801334435840_n.jpg?_nc_ht=scontent-lax3-1.cdninstagram.com',
         content: [
             {
@@ -141,27 +141,5 @@ export const POSTS: Post[] = [
         tags: [{type: TagType.hash, tagged: 'HiramHawkings'}, {type: TagType.hash, tagged: 'SoyHermoso'}],
         likes: []
     }
-    /*
-    {
-        user: 'The Film Enthusiast', iat: '8 min. ago', username: 'filmenthusiast',
-        user_pic: 'https://instagram.fntr6-1.fna.fbcdn.net/vp/28bcf60122d2533dcffdff38320ff357/5DCF07D0/t51.2885-19/s150x150/60760279_442245146561471_7971197295486042112_n.jpg?_nc_ht=instagram.fntr6-1.fna.fbcdn.net',
-        content: [
-            // Video
-            {
-                url: 'https://scontent.cdninstagram.com/vp/27d312cafde3bfc3f7c481ec7d5ffe87/5D37A91A/t50.2886-16/67657447_508302069913936_6626636448623702362_n.mp4?_nc_ht=scontent.cdninstagram.com',
-                type: ContentType.video,
-                show: false
-            },
-            {
-                url: 'https://instagram.fntr6-1.fna.fbcdn.net/vp/a754f3f39cec88005aaa46d1dd004d55/5D33F863/t51.2885-15/e35/67137280_935794703427310_6630961622201072724_n.jpg?_nc_ht=instagram.fntr6-1.fna.fbcdn.net',
-                type: ContentType.video,
-                show: false
-            }
-        ],
-        reactions: 8579, total_comments: 54, comments: null,
-        message: '#StrangerThings Season 4 set to begin shooting in October this year, according to a new listing from Production Weekly. This means that the new season of the hit series could premiere in 2020! 💥[via @filmthusiastnews]',
-        reacted_by_user: false, show: false, user_verified: false, comment_by_user: false, user_comment: null,
-        tags: [{type: TagType.hash, tagged: 'StrangerThings'}, {type: TagType.user, tagged: 'filmthusiastnews'}]
-    }*/
 ];
 

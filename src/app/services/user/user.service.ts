@@ -19,12 +19,12 @@ export class UserService {
     private user: User;
 
     constructor(private cookieService: CookieService) {
-        this.generateUser();
     }
 
     Create(model: SignUpViewModel): void {
         // Wrap data
         const user: User = {
+            id: this.GetAll().length++ - 1,
             name: model.name,
             surname: model.surname,
             username: model.username,
@@ -35,9 +35,11 @@ export class UserService {
             total_following: 0,
             following: [],
             followers: [],
+            verified: false,
             posts: [],
             active: false,
-            actual_state: null
+            actual_state: null,
+            private: true
         };
 
         USERS.push(user);
@@ -49,6 +51,17 @@ export class UserService {
 
     GetAll(): User[] {
         return USERS;
+    }
+
+    GetByUsername(username: string): User {
+        let user: User = null;
+
+        USERS.forEach(userInDB => {
+            user = userInDB.username === username ? userInDB : user;
+            if ( user ) { return; }
+        });
+
+        return user;
     }
 
     logIn(user: string, password: string): boolean {
@@ -72,7 +85,7 @@ export class UserService {
 
     logOut(): void {
         this.user = null;
-        this.cookieService.deleteAll();
+        this.cookieService.delete('auth');
     }
 
     isLogged(): boolean {
@@ -84,22 +97,10 @@ export class UserService {
         return this.user;
     }
 
-    private generateUser() {
-        const user = {
-            username: 'elvergudo',
-            email: 'elvergalarga@outlook.com',
-            password: 'caca123',
-            name: 'Elver',
-            surname: 'Gudo',
-            image: 'https://scontent-lax3-1.cdninstagram.com/vp/3c71640e03a6e75b7e97921a084ae304/5DEB0112/t51.2885-19/s320x320/65807850_333791757565999_6726542801334435840_n.jpg?_nc_ht=scontent-lax3-1.cdninstagram.com',
-            total_followers: 9588,
-            total_following: 143,
-            following: [],
-            followers: [],
-            actual_state: 'Republica CUU',
-            active: true,
-            posts: []
-        };
-        USERS.push(user);
+    UpdateSession(): void {
+        const oldUser: User = this.GetUserInSession();
+        const updatedUser = this.GetById(oldUser.id);
+        this.cookieService.delete('auth');
+        this.cookieService.set('auth', JSON.stringify(updatedUser));
     }
 }

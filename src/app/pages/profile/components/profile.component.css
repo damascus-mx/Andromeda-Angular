@@ -107,6 +107,23 @@
     z-index: 1;
 }
 
+.username {
+    display: flex;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+
+    max-width: 90%;
+}
+
+.username > #user {
+    max-width: 80%;
+}
+
+.username > #verified {
+    max-width: 10%;
+}
+
 .user-info {
     display: flex;
     display: -webkit-box;
@@ -123,12 +140,6 @@
     width: 30%;
 }
 
-.user-info
-
-.info-item {
-    color: #bdbdbd;
-}
-
 .active {
     color: #00c853;
 }
@@ -143,7 +154,7 @@
     display: -webkit-flex;
     display: -moz-box;
     flex-flow: column wrap;
-    margin-top: 15px;
+    margin-top: 20px;
     text-align: center;
 }
 
@@ -154,7 +165,6 @@
 .profile-content > p {
     margin: 0;
     font-size: 80%;
-    color: #bdbdbd;
 }
 
 .follow > button {
@@ -195,10 +205,16 @@
 
 .content-card {
     padding: 0;
+    max-width: inherit;
+    margin: 0 10px;
 }
 
-::ng-deep .content-card > .mat-tab-group > .mat-tab-body-wrapper {
+.tab-container {
     padding: 20px;
+}
+
+.tab-icon {
+    margin-right: 8px;
 }
 
 /* CSS Queries */

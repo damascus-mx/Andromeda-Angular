@@ -9,15 +9,20 @@
                     <img class="border-primary mat-elevation-z4" [src]="user.image" alt="Profile picture" onError="this.src ='assets/img/common/default-user.png'">
                 </div>
                 <div class="status">
-                    <mat-icon [ngClass]="{'active': user.active, 'inactive': !user.active}">lens</mat-icon>
+                    <ng-container *ngIf="!isPrivate; else statusPrivate">
+                        <mat-icon [ngClass]="{'active': user.active, 'inactive': !user.active}">lens</mat-icon>
+                    </ng-container>
+                    <ng-template #statusPrivate>
+                        <mat-icon class="inactive">lens</mat-icon>
+                    </ng-template>
                 </div>
                 <div class="profile-content">
-                    <h2>{{user.name}} {{user.surname}}</h2>
-                    <ng-container *ngIf="user.actual_state;">
-                        <p>Currently at <a [routerLink]="[ '/place', 1 ]"><b>{{user.actual_state}}</b></a></p>
+                    <h2>{{user.name}} {{user.surname}} <span *ngIf="user.verified"><mat-icon class="verified-icon" style="margin: -10px;">check_circle</mat-icon></span></h2>
+                    <ng-container *ngIf="user.actual_state && !isPrivate">
+                        <p class="mat-card-subtitle">Currently at <a [routerLink]="[ '/place', 1 ]"><b>{{user.actual_state}}</b></a></p>
                     </ng-container>
                     <div style="margin-bottom: 10px;"></div>
-                    <div class="user-info">
+                    <div class="user-info mat-card-subtitle">
                         <div class="info-item">
                             <div><mat-icon>pages</mat-icon></div>
                             <div><b> {{user.posts.length | number}} </b></div>
@@ -35,16 +40,14 @@
                     
                     <div class="profile-actions">
                         <div class="follow">
-                            <button mat-raised-button color="primary">
-                                <ng-container *ngIf="isConfig; else isConfigTmpl">
-                                    <span>Settings</span>
-                                </ng-container>
-                                <ng-template #isConfigTmpl>
-                                    <span>Follow</span>
-                                </ng-template>
-                            </button>
+                            <ng-container *ngIf="isConfig; else isConfigTmpl">
+                                <button mat-raised-button color="primary"><span>Settings</span></button>
+                            </ng-container>
+                            <ng-template #isConfigTmpl>
+                                <button mat-raised-button color="primary"><span>Follow</span></button>
+                            </ng-template>
                         </div>
-                        <div class="misc-actions" *ngIf="!isConfig">
+                        <div class="misc-actions" *ngIf="!isConfig && !isPrivate">
                             <button mat-button id="call"><mat-icon>local_phone</mat-icon></button>
                             <button mat-button id="message"><mat-icon>sms</mat-icon></button>
                         </div>
@@ -55,24 +58,38 @@
         <div class="content">
             <mat-card class="content-card mat-elevation-z8 animated zoomIn">
                 <mat-tab-group>
-                    <mat-tab label="Posts">
+                    <mat-tab>
+                        <ng-template mat-tab-label><mat-icon class="tab-icon">pages</mat-icon> Posts</ng-template>
                         <ng-template matTabContent>
-                        Content 1 - Loaded: {{getTimeLoaded(1) | date:'medium'}}
+                            <div class="tab-container">
+                                <ng-container *ngFor="let post of posts; let i=index">
+                                    <app-post [post]="post"></app-post>
+                                </ng-container>
+                            </div>
                         </ng-template>
                     </mat-tab>
-                    <mat-tab label="Events">
+                    <mat-tab>
+                        <ng-template mat-tab-label><mat-icon class="tab-icon">local_play</mat-icon> Events</ng-template>
                         <ng-template matTabContent>
-                        Content 2 - Loaded: {{getTimeLoaded(2) | date:'medium'}}
+                            <div class="tab-container">
+                                Content 2 - Loaded: {{getTimeLoaded(2) | date:'medium'}}
+                            </div>
                         </ng-template>
                     </mat-tab>
-                    <mat-tab label="Reviews">
+                    <mat-tab>
+                        <ng-template mat-tab-label><mat-icon class="tab-icon">star_half</mat-icon> Reviews</ng-template>
                         <ng-template matTabContent>
-                        Content 3 - Loaded: {{getTimeLoaded(3) | date:'medium'}}
+                            <div class="tab-container">
+                                Content 3 - Loaded: {{getTimeLoaded(3) | date:'medium'}}
+                            </div>
                         </ng-template>
                     </mat-tab>
-                    <mat-tab label="Stats" *ngIf="isConfig">
+                    <mat-tab *ngIf="isConfig">
+                        <ng-template mat-tab-label><mat-icon class="tab-icon">poll</mat-icon> Stats</ng-template>
                         <ng-template matTabContent>
-                        Content 4 - Loaded: {{getTimeLoaded(4) | date:'medium'}}
+                            <div class="tab-container">
+                                Content 4 - Loaded: {{getTimeLoaded(4) | date:'medium'}}
+                            </div>
                         </ng-template>
                     </mat-tab>
                 </mat-tab-group>                          

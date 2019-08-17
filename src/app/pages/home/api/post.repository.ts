@@ -31,4 +31,15 @@ export class PostRepository implements Repository<Post> {
         throw new Error("Method not implemented.");
     }
 
+    GetAllUserPosts( username: string ): Post[] {
+        const userPost: Post[] = [];
+        POSTS.forEach(post => {
+            if (post.username === username) {
+                userPost.push(post);
+            }
+        });
+
+        return userPost;
+    }
+
 }

@@ -10,11 +10,13 @@
 import { Post } from './post.model';
 
 export interface User {
+    id: number;
     username: string;
     email: string;
     password: string;
     name: string;
     surname: string;
+    verified: boolean;
     image: string;
     total_followers: number;
     followers: User[];
@@ -23,4 +25,5 @@ export interface User {
     actual_state: string;
     active: boolean;
     posts: Post[];
+    private: boolean;
 }

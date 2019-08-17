@@ -6,13 +6,13 @@
             <img class="post-pic border-sm-primary mat-elevation-z4 animated fadeIn slow"
             src={{post.image}} 
             [alt]="post.user" onError="this.src ='assets/img/common/default-user.png'"
-            [routerLink]="[ '/home' ]" [queryParams]="{lang: 'es-la'}" fragment="education"
+            [routerLink]="[ '/user', post.username ]"
             style="cursor: pointer;"
             >
         </div>
         <mat-card-title>
             <div class="post-header">
-                <a [routerLink]="[ '/' ]" [queryParams]="{lang: 'es-la'}" fragment="education" class="post-user">{{post.user | responsivetext:20}}</a>
+                <a [routerLink]="[ '/user', post.username ]" class="post-user">{{post.user | responsivetext:20}}</a>
                 <span *ngIf="post.user_verified === true"><mat-icon class="verified-icon">check_circle</mat-icon></span>
             </div>
         </mat-card-title>
@@ -29,7 +29,7 @@
             <img mat-card-image (dblclick)="onReact()" src={{post.content[0].url}} onError="this.src ='assets/img/common/default-user.png'">
         </ng-container>
         <ng-template #videoContainer>
-                <video  mat-card-image class="animated fadeIn fast"
+                <video  mat-card-image class="animated fadeIn fast" preload="none" playsinline=""
                 muted loop controls (dblclick)="onReact()" [poster]="post.content[0].poster"
                 src={{post.content[0].url}} type="video/mp4" onError="this.src ='assets/img/common/default-user.png'">
             </video>
@@ -44,14 +44,7 @@
                         <img class="swiper-slide swiper-lazy" (dblclick)="onReact()" [attr.data-src]="element.url" onError="this.src ='assets/img/common/default-user.png'"  >
                     </ng-container>
                     <ng-template #videoContainer>
-                        <!--
-                        <mat-video class="swiper-slide swiper-lazy"
-                            [autoplay]="false" [preload]="false" [fullscreen]="false" [loop]="true" playsinline=""
-                            [quality]="false"
-                            [download]="false" color="primary" spinner="spin" [poster]="element.poster">
-                            <source matVideoSource [src]="element.url" type="video/mp4">
-                        </mat-video>-->
-                        <video class="swiper-slide swiper-lazy" autoplay (dblclick)="onReact()"
+                        <video class="swiper-slide swiper-lazy" (dblclick)="onReact()"
                         muted loop controls playsinline="" preload="none" [poster]="element.poster"
                         [attr.data-src]="element.url" type="video/mp4" onError="this.src ='assets/img/common/default-user.png'">
                         </video>

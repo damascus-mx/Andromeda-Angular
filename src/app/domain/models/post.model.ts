@@ -44,4 +44,5 @@ export interface Post {
     user_comment: string;
     tags: Tag[];
     show: boolean;
+    place: boolean;
 }
